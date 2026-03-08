@@ -44,12 +44,51 @@
     return R.length ? R[R.length - 1] : null;
   }
 
+  function ageYears(birth, calc){
+    const d1 = new Date(birth), d2 = new Date(calc);
+    if (isNaN(d1) || isNaN(d2)) return null;
+    let age = d2.getFullYear() - d1.getFullYear();
+    const m = d2.getMonth() - d1.getMonth();
+    if (m < 0 || (m === 0 && d2.getDate() < d1.getDate())) age--;
+    return age;
+  }
+
   function taxRatesForKids(kids){
-    if (kids >= 4) return [0.00,0.00,0.18,0.34,0.39,0.44];
-    if (kids === 3) return [0.09,0.09,0.20,0.34,0.39,0.44];
-    if (kids === 2) return [0.09,0.16,0.22,0.34,0.39,0.44];
-    if (kids === 1) return [0.09,0.18,0.24,0.34,0.39,0.44];
-    return [0.09,0.20,0.26,0.34,0.39,0.44];
+    const calc = $('calcDate')?.value || todayISO();
+    const birth = $('birthDate')?.value || '';
+    const age = ageYears(birth, calc);
+    const k = Math.max(0, Math.min(6, Number(kids) || 0));
+
+    const under25 = [
+      [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00],
+      [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00],
+      [0.26, 0.24, 0.22, 0.20, 0.18, 0.16, 0.14],
+      [0.34, 0.34, 0.34, 0.34, 0.34, 0.34, 0.34],
+      [0.39, 0.39, 0.39, 0.39, 0.39, 0.39, 0.39],
+      [0.44, 0.44, 0.44, 0.44, 0.44, 0.44, 0.44]
+    ];
+
+    const age26to30 = [
+      [0.09, 0.09, 0.09, 0.09, 0.00, 0.00, 0.00],
+      [0.09, 0.09, 0.09, 0.09, 0.00, 0.00, 0.00],
+      [0.26, 0.24, 0.22, 0.20, 0.18, 0.16, 0.14],
+      [0.34, 0.34, 0.34, 0.34, 0.34, 0.34, 0.34],
+      [0.39, 0.39, 0.39, 0.39, 0.39, 0.39, 0.39],
+      [0.44, 0.44, 0.44, 0.44, 0.44, 0.44, 0.44]
+    ];
+
+    const over30 = [
+      [0.09, 0.09, 0.09, 0.09, 0.00, 0.00, 0.00],
+      [0.20, 0.18, 0.16, 0.09, 0.00, 0.00, 0.00],
+      [0.26, 0.24, 0.22, 0.20, 0.18, 0.16, 0.14],
+      [0.34, 0.34, 0.34, 0.34, 0.34, 0.34, 0.34],
+      [0.39, 0.39, 0.39, 0.39, 0.39, 0.39, 0.39],
+      [0.44, 0.44, 0.44, 0.44, 0.44, 0.44, 0.44]
+    ];
+
+    if (age != null && age <= 25) return under25.map(row => row[k]);
+    if (age != null && age <= 30) return age26to30.map(row => row[k]);
+    return over30.map(row => row[k]);
   }
 
   function taxCreditBase(kids){
@@ -402,6 +441,7 @@ if ($('slipNet')) $('slipNet').textContent = fmt((regular - regularDeds) + extra
         insurance: $('insurance').value,
         family: $('family').value,
         kids: $('kids').value,
+        birthDate: $('birthDate') ? $('birthDate').value : '',
         hireDate: $('hireDate').value,
         borderYes: $('borderYes').value,
         personalDiff: $('personalDiff').value,
@@ -431,6 +471,7 @@ if ($('slipNet')) $('slipNet').textContent = fmt((regular - regularDeds) + extra
       if (s.insurance != null) $('insurance').value = s.insurance;
       if (s.family != null) $('family').value = s.family;
       if (s.kids != null) $('kids').value = s.kids;
+      if (s.birthDate && $('birthDate')) $('birthDate').value = s.birthDate;
       if (s.hireDate) $('hireDate').value = s.hireDate;
       if (s.borderYes != null) $('borderYes').value = s.borderYes;
       if (s.personalDiff != null) $('personalDiff').value = s.personalDiff;
