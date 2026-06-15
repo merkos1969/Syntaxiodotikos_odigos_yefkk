@@ -1,308 +1,500 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Μισθολόγιο Εξωτερικής Φρούρησης</title>
-  <link rel="stylesheet" href="./style.css?v=43">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fb;color:#1f2937}header{background:linear-gradient(135deg,#123b75,#1d6ed0);color:#fff;padding:24px 16px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.16)}header h1{margin:0;font-size:26px;font-weight:800}header p{margin:8px 0 0;opacity:.95}.wrap{max-width:1220px;margin:18px auto;padding:0 12px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 6px 18px rgba(0,0,0,.08)}.full{grid-column:1/-1}h2{margin:0 0 12px;color:#123b75;font-size:19px}h3{margin:0 0 8px;color:#123b75;font-size:16px}.row{display:grid;grid-template-columns:1fr 190px;gap:10px;align-items:center;margin:9px 0}label{font-weight:700;font-size:14px}input,select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:9px;font-size:15px}button{border:0;border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer}.primary{background:#0f5fc7;color:white;width:100%;font-size:16px}.secondary{background:#e8f1ff;color:#123b75}.results{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.box{background:#f8fafc;border:1px solid #dbe4f0;border-radius:12px;padding:13px}.box b{display:block;color:#123b75;margin-bottom:5px}.big{font-size:24px;font-weight:800;color:#0f5fc7}.ok{background:#ecfdf5;border-left:5px solid #16a34a;padding:12px;border-radius:10px;margin-top:12px}.warn{background:#fff7ed;border-left:5px solid #f97316;padding:12px;border-radius:10px;margin-top:12px}.danger{background:#fef2f2;border-left:5px solid #dc2626;padding:12px;border-radius:10px;margin-top:12px}.info{background:#eff6ff;border-left:5px solid #2563eb;padding:12px;border-radius:10px;margin-top:12px}table{width:100%;border-collapse:collapse;margin-top:10px}td,th{padding:9px;border-bottom:1px solid #e5e7eb;text-align:left}th{background:#f1f5f9;color:#123b75}.muted{color:#64748b;font-size:13px}.bar{height:16px;background:#e5e7eb;border-radius:999px;overflow:hidden;margin-top:8px}.bar>div{height:100%;background:#0f5fc7}.barLabel{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-size:13px;color:#64748b}.stackBars{display:grid;gap:12px;margin-top:8px}.timeline{display:grid;grid-template-columns:170px 1fr;gap:8px;margin-top:10px}.date{font-weight:800;color:#123b75}.event{padding:8px 10px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:9px}.footer{text-align:center;color:#64748b;font-size:13px;margin:18px 0}details{margin-top:12px}summary{cursor:pointer;font-weight:800;color:#123b75;padding:10px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:10px}.smallbtn{padding:9px 12px;margin-left:8px}.formula{font-weight:800;color:#123b75;background:#f8fafc;border-radius:10px;padding:10px}.notesPanel{display:none;margin-top:14px}.notesPanel.show{display:block}.excelPanel{display:none;margin-top:14px}.excelPanel.show{display:block}.tableScroll{overflow:auto;max-height:520px;border:1px solid #e5e7eb;border-radius:12px;background:#fff}.tableScroll table{min-width:1050px;margin-top:0}.selectedRow{background:#fff7ed!important}.selectedRow td{font-weight:700}.selectedRow td:first-child{border-left:4px solid #f97316}.sheetNote{background:#f8fafc;border:1px solid #dbe4f0;border-radius:12px;padding:12px;margin:10px 0}.sheetTitle{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 0 8px}.pill{display:inline-block;background:#eff6ff;color:#123b75;border:1px solid #bfdbfe;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:800}.notesGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.noteItem{background:#f8fafc;border:1px solid #dbe4f0;border-left:5px solid #2563eb;border-radius:12px;padding:12px}.noteItem b{display:block;color:#123b75;margin-bottom:6px}.noteItem ul{margin:6px 0 0 18px;padding:0}.noteItem li{margin:5px 0}.noteHeader{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.noteHeader h2{margin:0}.badge{display:inline-block;background:#e8f1ff;color:#123b75;font-weight:800;border-radius:999px;padding:6px 10px;font-size:12px}a{color:#0f5fc7;font-weight:700;text-decoration:none}a:hover{text-decoration:underline}
+
+:root{--blue:#0f5fc7;--deep:#123b75;--light:#eef6ff;--line:#dbe7f5;--green:#16a34a;--ink:#172033}.card{border:1px solid rgba(15,95,199,.08)}button{transition:transform .12s ease,box-shadow .12s ease,background .12s ease}button:active{transform:scale(.99)}.primary{box-shadow:0 8px 18px rgba(15,95,199,.24)}.primary:hover{background:#0b55b8}.secondary{border:1px solid #cfe0f7;box-shadow:0 4px 10px rgba(15,95,199,.08)}.secondary:hover{background:#dcecff}.regimePicker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}.regimeOption{position:relative;display:block;cursor:pointer;border:2px solid var(--line);border-radius:18px;padding:15px 15px 14px;background:linear-gradient(180deg,#ffffff,#f7fbff);box-shadow:0 8px 18px rgba(20,61,108,.08);transition:.16s ease}.regimeOption:hover{transform:translateY(-1px);border-color:#9fc4f4;box-shadow:0 12px 24px rgba(15,95,199,.16)}.regimeOption.active{border-color:var(--blue);background:linear-gradient(135deg,#eaf4ff,#ffffff);box-shadow:0 12px 26px rgba(15,95,199,.22)}.regimeOption.active:before{content:'✓';position:absolute;right:14px;top:14px;width:30px;height:30px;border-radius:999px;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:900}.regimeBadge{display:inline-flex;align-items:center;gap:6px;background:#e8f1ff;color:var(--deep);font-weight:900;border-radius:999px;padding:7px 10px;font-size:13px;margin-bottom:9px}.regimeTitle{display:block;color:var(--deep);font-size:18px;font-weight:900;line-height:1.2;padding-right:32px}.regimeDesc{display:block;color:#64748b;font-size:13px;line-height:1.35;margin-top:5px}.srOnly{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}.sectionLead{font-size:13px;color:#64748b;margin:-4px 0 10px}.results .box{box-shadow:0 5px 14px rgba(17,59,117,.06)}@media(max-width:900px){.regimePicker{grid-template-columns:1fr}.regimeTitle{font-size:17px}}
+
+
+.compareGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}.compareCard{background:linear-gradient(180deg,#f0fdf4,#dcfce7);border:2px solid #86efac;border-radius:16px;padding:16px;box-shadow:0 10px 22px rgba(22,163,74,.12)}.compareCard h3{margin:0 0 10px;color:#166534;font-size:18px}.compareTop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:8px}.compareBadge{display:inline-block;background:#166534;color:#fff;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:800}.compareRule{color:#166534;font-size:13px;font-weight:700}.compareMetric{display:grid;grid-template-columns:1fr auto;gap:10px;padding:8px 0;border-bottom:1px dashed #b7e4c7}.compareMetric:last-child{border-bottom:0}.compareMetric span:last-child{font-weight:800;color:#14532d}.strongGreen{background:linear-gradient(180deg,#d1fae5,#bbf7d0)!important;border:2px solid #4ade80!important}.strongGreen b,.strongGreen .big{color:#14532d!important}.strongGreen .muted{color:#166534!important}@media(max-width:900px){.compareGrid{grid-template-columns:1fr}}
+
+@media print{body{background:#fff;color:#000}header{background:#fff!important;color:#000;border-bottom:2px solid #123b75}.wrap{max-width:100%;margin:0;padding:0}.card{box-shadow:none;border:1px solid #ddd;break-inside:avoid}.primary,.secondary,input,select,button{display:none!important}.row{grid-template-columns:1fr}.muted{color:#444}.results{grid-template-columns:repeat(3,minmax(0,1fr))}details{display:block}details>summary{display:none}details[open],details{break-inside:auto}table{font-size:11px}td,th{padding:5px}.footer{margin-top:8px}}
+@media(max-width:900px){.grid,.grid3,.results,.notesGrid{grid-template-columns:1fr}.row{grid-template-columns:1fr}.timeline{grid-template-columns:1fr}.smallbtn{margin-left:0;margin-top:8px;width:100%}}
+</style>
 </head>
 <body>
-  <div class="page">
-    <header class="topbar">
-      <div class="brand">
-        
-        <div>
-          <div class="brandTitle">Υπολογιστής Μισθοδοσίας</div>
-          <div class="brandSub">Εξωτερικής Φρούρησης – Ειδικό Μισθολόγιο (ΚΑΤ Γ')</div>
-        </div>
-      </div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="printBtn" type="button" onclick="window.print()">Εκκαθαριστικό / PDF</button><button class="printBtn" id="resetStorageBtn" type="button">Μηδενισμός αποθήκευσης</button></div>
-    </header>
-
-    <section class="panel panel-top">
-      <h2>Στοιχεία</h2>
-      <div class="grid2">
-        <div class="field">
-          <label>Ασφάλιση</label>
-          <select id="insurance">
-            <option value="pre93">Πριν από 01/01/1993</option>
-            <option value="post93" selected>Μετά από 01/01/1993</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Οικογενειακή κατάσταση</label>
-          <select id="family">
-            <option value="single" selected>Άγαμος</option>
-            <option value="married">Έγγαμος</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Τέκνα</label>
-          <select id="kids">
-            <option value="0" selected>0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5+</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Ημερομηνία Υπολογισμού</label>
-          <input id="calcDate" type="date">
-        </div>
-        <div class="field">
-          <label>Ημ/νία Γέννησης</label>
-          <input id="birthDate" type="date">
-        </div>
-        <div class="field">
-          <label>Ημ/νία Διορισμού</label>
-          <input id="hireDate" type="date" value="2000-07-20">
-        </div>
-        <div class="field">
-          <label>Έτη υπηρεσίας</label>
-          <input id="years" type="text" readonly value="-">
-        </div>
-        <div class="field">
-          <label>Κλιμάκιο</label>
-          <input id="step" type="text" readonly value="-">
-        </div>
-        <div class="field">
-          <label>Εύρος ετών κλιμακίου</label>
-          <input id="rangeLabel" type="text" readonly value="-">
-        </div>
-        <div class="field">
-          <label>Ετήσιο φορολογητέο</label>
-          <input id="annualTaxable" type="text" readonly value="0,00">
-        </div>
-        <div class="field">
-          <label>Έκπτωση φόρου</label>
-          <input id="taxCreditOut" type="text" readonly value="0,00">
-        </div>
-      </div>
-    </section>
-
-    <div class="cols">
-      <section class="panel panel-pay">
-        <h2>Αποδοχές</h2>
-        <div class="line"><span>Βασικός μισθός</span><b><span id="basePay">0,00</span> €</b></div>
-        <div class="line"><span>Επίδομα ιδιαίτερων καθηκόντων</span><b><span id="dutyPay">0,00</span> €</b></div>
-        <div class="line"><span>Επίδομα τέκνων</span><b><span id="childPay">0,00</span> €</b></div>
-
-        <div class="grid2">
-          <div class="field">
-            <label>Παραμεθόριος</label>
-            <select id="borderYes">
-              <option value="no" selected>ΟΧΙ</option>
-              <option value="yes">ΝΑΙ</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>Προσωπική διαφορά</label>
-            <input id="personalDiff" type="number" step="0.01" placeholder="€">
-          </div>
-        </div>
-
-        <div class="grid2">
-          <div class="field">
-            <label>Πενθήμερα / μήνα</label>
-            <input id="fiveDaysCount" type="number" step="1" value="0">
-          </div>
-          <div class="field">
-            <label>Τιμή πενθημέρου (€)</label>
-            <input id="fiveDaysRate" type="number" step="0.01" value="46">
-          </div>
-        </div>
-        <div class="miniCalc">
-          Μικτό: <b><span id="fiveGross">0,00</span> €</b><br>
-          Κρατήσεις: <b><span id="fiveDed">0,00</span> €</b><br>
-          Φόρος 20%: <b><span id="fiveTax">0,00</span> €</b><br>
-          Καθαρό: <b><span id="fiveNet">0,00</span> €</b>
-        </div>
-
-        <div class="grid2">
-          <div class="field">
-            <label>Νυχτερινά / μήνα</label>
-            <input id="nightCount" type="number" step="1" value="0">
-          </div>
-          <div class="field">
-            <label>Τιμή νύχτας (€)</label>
-            <input id="nightRate" type="number" step="0.01" value="26.5">
-          </div>
-        </div>
-        <div class="miniCalc">
-          Μικτό: <b><span id="nightGross">0,00</span> €</b><br>
-          Κρατήσεις: <b><span id="nightDed">0,00</span> €</b><br>
-          Φόρος 20%: <b><span id="nightTax">0,00</span> €</b><br>
-          Καθαρό: <b><span id="nightNet">0,00</span> €</b>
-        </div>
-
-        <div class="total total-green">
-          <span>ΣΥΝΟΛΟ ΑΠΟΔΟΧΩΝ</span>
-          <b><span id="grossTotal">0,00</span> €</b>
-        </div>
-      </section>
-
-      
-<section class="panel panel-ded">
-  <h2>Κρατήσεις</h2>
-
-  <div class="grid2">
-    <div class="field">
-      <label>Αναγνώριση 5ετίας</label>
-      <select id="fiveYearsOn">
-        <option value="no" selected>ΟΧΙ</option>
-        <option value="yes">ΝΑΙ</option>
-      </select>
-    </div>
-    <div class="field">
-      <label>Ποσό 5ετίας (€)</label>
-      <input id="fiveYearsAmount" type="number" step="0.01" value="39.87">
-    </div>
-    <div class="field">
-      <label>Λοιπές κρατήσεις (€)</label>
-      <input id="otherFixed" type="number" step="0.01" value="0">
-    </div>
-    <div class="field">
-      <label>Μηνιαίος φόρος (αυτόματος)</label>
-      <input id="taxMonthlyOut" type="text" readonly value="0,00">
-    </div>
+<header><h1>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ</h1></header>
+<div class="wrap">
+<div class="grid">
+<section class="card full topInfo">
+<h2>Σημειώσεις & Πίνακες Excel</h2>
+<p class="muted">Οι βασικοί κανόνες και οι μισθολογικοί πίνακες εμφανίζονται εδώ στην αρχή, πριν από τα ημερολόγια του υπαλλήλου.</p>
+<div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));margin-top:10px">
+<button type="button" class="secondary" style="width:100%" onclick="toggleNotes();">Σημειώσεις / Βασικοί κανόνες</button>
+<button type="button" class="secondary" style="width:100%" onclick="toggleExcelTables();">Πίνακες Excel / Μισθολογικά φύλλα</button>
+</div>
+<div id="notesPanel" class="notesPanel">
+  <div class="noteHeader"><h2>Σημειώσεις Οδηγού</h2><span class="badge">Συγκεντρωτικά</span></div>
+  <div class="notesGrid">
+    <div class="noteItem"><b>1. Ενδεικτικός υπολογισμός</b>Ο οδηγός δίνει εκτίμηση. Ο τελικός και δεσμευτικός υπολογισμός γίνεται μόνο από ΕΦΚΑ, επικουρικό και ΜΤΠΥ.</div>
+    <div class="noteItem"><b>2. Κύρια σύνταξη</b>Υπολογίζεται ως άθροισμα <b>Εθνικής Σύνταξης</b> και <b>Ανταποδοτικής Σύνταξης</b>, σύμφωνα με τον ν. 4387/2016 όπως ισχύει.</div>
+    <div class="noteItem"><b>3. Μέσες συντάξιμες αποδοχές</b>Είναι ο <b>μέσος όρος των μηνιαίων αποδοχών από 01/01/2002 έως τον μήνα υποβολής της αίτησης συνταξιοδότησης</b>, επί των οποίων έχουν καταβληθεί εισφορές. Στον οδηγό υπολογίζονται από τη στήλη <b>Συντάξιμες αποδοχές</b> του αντίστοιχου φύλλου Excel, δηλαδή <b>βασικός + τα συντάξιμα επιδόματα</b> που αντιστοιχούν στην οικογενειακή κατάσταση, τον βαθμό και τα τέκνα. Από την έκδοση V26, όταν συμπληρώνεται ιστορικό γάμου/τέκνων, η οικογενειακή κατάσταση αλλάζει αυτόματα ανά μήνα στον υπολογισμό του μέσου όρου. <br><span class="muted">Πηγή αναφοράς: <a href="https://www.kodiko.gr/nomothesia/document/304272/egkyklios-153731-2016-0092-2017" target="_blank" rel="noopener">εγκύκλιος 153731/2016/0092/2017</a>.</span></div>
+    <div class="noteItem"><b>4. Excel μισθολογίου</b>Μέχρι την ημερομηνία έναρξης νέου μισθολογίου χρησιμοποιείται το <b>1ο φύλλο</b>: κλιμάκιο, έτη υπηρεσίας, βασικός, <b>επικίνδυνο/ανθυγιεινό 150€</b>, <b>ειδικών συνθηκών</b> και οικογενειακή παροχή. Από εκεί και μετά χρησιμοποιείται το <b>2ο φύλλο «Πρόταση Οικονομικών»</b>: κλιμάκιο, έτη υπηρεσίας, βαθμός, βασικός, <b>επίδομα ειδικών καθηκόντων όπως ακριβώς προκύπτει από το Excel ανά βαθμό και τέκνα</b> και οικογενειακή παροχή.</div>
+    <div class="noteItem"><b>5. Ανταποδοτική σύνταξη</b>Τύπος: <b>Μέσες συντάξιμες αποδοχές × ποσοστό αναπλήρωσης</b>. Οι μέσες συντάξιμες αποδοχές προκύπτουν από <b>βασικό + επιδόματα</b> ανά μήνα. Το ποσοστό αναπλήρωσης προκύπτει από τα συνολικά συντάξιμα έτη.</div>
+    <div class="noteItem"><b>6. Καθεστώτα συνταξιοδότησης</b>Ο οδηγός υποστηρίζει δύο επιλογές: <b>Α. Παλιό καθεστώς</b> με δυνατότητα εξόδου στα <b>37 συνολικά έτη</b> ή στα <b>60 ηλικιακά</b>, <b>χωρίς μάχιμη πενταετία</b>. <b>Β. Νέο καθεστώς</b> με στόχο/ταβάνι τα <b>40 συνολικά έτη</b>, όπου μπορεί να χρησιμοποιηθεί η μάχιμη πενταετία.</div>
+    <div class="noteItem"><b>7. Ταβάνι 40 ετών</b>Για τον υπολογισμό του ποσοστού αναπλήρωσης, το ανώτατο όριο είναι <b>40 συντάξιμα έτη</b>. Στα 40 έτη το ποσοστό αναπλήρωσης είναι <b>50,01%</b>.</div>
+    <div class="noteItem"><b>8. Μάχιμη πενταετία</b>Η μάχιμη πενταετία εφαρμόζεται <b>μόνο στο νέο καθεστώς</b>. Ενεργοποιείται όταν υπάρχει <b>πάνω από 35 έτη συνολικού εργασιακού βίου μαζί με πλασματικά</b> ή όταν ο υπάλληλος είναι <b>πάνω από 60 ετών</b>. Μπορεί να δηλωθεί από 1 έως 5 έτη.</div>
+    <div class="noteItem"><b>9. Όριο αναγνωρίσεων</b>Στο νέο καθεστώς το σύνολο <b>πλασματικών ετών + μάχιμης πενταετίας</b> δεν μπορεί να υπερβαίνει τα <b>12 έτη</b>. Στο παλιό καθεστώς η μάχιμη πενταετία δεν λαμβάνεται υπόψη.</div>
+    <div class="noteItem"><b>10. Άλλα ταμεία πριν τον διορισμό</b>Δηλώνονται σε ημέρες ασφάλισης. Η εφαρμογή μετατρέπει <b>300 ημέρες = 1 έτος</b>.</div>
+    <div class="noteItem"><b>11. Πλασματικά σε μήνες</b>Παιδιά, στρατός, σπουδές, εκπαιδευτική άδεια, κενά ασφάλισης, απεργίες, κύηση/λοχεία δηλώνονται σε <b>μήνες</b>.</div>
+    <div class="noteItem"><b>12. Μισθολογικό σύνολο</b>Για τον μέσο συντάξιμο μισθό ο οδηγός χρησιμοποιεί <b>βασικό + επιδόματα</b>. Στο <b>1ο φύλλο</b> υπολογίζονται: βασικός + επικίνδυνο/ανθυγιεινό 150€ + ειδικών συνθηκών + οικογενειακή παροχή. Στο <b>2ο φύλλο</b> υπολογίζονται: βασικός + επίδομα ειδικών καθηκόντων + οικογενειακή παροχή. Τα ποσά δεν είναι σταθερά για όλους· λαμβάνονται από τη γραμμή του Excel που αντιστοιχεί στα έτη υπηρεσίας, στον βαθμό/κλιμάκιο και στα τέκνα.</div>
+    <div class="noteItem"><b>13. Πίνακες Excel</b>Με το κουμπί <b>Πίνακες Excel / Μισθολογικά φύλλα</b> εμφανίζονται οι δύο πίνακες που χρησιμοποιεί ο οδηγός: 1ο φύλλο και 2ο φύλλο «Πρόταση Οικονομικών», με ποσά ανά οικογενειακή κατάσταση / τέκνα.</div>
+    <div class="noteItem"><b>14. Αποθήκευση και PDF</b>Τα στοιχεία αποθηκεύονται τοπικά στη συσκευή για να μη χάνονται με ανανέωση. Το PDF γίνεται από το κουμπί <b>Εκτύπωση / Αποθήκευση σε PDF</b>.</div>
   </div>
+</div>
 
-  <div class="miniCalc">
-    Βασικές κρατήσεις κύριου μισθού:<br>
-    ΤΠΔΥ 4% • ΜΤΠΥ (πριν/μετά 1993) • ΤΕΑΔΥ 3% • Υγειονομική 2,05% • ΕΦΚΑ 6,67% • Ανεργία 2%
+<div id="excelPanel" class="excelPanel">
+  <div class="noteHeader"><h2>Πίνακες Excel μισθολογίου</h2><span class="badge">1ο φύλλο + Πρόταση Οικονομικών</span></div>
+  <div class="sheetNote">
+    Εδώ εμφανίζονται οι δύο ενσωματωμένοι μισθολογικοί πίνακες που χρησιμοποιεί ο οδηγός στους υπολογισμούς.
+    Οι πίνακες φιλτράρονται αυτόματα με βάση την επιλεγμένη οικογενειακή κατάσταση, ώστε να βλέπει ο συνάδελφος τα ποσά που τον αφορούν.
+    Στο 1ο φύλλο εμφανίζεται ξεχωριστά το επικίνδυνο/ανθυγιεινό 150€. Στο 2ο φύλλο εμφανίζεται το επίδομα ειδικών καθηκόντων. Ο μέσος συντάξιμος μισθός υπολογίζεται από βασικό + τα αντίστοιχα επιδόματα.
   </div>
-
-  <div class="line"><span>ΤΠΔΥ (4%)</span><b><span id="tpdyAmt">0,00</span> €</b></div>
-  <div class="line"><span>ΜΤΠΥ</span><b><span id="mtpyAmt">0,00</span> €</b></div>
-  <div class="line"><span>ΤΕΑΔΥ (3%)</span><b><span id="teadyAmt">0,00</span> €</b></div>
-  <div class="line"><span>Υγειονομική (2,05%)</span><b><span id="healthAmt">0,00</span> €</b></div>
-  <div class="line"><span>ΕΦΚΑ σύνταξη (6,67%)</span><b><span id="efkaAmt">0,00</span> €</b></div>
-  <div class="line"><span>Ανεργία (2%)</span><b><span id="unempAmt">0,00</span> €</b></div>
-  <div class="line"><span>Αναγνώριση 5ετίας</span><b><span id="fiveYearsDed">0,00</span> €</b></div>
-  <div class="line"><span>Λοιπές κρατήσεις</span><b><span id="otherAmt">0,00</span> €</b></div>
-  <div class="line"><span>Φόρος κύριου μισθού</span><b><span id="taxAmt">0,00</span> €</b></div>
-
-  <div class="total total-red">
-    <span>ΣΥΝΟΛΟ ΚΡΑΤΗΣΕΩΝ</span>
-    <b><span id="dedTotal">0,00</span> €</b>
-  </div>
-  <div class="total total-blue">
-    <span>ΠΛΗΡΩΤΕΟ ΠΟΣΟ</span>
-    <b><span id="netTotal">0,00</span> €</b>
-  </div>
+  <div id="excelTables"></div>
+</div>
 </section>
-
+<section class="card">
+<h2>1. Ημερολόγια Υπαλλήλου</h2>
+<div class="row"><label>Ημερομηνία γέννησης</label><input id="birthDate" type="date" value="1969-01-01"></div>
+<div class="row"><label>Διορισμός / έναρξη ΥΕΦΚΚ</label><input id="appointDate" type="date" value="2000-07-20"></div>
+<div class="row"><label>Ημερομηνία αίτησης / υπολογισμού</label><input id="targetDate" type="date"><button class="secondary smallbtn" type="button" onclick="setToday();calc();">Σήμερα</button></div>
+<div class="row"><label>Ημερομηνία έναρξης νέου μισθολογίου</label><input id="proposalDate" type="date" value="2026-01-01"></div>
+<div class="full">
+  <label>Καθεστώς συνταξιοδότησης</label>
+  <div class="sectionLead">Επιλέγεις ποιο καθεστώς θέλεις να εξετάσει ο οδηγός.</div>
+  <div class="regimePicker" id="regimePicker">
+    <div class="regimeOption" data-regime="old" onclick="setRegime('old')">
+      <span class="regimeBadge">Α. Παλιό</span>
+      <span class="regimeTitle">37 συντάξιμα έτη ή 60 ηλικιακά</span>
+      <span class="regimeDesc">Εργασιακά + άλλα ταμεία + πλασματικά. Χωρίς μάχιμη πενταετία.</span>
     </div>
-
-    <section class="panel panel-cal">
-      <h2>Ημερολόγιο Βαρδιών</h2>
-
-      <div class="toolbar">
-        <button id="prevMonth" class="navBtn" type="button">◀</button>
-        <div id="calTitle" class="calTitle">—</div>
-        <button id="nextMonth" class="navBtn" type="button">▶</button>
-      </div>
-
-      <div class="shiftRow">
-        <button class="shiftBtn active" data-shift="P" type="button"><span class="badge bP">ΠΡ</span></button>
-        <button class="shiftBtn" data-shift="A" type="button"><span class="badge bA">ΑΠ</span></button>
-        <button class="shiftBtn" data-shift="N" type="button"><span class="badge bN">ΝΥ</span></button>
-        <button class="shiftBtn" data-shift="AD" type="button"><span class="badge bAD">ΑΔ</span></button>
-        <button class="shiftBtn" data-shift="R" type="button"><span class="badge bR">Ρ</span></button>
-      </div>
-
-      <div class="copyRow">
-        <label>Κύκλος</label>
-        <select id="cycleLen">
-          <option value="5" selected>5 ημερών</option>
-          <option value="10">10 ημερών</option>
-        </select>
-        <label>Αντιγραφή σε</label>
-        <select id="copyRange">
-          <option value="1" selected>Μήνα</option>
-          <option value="3">3 μήνες</option>
-          <option value="6">6 μήνες</option>
-          <option value="12">Έτος</option>
-        </select>
-        <button id="copyBtn" type="button">Αντιγραφή κύκλου</button>
-        <button id="clearMonthBtn" type="button">Σβήσιμο μήνα</button>
-      </div>
-
-      <div class="weekdays">
-        <div>Δε</div><div>Τρ</div><div>Τε</div><div>Πε</div><div>Πα</div><div>Σα</div><div>Κυ</div>
-      </div>
-      <div id="calGrid" class="calGrid"></div>
-
-      <div class="smallInfo">
-        Νυχτερινά (Δευ–Πεμ): <b id="sumNights">0</b> &nbsp; • &nbsp;
-        Πενθήμερα: <b id="sumFivedays">0</b>
-      </div>
-    </section>
-
-
-    <section class="panel panel-slip" id="printSlip">
-      <h2>Εκκαθαριστικό</h2>
-
-      <div class="slipBlock">
-        <div class="slipHead">Αποδοχές</div>
-        <div class="line"><span>Βασικός μισθός</span><b><span id="slipBase">0,00</span> €</b></div>
-        <div class="line"><span>Επίδομα ιδιαίτερων καθηκόντων</span><b><span id="slipDuty">0,00</span> €</b></div>
-        <div class="line"><span>Επίδομα τέκνων</span><b><span id="slipChild">0,00</span> €</b></div>
-        <div class="line"><span>Παραμεθόριος</span><b><span id="slipBorder">0,00</span> €</b></div>
-        <div class="line"><span>Προσωπική διαφορά</span><b><span id="slipPersonal">0,00</span> €</b></div>
-        <div class="total total-green">
-          <span>ΣΥΝΟΛΟ ΑΠΟΔΟΧΩΝ</span>
-          <b><span id="slipGross">0,00</span> €</b>
-        </div>
-      </div>
-
-      <div class="slipBlock">
-        <div class="slipHead">Κρατήσεις - Φορολογία</div>
-        <div class="line"><span>ΤΠΔΥ</span><b><span id="slipTpdy">0,00</span> €</b></div>
-        <div class="line"><span>ΜΤΠΥ</span><b><span id="slipMtpy">0,00</span> €</b></div>
-        <div class="line"><span>ΤΕΑΔΥ</span><b><span id="slipTeady">0,00</span> €</b></div>
-        <div class="line"><span>Υγειονομική</span><b><span id="slipHealth">0,00</span> €</b></div>
-        <div class="line"><span>ΕΦΚΑ σύνταξη</span><b><span id="slipEfka">0,00</span> €</b></div>
-        <div class="line"><span>Ανεργία</span><b><span id="slipUnemp">0,00</span> €</b></div>
-        <div class="line"><span>Αναγνώριση 5ετίας</span><b><span id="slipFiveYears">0,00</span> €</b></div>
-        <div class="line"><span>Λοιπές κρατήσεις</span><b><span id="slipOther">0,00</span> €</b></div>
-        <div class="line"><span>Φόρος κύριου μισθού</span><b><span id="slipTax">0,00</span> €</b></div>
-        <div class="total total-red">
-          <span>ΣΥΝΟΛΟ ΚΡΑΤΗΣΕΩΝ</span>
-          <b><span id="slipDed">0,00</span> €</b>
-        </div>
-      </div>
-
-      <div class="slipBlock">
-        <div class="slipHead">Νύχτες - 5μερα με κρατήσεις</div>
-        <div class="line"><span>Νυχτερινά μικτά</span><b><span id="slipNightGross">0,00</span> €</b></div>
-        <div class="line"><span>Κρατήσεις νυχτερινών</span><b><span id="slipNightDedTax">0,00</span> €</b></div>
-        <div class="line"><span>Καθαρά νυχτερινά</span><b><span id="slipNightNet">0,00</span> €</b></div>
-        <div class="line"><span>5μερα μικτά</span><b><span id="slipFiveGross">0,00</span> €</b></div>
-        <div class="line"><span>Κρατήσεις 5μέρων</span><b><span id="slipFiveDedTax">0,00</span> €</b></div>
-        <div class="line"><span>Καθαρά 5μερα</span><b><span id="slipFiveNet">0,00</span> €</b></div>
-        <div class="total total-green">
-          <span>ΚΑΘΑΡΟ ΝΥΧΤΕΣ - 5ΜΕΡΑ</span>
-          <b><span id="slipExtrasNet">0,00</span> €</b>
-        </div>
-      </div>
-
-      <div class="total total-blue slipFinal">
-        <span>ΠΛΗΡΩΤΕΟ ΠΟΣΟ</span>
-        <b><span id="slipNet">0,00</span> €</b>
-      </div>
-    </section>
-
-
-    <footer class="footer">
-      <div>Κατασκευή Κερμανίδης Μερκούριος — <a href="mailto:merkos1969@gmail.com">merkos1969@gmail.com</a></div>
-      <div style="margin-top:6px"><a href="./eidiko_misthologio_kat_g.xlsx" download>Excel – Ειδικό μισθολόγιο (ΚΑΤ Γ')</a></div>
-    </footer>
+    <div class="regimeOption" data-regime="new" onclick="setRegime('new')">
+      <span class="regimeBadge">Β. Νέο</span>
+      <span class="regimeTitle">Ταβάνι 40 ετών με δυνατότητα μάχιμης</span>
+      <span class="regimeDesc">Εργασιακά + άλλα ταμεία + πλασματικά + μάχιμη πενταετία.</span>
+    </div>
   </div>
+  <select id="pensionRegime" class="srOnly" aria-label="Καθεστώς συνταξιοδότησης">
+    <option value="old">Α. Παλιό καθεστώς</option>
+    <option value="new" selected>Β. Νέο καθεστώς</option>
+  </select>
+</div>
+<div class="row"><label>Άλλα ταμεία πριν τον διορισμό (ημέρες)</label><input id="otherDays" type="number" step="1" value="600"></div>
+<p class="muted">Μετατροπή: 300 ημέρες ασφάλισης = 1 έτος. Τα άλλα ταμεία προσμετρώνται στον ασφαλιστικό χρόνο. Ο μισθολογικός μέσος όρος εδώ υπολογίζεται από τα διαθέσιμα μισθολογικά στοιχεία ΥΕΦΚΚ του Excel.</p>
+</section>
+<section class="card">
+<h2>2. Αναγνωρίσεις & Οικογενειακή κατάσταση</h2>
+<div class="row"><label>Οικογενειακή κατάσταση</label><select id="family"><option value="Άγαμος">Άγαμος</option><option value="Έγγαμος χωρίς παιδιά">Έγγαμος</option><option value="1 παιδί" selected>Έγγαμος με 1 τέκνο</option><option value="2 παιδιά">Έγγαμος με 2 τέκνα</option><option value="3 παιδιά">Έγγαμος με 3 τέκνα</option><option value="4 παιδιά">Έγγαμος με 4+ τέκνα</option></select></div>
+<div class="info"><b>Ιστορικό οικογενειακής κατάστασης για τον μέσο μισθό</b><br>Συμπλήρωσε τις ημερομηνίες που άλλαξε η οικογενειακή κατάσταση. Ο μέσος συντάξιμος μισθός θα υπολογίζεται μήνα-μήνα από το 2002 με τη σωστή κατηγορία του Excel. Αν δεν συμπληρωθούν ημερομηνίες, χρησιμοποιείται η παραπάνω επιλογή για όλο το διάστημα.</div>
+<div class="row"><label>Ημερομηνία γάμου</label><input id="marriageDate" type="date"></div>
+<div class="row"><label>Ημερομηνία 1ου τέκνου</label><input id="child1Date" type="date"></div>
+<div class="row"><label>Ημερομηνία 2ου τέκνου</label><input id="child2Date" type="date"></div>
+<div class="row"><label>Ημερομηνία 3ου τέκνου</label><input id="child3Date" type="date"></div>
+<div class="row"><label>Ημερομηνία 4ου τέκνου</label><input id="child4Date" type="date"></div>
+<div class="row"><label>Μάχιμη πενταετία<br><span class="muted">Μόνο στο νέο καθεστώς</span></label><select id="machimi"><option value="0">0 έτη</option><option value="1">1 έτος</option><option value="2">2 έτη</option><option value="3">3 έτη</option><option value="4">4 έτη</option><option value="5" selected>5 έτη</option></select></div>
+<div class="row"><label>Κόστος μάχιμης / μήνα</label><input id="machimiCost" type="number" step="0.01" value="39.86"></div>
+<div class="row"><label>Κόστος κοινών πλασματικών %</label><input id="plasPercent" type="number" step="0.01" value="20"></div>
+<div class="info"><b>Καθεστώτα σύνταξης</b><br><b>Α.</b> Παλιό καθεστώς: 37 συνολικά έτη ή 60 ετών, <b>χωρίς χρήση μάχιμης πενταετίας</b>. <b>Β.</b> Νέο καθεστώς: στόχος/ταβάνι 40 συνολικά έτη, με δυνατότητα χρήσης μάχιμης πενταετίας.<br><br><b>Μέσος συντάξιμος μισθός</b><br>Υπολογίζεται ως μέσος όρος μηνιαίων αποδοχών από <b>01/01/2002</b> έως τον <b>μήνα αίτησης / υπολογισμού</b>, επί των οποίων έχουν καταβληθεί εισφορές. Μέχρι την ημερομηνία έναρξης νέου μισθολογίου χρησιμοποιείται το <b>1ο φύλλο</b>. Από την ημερομηνία έναρξης νέου μισθολογίου και μετά χρησιμοποιείται το <b>2ο φύλλο «Πρόταση Οικονομικών»</b>.</div>
+</section>
+<section class="card full">
+<h2>3. Πλασματικοί χρόνοι σε μήνες</h2>
+<div class="grid3">
+ <div class="box"><b>Παιδιά</b><div class="row"><label>Μήνες</label><input id="childMonths" type="number" min="0" max="60" step="1" value="12"></div><span class="muted">Έως 60 μήνες: 12 για το πρώτο παιδί, 24 για το δεύτερο, 24 για το τρίτο.</span></div>
+ <div class="box"><b>Σπουδές</b><div class="row"><label>Μήνες</label><input id="studyMonths" type="number" min="0" max="36" step="1" value="0"></div><span class="muted">Συνήθως 12–36 μήνες, ανάλογα με τη σχολή.</span></div>
+ <div class="box"><b>Στρατιωτική θητεία</b><div class="row"><label>Μήνες</label><input id="armyMonths" type="number" min="0" max="24" step="1" value="0"></div><span class="muted">Αναγνωρίζεται ο πραγματικός χρόνος, συνήθως έως 24 μήνες.</span></div>
+ <div class="box"><b>Εκπαιδευτική άδεια</b><div class="row"><label>Μήνες</label><input id="educationMonths" type="number" min="0" max="60" step="1" value="0"></div><span class="muted">Όπου προβλέπεται και σύμφωνα με τις προϋποθέσεις.</span></div>
+ <div class="box"><b>Κενά ασφάλισης / απεργίες</b><div class="row"><label>Μήνες</label><input id="gapStrikeMonths" type="number" min="0" max="84" step="1" value="0"></div><span class="muted">Κενά ασφάλισης, απεργίες και συναφείς χρόνοι.</span></div>
+ <div class="box"><b>Κύηση / λοχεία / λοιπά</b><div class="row"><label>Μήνες</label><input id="otherPlasticMonths" type="number" min="0" max="84" step="1" value="0"></div><span class="muted">Λοιποί αναγνωριζόμενοι χρόνοι.</span></div>
+</div>
+<div class="info"><b>Σημείωση:</b> Το σύνολο των ετών πλασματικών και μάχιμης πενταετίας είναι έως <b>12 έτη</b>. Η εφαρμογή εφαρμόζει το ανώτατο όριο στους υπολογισμούς.</div>
+</section>
+<section class="card full"><h2>Υπολογισμός & PDF</h2><button type="button" class="primary" onclick="calc();saveForm();">Υπολογισμός</button><button type="button" class="secondary" style="width:100%;margin-top:10px" onclick="calc();saveForm();window.print();">Εκτύπωση / Αποθήκευση σε PDF</button>
+<div id="out" style="margin-top:14px"></div></section>
+<section class="card full"><h2>Βασικός κανόνας υπολογισμού</h2><p>Η σύνταξη δημοσίου υπαλλήλου υπολογίζεται με βάση τον ν. 4387/2016, όπως ισχύει, ως άθροισμα <b>Εθνικής Σύνταξης</b> και <b>Ανταποδοτικής Σύνταξης</b>.</p><p class="formula">Ανταποδοτική σύνταξη = Μέσες συντάξιμες αποδοχές × Ποσοστό αναπλήρωσης<br><span class="muted">Μέσες συντάξιμες αποδοχές = βασικός + επιδόματα από το αντίστοιχο φύλλο Excel, από 01/01/2002 έως τον μήνα αίτησης.</span></p><p class="muted">Ο οδηγός είναι ενδεικτικός και δεν αντικαθιστά επίσημο υπολογισμό ΕΦΚΑ, επικουρικού ή ΜΤΠΥ. Τα στοιχεία αποθηκεύονται τοπικά στη συσκευή για να μη χάνονται με ανανέωση της σελίδας.</p></section>
+</div><div class="footer">By Merk-Kerm · v32</div></div>
+<script>
+const oldPayData = [{"label":"0-3","min":0.0,"max":3.0,"rank":"","klimakio":1,"family":"Άγαμος","basic":958.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1208.0,"excelTotal":1208.0},{"label":"0-3","min":0.0,"max":3.0,"rank":"","klimakio":1,"family":"Έγγαμος χωρίς παιδιά","basic":958.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1208.0,"excelTotal":1208.0},{"label":"0-3","min":0.0,"max":3.0,"rank":"","klimakio":1,"family":"1 παιδί","basic":958.0,"dangerous":150.0,"special":100.0,"childrenAllowance":70.0,"total":1278.0,"excelTotal":1278.0},{"label":"0-3","min":0.0,"max":3.0,"rank":"","klimakio":1,"family":"2 παιδιά","basic":958.0,"dangerous":150.0,"special":100.0,"childrenAllowance":120.0,"total":1328.0,"excelTotal":1328.0},{"label":"0-3","min":0.0,"max":3.0,"rank":"","klimakio":1,"family":"3 παιδιά","basic":958.0,"dangerous":150.0,"special":100.0,"childrenAllowance":170.0,"total":1378.0,"excelTotal":1378.0},{"label":"0-3","min":0.0,"max":3.0,"rank":"","klimakio":1,"family":"4 παιδιά","basic":958.0,"dangerous":150.0,"special":100.0,"childrenAllowance":220.0,"total":1428.0,"excelTotal":1428.0},{"label":"3-6","min":3.0,"max":6.0,"rank":"","klimakio":2,"family":"Άγαμος","basic":1018.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1268.0,"excelTotal":1268.0},{"label":"3-6","min":3.0,"max":6.0,"rank":"","klimakio":2,"family":"Έγγαμος χωρίς παιδιά","basic":1018.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1268.0,"excelTotal":1268.0},{"label":"3-6","min":3.0,"max":6.0,"rank":"","klimakio":2,"family":"1 παιδί","basic":1018.0,"dangerous":150.0,"special":100.0,"childrenAllowance":70.0,"total":1338.0,"excelTotal":1338.0},{"label":"3-6","min":3.0,"max":6.0,"rank":"","klimakio":2,"family":"2 παιδιά","basic":1018.0,"dangerous":150.0,"special":100.0,"childrenAllowance":120.0,"total":1388.0,"excelTotal":1388.0},{"label":"3-6","min":3.0,"max":6.0,"rank":"","klimakio":2,"family":"3 παιδιά","basic":1018.0,"dangerous":150.0,"special":100.0,"childrenAllowance":170.0,"total":1438.0,"excelTotal":1438.0},{"label":"3-6","min":3.0,"max":6.0,"rank":"","klimakio":2,"family":"4 παιδιά","basic":1018.0,"dangerous":150.0,"special":100.0,"childrenAllowance":220.0,"total":1488.0,"excelTotal":1488.0},{"label":"6-9","min":6.0,"max":9.0,"rank":"","klimakio":3,"family":"Άγαμος","basic":1078.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1328.0,"excelTotal":1328.0},{"label":"6-9","min":6.0,"max":9.0,"rank":"","klimakio":3,"family":"Έγγαμος χωρίς παιδιά","basic":1078.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1328.0,"excelTotal":1328.0},{"label":"6-9","min":6.0,"max":9.0,"rank":"","klimakio":3,"family":"1 παιδί","basic":1078.0,"dangerous":150.0,"special":100.0,"childrenAllowance":70.0,"total":1398.0,"excelTotal":1398.0},{"label":"6-9","min":6.0,"max":9.0,"rank":"","klimakio":3,"family":"2 παιδιά","basic":1078.0,"dangerous":150.0,"special":100.0,"childrenAllowance":120.0,"total":1448.0,"excelTotal":1448.0},{"label":"6-9","min":6.0,"max":9.0,"rank":"","klimakio":3,"family":"3 παιδιά","basic":1078.0,"dangerous":150.0,"special":100.0,"childrenAllowance":170.0,"total":1498.0,"excelTotal":1498.0},{"label":"6-9","min":6.0,"max":9.0,"rank":"","klimakio":3,"family":"4 παιδιά","basic":1078.0,"dangerous":150.0,"special":100.0,"childrenAllowance":220.0,"total":1548.0,"excelTotal":1548.0},{"label":"9-12","min":9.0,"max":12.0,"rank":"","klimakio":4,"family":"Άγαμος","basic":1138.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1388.0,"excelTotal":1388.0},{"label":"9-12","min":9.0,"max":12.0,"rank":"","klimakio":4,"family":"Έγγαμος χωρίς παιδιά","basic":1138.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1388.0,"excelTotal":1388.0},{"label":"9-12","min":9.0,"max":12.0,"rank":"","klimakio":4,"family":"1 παιδί","basic":1138.0,"dangerous":150.0,"special":100.0,"childrenAllowance":70.0,"total":1458.0,"excelTotal":1458.0},{"label":"9-12","min":9.0,"max":12.0,"rank":"","klimakio":4,"family":"2 παιδιά","basic":1138.0,"dangerous":150.0,"special":100.0,"childrenAllowance":120.0,"total":1508.0,"excelTotal":1508.0},{"label":"9-12","min":9.0,"max":12.0,"rank":"","klimakio":4,"family":"3 παιδιά","basic":1138.0,"dangerous":150.0,"special":100.0,"childrenAllowance":170.0,"total":1558.0,"excelTotal":1558.0},{"label":"9-12","min":9.0,"max":12.0,"rank":"","klimakio":4,"family":"4 παιδιά","basic":1138.0,"dangerous":150.0,"special":100.0,"childrenAllowance":220.0,"total":1608.0,"excelTotal":1608.0},{"label":"12-15","min":12.0,"max":15.0,"rank":"","klimakio":5,"family":"Άγαμος","basic":1198.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1448.0,"excelTotal":1448.0},{"label":"12-15","min":12.0,"max":15.0,"rank":"","klimakio":5,"family":"Έγγαμος χωρίς παιδιά","basic":1198.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1448.0,"excelTotal":1448.0},{"label":"12-15","min":12.0,"max":15.0,"rank":"","klimakio":5,"family":"1 παιδί","basic":1198.0,"dangerous":150.0,"special":100.0,"childrenAllowance":70.0,"total":1518.0,"excelTotal":1518.0},{"label":"12-15","min":12.0,"max":15.0,"rank":"","klimakio":5,"family":"2 παιδιά","basic":1198.0,"dangerous":150.0,"special":100.0,"childrenAllowance":120.0,"total":1568.0,"excelTotal":1568.0},{"label":"12-15","min":12.0,"max":15.0,"rank":"","klimakio":5,"family":"3 παιδιά","basic":1198.0,"dangerous":150.0,"special":100.0,"childrenAllowance":170.0,"total":1618.0,"excelTotal":1618.0},{"label":"12-15","min":12.0,"max":15.0,"rank":"","klimakio":5,"family":"4 παιδιά","basic":1198.0,"dangerous":150.0,"special":100.0,"childrenAllowance":220.0,"total":1668.0,"excelTotal":1668.0},{"label":"15-18","min":15.0,"max":18.0,"rank":"","klimakio":6,"family":"Άγαμος","basic":1258.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1508.0,"excelTotal":1508.0},{"label":"15-18","min":15.0,"max":18.0,"rank":"","klimakio":6,"family":"Έγγαμος χωρίς παιδιά","basic":1258.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1508.0,"excelTotal":1508.0},{"label":"15-18","min":15.0,"max":18.0,"rank":"","klimakio":6,"family":"1 παιδί","basic":1258.0,"dangerous":150.0,"special":100.0,"childrenAllowance":70.0,"total":1578.0,"excelTotal":1578.0},{"label":"15-18","min":15.0,"max":18.0,"rank":"","klimakio":6,"family":"2 παιδιά","basic":1258.0,"dangerous":150.0,"special":100.0,"childrenAllowance":120.0,"total":1628.0,"excelTotal":1628.0},{"label":"15-18","min":15.0,"max":18.0,"rank":"","klimakio":6,"family":"3 παιδιά","basic":1258.0,"dangerous":150.0,"special":100.0,"childrenAllowance":170.0,"total":1678.0,"excelTotal":1678.0},{"label":"15-18","min":15.0,"max":18.0,"rank":"","klimakio":6,"family":"4 παιδιά","basic":1258.0,"dangerous":150.0,"special":100.0,"childrenAllowance":220.0,"total":1728.0,"excelTotal":1728.0},{"label":"18-21","min":18.0,"max":21.0,"rank":"","klimakio":7,"family":"Άγαμος","basic":1318.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1568.0,"excelTotal":1568.0},{"label":"18-21","min":18.0,"max":21.0,"rank":"","klimakio":7,"family":"Έγγαμος χωρίς παιδιά","basic":1318.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1568.0,"excelTotal":1568.0},{"label":"18-21","min":18.0,"max":21.0,"rank":"","klimakio":7,"family":"1 παιδί","basic":1318.0,"dangerous":150.0,"special":100.0,"childrenAllowance":70.0,"total":1638.0,"excelTotal":1638.0},{"label":"18-21","min":18.0,"max":21.0,"rank":"","klimakio":7,"family":"2 παιδιά","basic":1318.0,"dangerous":150.0,"special":100.0,"childrenAllowance":120.0,"total":1688.0,"excelTotal":1688.0},{"label":"18-21","min":18.0,"max":21.0,"rank":"","klimakio":7,"family":"3 παιδιά","basic":1318.0,"dangerous":150.0,"special":100.0,"childrenAllowance":170.0,"total":1738.0,"excelTotal":1738.0},{"label":"18-21","min":18.0,"max":21.0,"rank":"","klimakio":7,"family":"4 παιδιά","basic":1318.0,"dangerous":150.0,"special":100.0,"childrenAllowance":220.0,"total":1788.0,"excelTotal":1788.0},{"label":"21-24","min":21.0,"max":24.0,"rank":"","klimakio":8,"family":"Άγαμος","basic":1378.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1628.0,"excelTotal":1628.0},{"label":"21-24","min":21.0,"max":24.0,"rank":"","klimakio":8,"family":"Έγγαμος χωρίς παιδιά","basic":1378.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1628.0,"excelTotal":1628.0},{"label":"21-24","min":21.0,"max":24.0,"rank":"","klimakio":8,"family":"1 παιδί","basic":1378.0,"dangerous":150.0,"special":100.0,"childrenAllowance":70.0,"total":1698.0,"excelTotal":1698.0},{"label":"21-24","min":21.0,"max":24.0,"rank":"","klimakio":8,"family":"2 παιδιά","basic":1378.0,"dangerous":150.0,"special":100.0,"childrenAllowance":120.0,"total":1748.0,"excelTotal":1748.0},{"label":"21-24","min":21.0,"max":24.0,"rank":"","klimakio":8,"family":"3 παιδιά","basic":1378.0,"dangerous":150.0,"special":100.0,"childrenAllowance":170.0,"total":1798.0,"excelTotal":1798.0},{"label":"21-24","min":21.0,"max":24.0,"rank":"","klimakio":8,"family":"4 παιδιά","basic":1378.0,"dangerous":150.0,"special":100.0,"childrenAllowance":220.0,"total":1848.0,"excelTotal":1848.0},{"label":"24-27","min":24.0,"max":27.0,"rank":"","klimakio":9,"family":"Άγαμος","basic":1438.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1688.0,"excelTotal":1688.0},{"label":"24-27","min":24.0,"max":27.0,"rank":"","klimakio":9,"family":"Έγγαμος χωρίς παιδιά","basic":1438.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1688.0,"excelTotal":1688.0},{"label":"24-27","min":24.0,"max":27.0,"rank":"","klimakio":9,"family":"1 παιδί","basic":1438.0,"dangerous":150.0,"special":100.0,"childrenAllowance":70.0,"total":1758.0,"excelTotal":1758.0},{"label":"24-27","min":24.0,"max":27.0,"rank":"","klimakio":9,"family":"2 παιδιά","basic":1438.0,"dangerous":150.0,"special":100.0,"childrenAllowance":120.0,"total":1808.0,"excelTotal":1808.0},{"label":"24-27","min":24.0,"max":27.0,"rank":"","klimakio":9,"family":"3 παιδιά","basic":1438.0,"dangerous":150.0,"special":100.0,"childrenAllowance":170.0,"total":1858.0,"excelTotal":1858.0},{"label":"24-27","min":24.0,"max":27.0,"rank":"","klimakio":9,"family":"4 παιδιά","basic":1438.0,"dangerous":150.0,"special":100.0,"childrenAllowance":220.0,"total":1908.0,"excelTotal":1908.0},{"label":"27-30","min":27.0,"max":30.0,"rank":"","klimakio":10,"family":"Άγαμος","basic":1498.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1748.0,"excelTotal":1748.0},{"label":"27-30","min":27.0,"max":30.0,"rank":"","klimakio":10,"family":"Έγγαμος χωρίς παιδιά","basic":1498.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1748.0,"excelTotal":1748.0},{"label":"27-30","min":27.0,"max":30.0,"rank":"","klimakio":10,"family":"1 παιδί","basic":1498.0,"dangerous":150.0,"special":100.0,"childrenAllowance":70.0,"total":1818.0,"excelTotal":1818.0},{"label":"27-30","min":27.0,"max":30.0,"rank":"","klimakio":10,"family":"2 παιδιά","basic":1498.0,"dangerous":150.0,"special":100.0,"childrenAllowance":120.0,"total":1868.0,"excelTotal":1868.0},{"label":"27-30","min":27.0,"max":30.0,"rank":"","klimakio":10,"family":"3 παιδιά","basic":1498.0,"dangerous":150.0,"special":100.0,"childrenAllowance":170.0,"total":1918.0,"excelTotal":1918.0},{"label":"27-30","min":27.0,"max":30.0,"rank":"","klimakio":10,"family":"4 παιδιά","basic":1498.0,"dangerous":150.0,"special":100.0,"childrenAllowance":220.0,"total":1968.0,"excelTotal":1968.0},{"label":"30-33","min":30.0,"max":33.0,"rank":"","klimakio":11,"family":"Άγαμος","basic":1558.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1808.0,"excelTotal":1808.0},{"label":"30-33","min":30.0,"max":33.0,"rank":"","klimakio":11,"family":"Έγγαμος χωρίς παιδιά","basic":1558.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1808.0,"excelTotal":1808.0},{"label":"30-33","min":30.0,"max":33.0,"rank":"","klimakio":11,"family":"1 παιδί","basic":1558.0,"dangerous":150.0,"special":100.0,"childrenAllowance":70.0,"total":1878.0,"excelTotal":1878.0},{"label":"30-33","min":30.0,"max":33.0,"rank":"","klimakio":11,"family":"2 παιδιά","basic":1558.0,"dangerous":150.0,"special":100.0,"childrenAllowance":120.0,"total":1928.0,"excelTotal":1928.0},{"label":"30-33","min":30.0,"max":33.0,"rank":"","klimakio":11,"family":"3 παιδιά","basic":1558.0,"dangerous":150.0,"special":100.0,"childrenAllowance":170.0,"total":1978.0,"excelTotal":1978.0},{"label":"30-33","min":30.0,"max":33.0,"rank":"","klimakio":11,"family":"4 παιδιά","basic":1558.0,"dangerous":150.0,"special":100.0,"childrenAllowance":220.0,"total":2028.0,"excelTotal":2028.0},{"label":"33-36","min":33.0,"max":36.0,"rank":"","klimakio":12,"family":"Άγαμος","basic":1618.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1868.0,"excelTotal":1868.0},{"label":"33-36","min":33.0,"max":36.0,"rank":"","klimakio":12,"family":"Έγγαμος χωρίς παιδιά","basic":1618.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1868.0,"excelTotal":1868.0},{"label":"33-36","min":33.0,"max":36.0,"rank":"","klimakio":12,"family":"1 παιδί","basic":1618.0,"dangerous":150.0,"special":100.0,"childrenAllowance":70.0,"total":1938.0,"excelTotal":1938.0},{"label":"33-36","min":33.0,"max":36.0,"rank":"","klimakio":12,"family":"2 παιδιά","basic":1618.0,"dangerous":150.0,"special":100.0,"childrenAllowance":120.0,"total":1988.0,"excelTotal":1988.0},{"label":"33-36","min":33.0,"max":36.0,"rank":"","klimakio":12,"family":"3 παιδιά","basic":1618.0,"dangerous":150.0,"special":100.0,"childrenAllowance":170.0,"total":2038.0,"excelTotal":2038.0},{"label":"33-36","min":33.0,"max":36.0,"rank":"","klimakio":12,"family":"4 παιδιά","basic":1618.0,"dangerous":150.0,"special":100.0,"childrenAllowance":220.0,"total":2088.0,"excelTotal":2088.0},{"label":"36-39","min":36.0,"max":39.0,"rank":"","klimakio":13,"family":"Άγαμος","basic":1678.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1928.0,"excelTotal":1928.0},{"label":"36-39","min":36.0,"max":39.0,"rank":"","klimakio":13,"family":"Έγγαμος χωρίς παιδιά","basic":1678.0,"dangerous":150.0,"special":100.0,"childrenAllowance":0.0,"total":1928.0,"excelTotal":1928.0},{"label":"36-39","min":36.0,"max":39.0,"rank":"","klimakio":13,"family":"1 παιδί","basic":1678.0,"dangerous":150.0,"special":100.0,"childrenAllowance":70.0,"total":1998.0,"excelTotal":1998.0},{"label":"36-39","min":36.0,"max":39.0,"rank":"","klimakio":13,"family":"2 παιδιά","basic":1678.0,"dangerous":150.0,"special":100.0,"childrenAllowance":120.0,"total":2048.0,"excelTotal":2048.0},{"label":"36-39","min":36.0,"max":39.0,"rank":"","klimakio":13,"family":"3 παιδιά","basic":1678.0,"dangerous":150.0,"special":100.0,"childrenAllowance":170.0,"total":2098.0,"excelTotal":2098.0},{"label":"36-39","min":36.0,"max":39.0,"rank":"","klimakio":13,"family":"4 παιδιά","basic":1678.0,"dangerous":150.0,"special":100.0,"childrenAllowance":220.0,"total":2148.0,"excelTotal":2148.0}];
+const newPayData = [{"label":"0-3(ΦΡΟΥΡΟΣ)","min":0.0,"max":3.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":1,"family":"Άγαμος","basic":1162.0,"dangerous":0.0,"special":205.0,"childrenAllowance":0.0,"total":1367.0,"excelTotal":1367.0},{"label":"0-3(ΦΡΟΥΡΟΣ)","min":0.0,"max":3.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":1,"family":"Έγγαμος χωρίς παιδιά","basic":1162.0,"dangerous":0.0,"special":275.0,"childrenAllowance":0.0,"total":1437.0,"excelTotal":1437.0},{"label":"0-3(ΦΡΟΥΡΟΣ)","min":0.0,"max":3.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":1,"family":"1 παιδί","basic":1162.0,"dangerous":0.0,"special":335.0,"childrenAllowance":70.0,"total":1567.0,"excelTotal":1567.0},{"label":"0-3(ΦΡΟΥΡΟΣ)","min":0.0,"max":3.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":1,"family":"2 παιδιά","basic":1162.0,"dangerous":0.0,"special":335.0,"childrenAllowance":120.0,"total":1617.0,"excelTotal":1617.0},{"label":"0-3(ΦΡΟΥΡΟΣ)","min":0.0,"max":3.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":1,"family":"3 παιδιά","basic":1162.0,"dangerous":0.0,"special":335.0,"childrenAllowance":170.0,"total":1667.0,"excelTotal":1667.0},{"label":"0-3(ΦΡΟΥΡΟΣ)","min":0.0,"max":3.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":1,"family":"4 παιδιά","basic":1162.0,"dangerous":0.0,"special":335.0,"childrenAllowance":220.0,"total":1717.0,"excelTotal":1717.0},{"label":"3-5(ΦΡΟΥΡΟΣ)","min":3.0,"max":5.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":2,"family":"Άγαμος","basic":1223.0,"dangerous":0.0,"special":205.0,"childrenAllowance":0.0,"total":1428.0,"excelTotal":1428.0},{"label":"3-5(ΦΡΟΥΡΟΣ)","min":3.0,"max":5.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":2,"family":"Έγγαμος χωρίς παιδιά","basic":1223.0,"dangerous":0.0,"special":275.0,"childrenAllowance":0.0,"total":1498.0,"excelTotal":1498.0},{"label":"3-5(ΦΡΟΥΡΟΣ)","min":3.0,"max":5.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":2,"family":"1 παιδί","basic":1223.0,"dangerous":0.0,"special":335.0,"childrenAllowance":70.0,"total":1628.0,"excelTotal":1628.0},{"label":"3-5(ΦΡΟΥΡΟΣ)","min":3.0,"max":5.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":2,"family":"2 παιδιά","basic":1223.0,"dangerous":0.0,"special":335.0,"childrenAllowance":120.0,"total":1678.0,"excelTotal":1678.0},{"label":"3-5(ΦΡΟΥΡΟΣ)","min":3.0,"max":5.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":2,"family":"3 παιδιά","basic":1223.0,"dangerous":0.0,"special":335.0,"childrenAllowance":170.0,"total":1728.0,"excelTotal":1728.0},{"label":"3-5(ΦΡΟΥΡΟΣ)","min":3.0,"max":5.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":2,"family":"4 παιδιά","basic":1223.0,"dangerous":0.0,"special":335.0,"childrenAllowance":220.0,"total":1778.0,"excelTotal":1778.0},{"label":"5-7(ΦΡΟΥΡΟΣ)","min":5.0,"max":7.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":3,"family":"Άγαμος","basic":1259.0,"dangerous":0.0,"special":205.0,"childrenAllowance":0.0,"total":1464.0,"excelTotal":1464.0},{"label":"5-7(ΦΡΟΥΡΟΣ)","min":5.0,"max":7.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":3,"family":"Έγγαμος χωρίς παιδιά","basic":1259.0,"dangerous":0.0,"special":275.0,"childrenAllowance":0.0,"total":1534.0,"excelTotal":1534.0},{"label":"5-7(ΦΡΟΥΡΟΣ)","min":5.0,"max":7.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":3,"family":"1 παιδί","basic":1259.0,"dangerous":0.0,"special":335.0,"childrenAllowance":70.0,"total":1664.0,"excelTotal":1664.0},{"label":"5-7(ΦΡΟΥΡΟΣ)","min":5.0,"max":7.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":3,"family":"2 παιδιά","basic":1259.0,"dangerous":0.0,"special":335.0,"childrenAllowance":120.0,"total":1714.0,"excelTotal":1714.0},{"label":"5-7(ΦΡΟΥΡΟΣ)","min":5.0,"max":7.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":3,"family":"3 παιδιά","basic":1259.0,"dangerous":0.0,"special":335.0,"childrenAllowance":170.0,"total":1764.0,"excelTotal":1764.0},{"label":"5-7(ΦΡΟΥΡΟΣ)","min":5.0,"max":7.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":3,"family":"4 παιδιά","basic":1259.0,"dangerous":0.0,"special":335.0,"childrenAllowance":220.0,"total":1814.0,"excelTotal":1814.0},{"label":"7-9(ΦΡΟΥΡΟΣ)","min":7.0,"max":9.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":4,"family":"Άγαμος","basic":1296.0,"dangerous":0.0,"special":205.0,"childrenAllowance":0.0,"total":1501.0,"excelTotal":1501.0},{"label":"7-9(ΦΡΟΥΡΟΣ)","min":7.0,"max":9.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":4,"family":"Έγγαμος χωρίς παιδιά","basic":1296.0,"dangerous":0.0,"special":275.0,"childrenAllowance":0.0,"total":1571.0,"excelTotal":1571.0},{"label":"7-9(ΦΡΟΥΡΟΣ)","min":7.0,"max":9.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":4,"family":"1 παιδί","basic":1296.0,"dangerous":0.0,"special":335.0,"childrenAllowance":70.0,"total":1701.0,"excelTotal":1701.0},{"label":"7-9(ΦΡΟΥΡΟΣ)","min":7.0,"max":9.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":4,"family":"2 παιδιά","basic":1296.0,"dangerous":0.0,"special":335.0,"childrenAllowance":120.0,"total":1751.0,"excelTotal":1751.0},{"label":"7-9(ΦΡΟΥΡΟΣ)","min":7.0,"max":9.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":4,"family":"3 παιδιά","basic":1296.0,"dangerous":0.0,"special":335.0,"childrenAllowance":170.0,"total":1801.0,"excelTotal":1801.0},{"label":"7-9(ΦΡΟΥΡΟΣ)","min":7.0,"max":9.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":4,"family":"4 παιδιά","basic":1296.0,"dangerous":0.0,"special":335.0,"childrenAllowance":220.0,"total":1851.0,"excelTotal":1851.0},{"label":"9-10(ΦΡΟΥΡΟΣ)","min":9.0,"max":10.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":5,"family":"Άγαμος","basic":1333.0,"dangerous":0.0,"special":205.0,"childrenAllowance":0.0,"total":1538.0,"excelTotal":1538.0},{"label":"9-10(ΦΡΟΥΡΟΣ)","min":9.0,"max":10.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":5,"family":"Έγγαμος χωρίς παιδιά","basic":1333.0,"dangerous":0.0,"special":275.0,"childrenAllowance":0.0,"total":1608.0,"excelTotal":1608.0},{"label":"9-10(ΦΡΟΥΡΟΣ)","min":9.0,"max":10.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":5,"family":"1 παιδί","basic":1333.0,"dangerous":0.0,"special":335.0,"childrenAllowance":70.0,"total":1738.0,"excelTotal":1738.0},{"label":"9-10(ΦΡΟΥΡΟΣ)","min":9.0,"max":10.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":5,"family":"2 παιδιά","basic":1333.0,"dangerous":0.0,"special":335.0,"childrenAllowance":120.0,"total":1788.0,"excelTotal":1788.0},{"label":"9-10(ΦΡΟΥΡΟΣ)","min":9.0,"max":10.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":5,"family":"3 παιδιά","basic":1333.0,"dangerous":0.0,"special":335.0,"childrenAllowance":170.0,"total":1838.0,"excelTotal":1838.0},{"label":"9-10(ΦΡΟΥΡΟΣ)","min":9.0,"max":10.0,"rank":"ΦΡΟΥΡΟΣ","klimakio":5,"family":"4 παιδιά","basic":1333.0,"dangerous":0.0,"special":335.0,"childrenAllowance":220.0,"total":1888.0,"excelTotal":1888.0},{"label":"10-11(ΥΠΑΡΧ Β)","min":10.0,"max":11.0,"rank":"ΥΠΑΡΧ Β","klimakio":5,"family":"Άγαμος","basic":1366.0,"dangerous":0.0,"special":155.0,"childrenAllowance":0.0,"total":1521.0,"excelTotal":1521.0},{"label":"10-11(ΥΠΑΡΧ Β)","min":10.0,"max":11.0,"rank":"ΥΠΑΡΧ Β","klimakio":5,"family":"Έγγαμος χωρίς παιδιά","basic":1366.0,"dangerous":0.0,"special":225.0,"childrenAllowance":0.0,"total":1591.0,"excelTotal":1591.0},{"label":"10-11(ΥΠΑΡΧ Β)","min":10.0,"max":11.0,"rank":"ΥΠΑΡΧ Β","klimakio":5,"family":"1 παιδί","basic":1366.0,"dangerous":0.0,"special":285.0,"childrenAllowance":70.0,"total":1721.0,"excelTotal":1721.0},{"label":"10-11(ΥΠΑΡΧ Β)","min":10.0,"max":11.0,"rank":"ΥΠΑΡΧ Β","klimakio":5,"family":"2 παιδιά","basic":1366.0,"dangerous":0.0,"special":285.0,"childrenAllowance":120.0,"total":1771.0,"excelTotal":1771.0},{"label":"10-11(ΥΠΑΡΧ Β)","min":10.0,"max":11.0,"rank":"ΥΠΑΡΧ Β","klimakio":5,"family":"3 παιδιά","basic":1366.0,"dangerous":0.0,"special":285.0,"childrenAllowance":170.0,"total":1821.0,"excelTotal":1821.0},{"label":"10-11(ΥΠΑΡΧ Β)","min":10.0,"max":11.0,"rank":"ΥΠΑΡΧ Β","klimakio":5,"family":"4 παιδιά","basic":1366.0,"dangerous":0.0,"special":285.0,"childrenAllowance":220.0,"total":1871.0,"excelTotal":1871.0},{"label":"11-13(ΥΠΑΡΧ Β)","min":11.0,"max":13.0,"rank":"ΥΠΑΡΧ Β","klimakio":6,"family":"Άγαμος","basic":1412.0,"dangerous":0.0,"special":155.0,"childrenAllowance":0.0,"total":1567.0,"excelTotal":1567.0},{"label":"11-13(ΥΠΑΡΧ Β)","min":11.0,"max":13.0,"rank":"ΥΠΑΡΧ Β","klimakio":6,"family":"Έγγαμος χωρίς παιδιά","basic":1412.0,"dangerous":0.0,"special":225.0,"childrenAllowance":0.0,"total":1637.0,"excelTotal":1637.0},{"label":"11-13(ΥΠΑΡΧ Β)","min":11.0,"max":13.0,"rank":"ΥΠΑΡΧ Β","klimakio":6,"family":"1 παιδί","basic":1412.0,"dangerous":0.0,"special":285.0,"childrenAllowance":70.0,"total":1767.0,"excelTotal":1767.0},{"label":"11-13(ΥΠΑΡΧ Β)","min":11.0,"max":13.0,"rank":"ΥΠΑΡΧ Β","klimakio":6,"family":"2 παιδιά","basic":1412.0,"dangerous":0.0,"special":285.0,"childrenAllowance":120.0,"total":1817.0,"excelTotal":1817.0},{"label":"11-13(ΥΠΑΡΧ Β)","min":11.0,"max":13.0,"rank":"ΥΠΑΡΧ Β","klimakio":6,"family":"3 παιδιά","basic":1412.0,"dangerous":0.0,"special":285.0,"childrenAllowance":170.0,"total":1867.0,"excelTotal":1867.0},{"label":"11-13(ΥΠΑΡΧ Β)","min":11.0,"max":13.0,"rank":"ΥΠΑΡΧ Β","klimakio":6,"family":"4 παιδιά","basic":1412.0,"dangerous":0.0,"special":285.0,"childrenAllowance":220.0,"total":1917.0,"excelTotal":1917.0},{"label":"13-15(ΥΠΑΡΧ Β)","min":13.0,"max":15.0,"rank":"ΥΠΑΡΧ Β","klimakio":7,"family":"Άγαμος","basic":1461.0,"dangerous":0.0,"special":155.0,"childrenAllowance":0.0,"total":1616.0,"excelTotal":1616.0},{"label":"13-15(ΥΠΑΡΧ Β)","min":13.0,"max":15.0,"rank":"ΥΠΑΡΧ Β","klimakio":7,"family":"Έγγαμος χωρίς παιδιά","basic":1461.0,"dangerous":0.0,"special":225.0,"childrenAllowance":0.0,"total":1686.0,"excelTotal":1686.0},{"label":"13-15(ΥΠΑΡΧ Β)","min":13.0,"max":15.0,"rank":"ΥΠΑΡΧ Β","klimakio":7,"family":"1 παιδί","basic":1461.0,"dangerous":0.0,"special":285.0,"childrenAllowance":70.0,"total":1816.0,"excelTotal":1816.0},{"label":"13-15(ΥΠΑΡΧ Β)","min":13.0,"max":15.0,"rank":"ΥΠΑΡΧ Β","klimakio":7,"family":"2 παιδιά","basic":1461.0,"dangerous":0.0,"special":285.0,"childrenAllowance":120.0,"total":1866.0,"excelTotal":1866.0},{"label":"13-15(ΥΠΑΡΧ Β)","min":13.0,"max":15.0,"rank":"ΥΠΑΡΧ Β","klimakio":7,"family":"3 παιδιά","basic":1461.0,"dangerous":0.0,"special":285.0,"childrenAllowance":170.0,"total":1916.0,"excelTotal":1916.0},{"label":"13-15(ΥΠΑΡΧ Β)","min":13.0,"max":15.0,"rank":"ΥΠΑΡΧ Β","klimakio":7,"family":"4 παιδιά","basic":1461.0,"dangerous":0.0,"special":285.0,"childrenAllowance":220.0,"total":1966.0,"excelTotal":1966.0},{"label":"15-17(ΥΠΑΡΧ Β)","min":15.0,"max":17.0,"rank":"ΥΠΑΡΧ Β","klimakio":8,"family":"Άγαμος","basic":1532.0,"dangerous":0.0,"special":155.0,"childrenAllowance":0.0,"total":1687.0,"excelTotal":1687.0},{"label":"15-17(ΥΠΑΡΧ Β)","min":15.0,"max":17.0,"rank":"ΥΠΑΡΧ Β","klimakio":8,"family":"Έγγαμος χωρίς παιδιά","basic":1532.0,"dangerous":0.0,"special":225.0,"childrenAllowance":0.0,"total":1757.0,"excelTotal":1757.0},{"label":"15-17(ΥΠΑΡΧ Β)","min":15.0,"max":17.0,"rank":"ΥΠΑΡΧ Β","klimakio":8,"family":"1 παιδί","basic":1532.0,"dangerous":0.0,"special":285.0,"childrenAllowance":70.0,"total":1887.0,"excelTotal":1887.0},{"label":"15-17(ΥΠΑΡΧ Β)","min":15.0,"max":17.0,"rank":"ΥΠΑΡΧ Β","klimakio":8,"family":"2 παιδιά","basic":1532.0,"dangerous":0.0,"special":285.0,"childrenAllowance":120.0,"total":1937.0,"excelTotal":1937.0},{"label":"15-17(ΥΠΑΡΧ Β)","min":15.0,"max":17.0,"rank":"ΥΠΑΡΧ Β","klimakio":8,"family":"3 παιδιά","basic":1532.0,"dangerous":0.0,"special":285.0,"childrenAllowance":170.0,"total":1987.0,"excelTotal":1987.0},{"label":"15-17(ΥΠΑΡΧ Β)","min":15.0,"max":17.0,"rank":"ΥΠΑΡΧ Β","klimakio":8,"family":"4 παιδιά","basic":1532.0,"dangerous":0.0,"special":285.0,"childrenAllowance":220.0,"total":2037.0,"excelTotal":2037.0},{"label":"17-19(ΥΠΑΡΧ Β)","min":17.0,"max":19.0,"rank":"ΥΠΑΡΧ Β","klimakio":9,"family":"Άγαμος","basic":1607.0,"dangerous":0.0,"special":155.0,"childrenAllowance":0.0,"total":1762.0,"excelTotal":1762.0},{"label":"17-19(ΥΠΑΡΧ Β)","min":17.0,"max":19.0,"rank":"ΥΠΑΡΧ Β","klimakio":9,"family":"Έγγαμος χωρίς παιδιά","basic":1607.0,"dangerous":0.0,"special":225.0,"childrenAllowance":0.0,"total":1832.0,"excelTotal":1832.0},{"label":"17-19(ΥΠΑΡΧ Β)","min":17.0,"max":19.0,"rank":"ΥΠΑΡΧ Β","klimakio":9,"family":"1 παιδί","basic":1607.0,"dangerous":0.0,"special":285.0,"childrenAllowance":70.0,"total":1962.0,"excelTotal":1962.0},{"label":"17-19(ΥΠΑΡΧ Β)","min":17.0,"max":19.0,"rank":"ΥΠΑΡΧ Β","klimakio":9,"family":"2 παιδιά","basic":1607.0,"dangerous":0.0,"special":285.0,"childrenAllowance":120.0,"total":2012.0,"excelTotal":2012.0},{"label":"17-19(ΥΠΑΡΧ Β)","min":17.0,"max":19.0,"rank":"ΥΠΑΡΧ Β","klimakio":9,"family":"3 παιδιά","basic":1607.0,"dangerous":0.0,"special":285.0,"childrenAllowance":170.0,"total":2062.0,"excelTotal":2062.0},{"label":"17-19(ΥΠΑΡΧ Β)","min":17.0,"max":19.0,"rank":"ΥΠΑΡΧ Β","klimakio":9,"family":"4 παιδιά","basic":1607.0,"dangerous":0.0,"special":285.0,"childrenAllowance":220.0,"total":2112.0,"excelTotal":2112.0},{"label":"19-20(ΥΠΑΡΧ Β)","min":19.0,"max":20.0,"rank":"ΥΠΑΡΧ Β","klimakio":10,"family":"Άγαμος","basic":1688.0,"dangerous":0.0,"special":155.0,"childrenAllowance":0.0,"total":1843.0,"excelTotal":1843.0},{"label":"19-20(ΥΠΑΡΧ Β)","min":19.0,"max":20.0,"rank":"ΥΠΑΡΧ Β","klimakio":10,"family":"Έγγαμος χωρίς παιδιά","basic":1688.0,"dangerous":0.0,"special":225.0,"childrenAllowance":0.0,"total":1913.0,"excelTotal":1913.0},{"label":"19-20(ΥΠΑΡΧ Β)","min":19.0,"max":20.0,"rank":"ΥΠΑΡΧ Β","klimakio":10,"family":"1 παιδί","basic":1688.0,"dangerous":0.0,"special":285.0,"childrenAllowance":70.0,"total":2043.0,"excelTotal":2043.0},{"label":"19-20(ΥΠΑΡΧ Β)","min":19.0,"max":20.0,"rank":"ΥΠΑΡΧ Β","klimakio":10,"family":"2 παιδιά","basic":1688.0,"dangerous":0.0,"special":285.0,"childrenAllowance":120.0,"total":2093.0,"excelTotal":2093.0},{"label":"19-20(ΥΠΑΡΧ Β)","min":19.0,"max":20.0,"rank":"ΥΠΑΡΧ Β","klimakio":10,"family":"3 παιδιά","basic":1688.0,"dangerous":0.0,"special":285.0,"childrenAllowance":170.0,"total":2143.0,"excelTotal":2143.0},{"label":"19-20(ΥΠΑΡΧ Β)","min":19.0,"max":20.0,"rank":"ΥΠΑΡΧ Β","klimakio":10,"family":"4 παιδιά","basic":1688.0,"dangerous":0.0,"special":285.0,"childrenAllowance":220.0,"total":2193.0,"excelTotal":2193.0},{"label":"20-21(ΥΠΑΡΧ Α)","min":20.0,"max":21.0,"rank":"ΥΠΑΡΧ Α","klimakio":10,"family":"Άγαμος","basic":1704.0,"dangerous":0.0,"special":180.0,"childrenAllowance":0.0,"total":1884.0,"excelTotal":1884.0},{"label":"20-21(ΥΠΑΡΧ Α)","min":20.0,"max":21.0,"rank":"ΥΠΑΡΧ Α","klimakio":10,"family":"Έγγαμος χωρίς παιδιά","basic":1704.0,"dangerous":0.0,"special":250.0,"childrenAllowance":0.0,"total":1954.0,"excelTotal":1954.0},{"label":"20-21(ΥΠΑΡΧ Α)","min":20.0,"max":21.0,"rank":"ΥΠΑΡΧ Α","klimakio":10,"family":"1 παιδί","basic":1704.0,"dangerous":0.0,"special":310.0,"childrenAllowance":70.0,"total":2084.0,"excelTotal":2084.0},{"label":"20-21(ΥΠΑΡΧ Α)","min":20.0,"max":21.0,"rank":"ΥΠΑΡΧ Α","klimakio":10,"family":"2 παιδιά","basic":1704.0,"dangerous":0.0,"special":310.0,"childrenAllowance":120.0,"total":2134.0,"excelTotal":2134.0},{"label":"20-21(ΥΠΑΡΧ Α)","min":20.0,"max":21.0,"rank":"ΥΠΑΡΧ Α","klimakio":10,"family":"3 παιδιά","basic":1704.0,"dangerous":0.0,"special":310.0,"childrenAllowance":170.0,"total":2184.0,"excelTotal":2184.0},{"label":"20-21(ΥΠΑΡΧ Α)","min":20.0,"max":21.0,"rank":"ΥΠΑΡΧ Α","klimakio":10,"family":"4 παιδιά","basic":1704.0,"dangerous":0.0,"special":310.0,"childrenAllowance":220.0,"total":2234.0,"excelTotal":2234.0},{"label":"21-23(ΥΠΑΡΧ Α)","min":21.0,"max":23.0,"rank":"ΥΠΑΡΧ Α","klimakio":11,"family":"Άγαμος","basic":1762.0,"dangerous":0.0,"special":180.0,"childrenAllowance":0.0,"total":1942.0,"excelTotal":1942.0},{"label":"21-23(ΥΠΑΡΧ Α)","min":21.0,"max":23.0,"rank":"ΥΠΑΡΧ Α","klimakio":11,"family":"Έγγαμος χωρίς παιδιά","basic":1762.0,"dangerous":0.0,"special":250.0,"childrenAllowance":0.0,"total":2012.0,"excelTotal":2012.0},{"label":"21-23(ΥΠΑΡΧ Α)","min":21.0,"max":23.0,"rank":"ΥΠΑΡΧ Α","klimakio":11,"family":"1 παιδί","basic":1762.0,"dangerous":0.0,"special":310.0,"childrenAllowance":70.0,"total":2142.0,"excelTotal":2142.0},{"label":"21-23(ΥΠΑΡΧ Α)","min":21.0,"max":23.0,"rank":"ΥΠΑΡΧ Α","klimakio":11,"family":"2 παιδιά","basic":1762.0,"dangerous":0.0,"special":310.0,"childrenAllowance":120.0,"total":2192.0,"excelTotal":2192.0},{"label":"21-23(ΥΠΑΡΧ Α)","min":21.0,"max":23.0,"rank":"ΥΠΑΡΧ Α","klimakio":11,"family":"3 παιδιά","basic":1762.0,"dangerous":0.0,"special":310.0,"childrenAllowance":170.0,"total":2242.0,"excelTotal":2242.0},{"label":"21-23(ΥΠΑΡΧ Α)","min":21.0,"max":23.0,"rank":"ΥΠΑΡΧ Α","klimakio":11,"family":"4 παιδιά","basic":1762.0,"dangerous":0.0,"special":310.0,"childrenAllowance":220.0,"total":2292.0,"excelTotal":2292.0},{"label":"23-25(ΥΠΑΡΧ Α)","min":23.0,"max":25.0,"rank":"ΥΠΑΡΧ Α","klimakio":12,"family":"Άγαμος","basic":1823.0,"dangerous":0.0,"special":180.0,"childrenAllowance":0.0,"total":2003.0,"excelTotal":2003.0},{"label":"23-25(ΥΠΑΡΧ Α)","min":23.0,"max":25.0,"rank":"ΥΠΑΡΧ Α","klimakio":12,"family":"Έγγαμος χωρίς παιδιά","basic":1823.0,"dangerous":0.0,"special":250.0,"childrenAllowance":0.0,"total":2073.0,"excelTotal":2073.0},{"label":"23-25(ΥΠΑΡΧ Α)","min":23.0,"max":25.0,"rank":"ΥΠΑΡΧ Α","klimakio":12,"family":"1 παιδί","basic":1823.0,"dangerous":0.0,"special":310.0,"childrenAllowance":70.0,"total":2203.0,"excelTotal":2203.0},{"label":"23-25(ΥΠΑΡΧ Α)","min":23.0,"max":25.0,"rank":"ΥΠΑΡΧ Α","klimakio":12,"family":"2 παιδιά","basic":1823.0,"dangerous":0.0,"special":310.0,"childrenAllowance":120.0,"total":2253.0,"excelTotal":2253.0},{"label":"23-25(ΥΠΑΡΧ Α)","min":23.0,"max":25.0,"rank":"ΥΠΑΡΧ Α","klimakio":12,"family":"3 παιδιά","basic":1823.0,"dangerous":0.0,"special":310.0,"childrenAllowance":170.0,"total":2303.0,"excelTotal":2303.0},{"label":"23-25(ΥΠΑΡΧ Α)","min":23.0,"max":25.0,"rank":"ΥΠΑΡΧ Α","klimakio":12,"family":"4 παιδιά","basic":1823.0,"dangerous":0.0,"special":310.0,"childrenAllowance":220.0,"total":2353.0,"excelTotal":2353.0},{"label":"25-27(ΥΠΑΡΧ Α)","min":25.0,"max":27.0,"rank":"ΥΠΑΡΧ Α","klimakio":13,"family":"Άγαμος","basic":1885.0,"dangerous":0.0,"special":180.0,"childrenAllowance":0.0,"total":2065.0,"excelTotal":2065.0},{"label":"25-27(ΥΠΑΡΧ Α)","min":25.0,"max":27.0,"rank":"ΥΠΑΡΧ Α","klimakio":13,"family":"Έγγαμος χωρίς παιδιά","basic":1885.0,"dangerous":0.0,"special":250.0,"childrenAllowance":0.0,"total":2135.0,"excelTotal":2135.0},{"label":"25-27(ΥΠΑΡΧ Α)","min":25.0,"max":27.0,"rank":"ΥΠΑΡΧ Α","klimakio":13,"family":"1 παιδί","basic":1885.0,"dangerous":0.0,"special":310.0,"childrenAllowance":70.0,"total":2265.0,"excelTotal":2265.0},{"label":"25-27(ΥΠΑΡΧ Α)","min":25.0,"max":27.0,"rank":"ΥΠΑΡΧ Α","klimakio":13,"family":"2 παιδιά","basic":1885.0,"dangerous":0.0,"special":310.0,"childrenAllowance":120.0,"total":2315.0,"excelTotal":2315.0},{"label":"25-27(ΥΠΑΡΧ Α)","min":25.0,"max":27.0,"rank":"ΥΠΑΡΧ Α","klimakio":13,"family":"3 παιδιά","basic":1885.0,"dangerous":0.0,"special":310.0,"childrenAllowance":170.0,"total":2365.0,"excelTotal":2365.0},{"label":"25-27(ΥΠΑΡΧ Α)","min":25.0,"max":27.0,"rank":"ΥΠΑΡΧ Α","klimakio":13,"family":"4 παιδιά","basic":1885.0,"dangerous":0.0,"special":310.0,"childrenAllowance":220.0,"total":2415.0,"excelTotal":2415.0},{"label":"27-28(ΥΠΑΡΧ Α)","min":27.0,"max":28.0,"rank":"ΥΠΑΡΧ Α","klimakio":14,"family":"Άγαμος","basic":1949.0,"dangerous":0.0,"special":180.0,"childrenAllowance":0.0,"total":2129.0,"excelTotal":2129.0},{"label":"27-28(ΥΠΑΡΧ Α)","min":27.0,"max":28.0,"rank":"ΥΠΑΡΧ Α","klimakio":14,"family":"Έγγαμος χωρίς παιδιά","basic":1949.0,"dangerous":0.0,"special":250.0,"childrenAllowance":0.0,"total":2199.0,"excelTotal":2199.0},{"label":"27-28(ΥΠΑΡΧ Α)","min":27.0,"max":28.0,"rank":"ΥΠΑΡΧ Α","klimakio":14,"family":"1 παιδί","basic":1949.0,"dangerous":0.0,"special":310.0,"childrenAllowance":70.0,"total":2329.0,"excelTotal":2329.0},{"label":"27-28(ΥΠΑΡΧ Α)","min":27.0,"max":28.0,"rank":"ΥΠΑΡΧ Α","klimakio":14,"family":"2 παιδιά","basic":1949.0,"dangerous":0.0,"special":310.0,"childrenAllowance":120.0,"total":2379.0,"excelTotal":2379.0},{"label":"27-28(ΥΠΑΡΧ Α)","min":27.0,"max":28.0,"rank":"ΥΠΑΡΧ Α","klimakio":14,"family":"3 παιδιά","basic":1949.0,"dangerous":0.0,"special":310.0,"childrenAllowance":170.0,"total":2429.0,"excelTotal":2429.0},{"label":"27-28(ΥΠΑΡΧ Α)","min":27.0,"max":28.0,"rank":"ΥΠΑΡΧ Α","klimakio":14,"family":"4 παιδιά","basic":1949.0,"dangerous":0.0,"special":310.0,"childrenAllowance":220.0,"total":2479.0,"excelTotal":2479.0},{"label":"28-29(ΑΡΧΙΦΥΛΑΚΑΣ)","min":28.0,"max":29.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":14,"family":"Άγαμος","basic":2005.0,"dangerous":0.0,"special":190.0,"childrenAllowance":0.0,"total":2195.0,"excelTotal":2195.0},{"label":"28-29(ΑΡΧΙΦΥΛΑΚΑΣ)","min":28.0,"max":29.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":14,"family":"Έγγαμος χωρίς παιδιά","basic":2005.0,"dangerous":0.0,"special":260.0,"childrenAllowance":0.0,"total":2265.0,"excelTotal":2265.0},{"label":"28-29(ΑΡΧΙΦΥΛΑΚΑΣ)","min":28.0,"max":29.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":14,"family":"1 παιδί","basic":2005.0,"dangerous":0.0,"special":320.0,"childrenAllowance":70.0,"total":2395.0,"excelTotal":2395.0},{"label":"28-29(ΑΡΧΙΦΥΛΑΚΑΣ)","min":28.0,"max":29.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":14,"family":"2 παιδιά","basic":2005.0,"dangerous":0.0,"special":320.0,"childrenAllowance":120.0,"total":2445.0,"excelTotal":2445.0},{"label":"28-29(ΑΡΧΙΦΥΛΑΚΑΣ)","min":28.0,"max":29.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":14,"family":"3 παιδιά","basic":2005.0,"dangerous":0.0,"special":320.0,"childrenAllowance":170.0,"total":2495.0,"excelTotal":2495.0},{"label":"28-29(ΑΡΧΙΦΥΛΑΚΑΣ)","min":28.0,"max":29.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":14,"family":"4 παιδιά","basic":2005.0,"dangerous":0.0,"special":320.0,"childrenAllowance":220.0,"total":2545.0,"excelTotal":2545.0},{"label":"29-31(ΑΡΧΙΦΥΛΑΚΑΣ)","min":29.0,"max":31.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":15,"family":"Άγαμος","basic":2073.0,"dangerous":0.0,"special":190.0,"childrenAllowance":0.0,"total":2263.0,"excelTotal":2263.0},{"label":"29-31(ΑΡΧΙΦΥΛΑΚΑΣ)","min":29.0,"max":31.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":15,"family":"Έγγαμος χωρίς παιδιά","basic":2073.0,"dangerous":0.0,"special":260.0,"childrenAllowance":0.0,"total":2333.0,"excelTotal":2333.0},{"label":"29-31(ΑΡΧΙΦΥΛΑΚΑΣ)","min":29.0,"max":31.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":15,"family":"1 παιδί","basic":2073.0,"dangerous":0.0,"special":320.0,"childrenAllowance":70.0,"total":2463.0,"excelTotal":2463.0},{"label":"29-31(ΑΡΧΙΦΥΛΑΚΑΣ)","min":29.0,"max":31.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":15,"family":"2 παιδιά","basic":2073.0,"dangerous":0.0,"special":320.0,"childrenAllowance":120.0,"total":2513.0,"excelTotal":2513.0},{"label":"29-31(ΑΡΧΙΦΥΛΑΚΑΣ)","min":29.0,"max":31.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":15,"family":"3 παιδιά","basic":2073.0,"dangerous":0.0,"special":320.0,"childrenAllowance":170.0,"total":2563.0,"excelTotal":2563.0},{"label":"29-31(ΑΡΧΙΦΥΛΑΚΑΣ)","min":29.0,"max":31.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":15,"family":"4 παιδιά","basic":2073.0,"dangerous":0.0,"special":320.0,"childrenAllowance":220.0,"total":2613.0,"excelTotal":2613.0},{"label":"31-33(ΑΡΧΙΦΥΛΑΚΑΣ)","min":31.0,"max":33.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":16,"family":"Άγαμος","basic":2145.0,"dangerous":0.0,"special":190.0,"childrenAllowance":0.0,"total":2335.0,"excelTotal":2335.0},{"label":"31-33(ΑΡΧΙΦΥΛΑΚΑΣ)","min":31.0,"max":33.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":16,"family":"Έγγαμος χωρίς παιδιά","basic":2145.0,"dangerous":0.0,"special":260.0,"childrenAllowance":0.0,"total":2405.0,"excelTotal":2405.0},{"label":"31-33(ΑΡΧΙΦΥΛΑΚΑΣ)","min":31.0,"max":33.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":16,"family":"1 παιδί","basic":2145.0,"dangerous":0.0,"special":320.0,"childrenAllowance":70.0,"total":2535.0,"excelTotal":2535.0},{"label":"31-33(ΑΡΧΙΦΥΛΑΚΑΣ)","min":31.0,"max":33.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":16,"family":"2 παιδιά","basic":2145.0,"dangerous":0.0,"special":320.0,"childrenAllowance":120.0,"total":2585.0,"excelTotal":2585.0},{"label":"31-33(ΑΡΧΙΦΥΛΑΚΑΣ)","min":31.0,"max":33.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":16,"family":"3 παιδιά","basic":2145.0,"dangerous":0.0,"special":320.0,"childrenAllowance":170.0,"total":2635.0,"excelTotal":2635.0},{"label":"31-33(ΑΡΧΙΦΥΛΑΚΑΣ)","min":31.0,"max":33.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":16,"family":"4 παιδιά","basic":2145.0,"dangerous":0.0,"special":320.0,"childrenAllowance":220.0,"total":2685.0,"excelTotal":2685.0},{"label":"33-35(ΑΡΧΙΦΥΛΑΚΑΣ)","min":33.0,"max":35.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":17,"family":"Άγαμος","basic":2219.0,"dangerous":0.0,"special":190.0,"childrenAllowance":0.0,"total":2409.0,"excelTotal":2409.0},{"label":"33-35(ΑΡΧΙΦΥΛΑΚΑΣ)","min":33.0,"max":35.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":17,"family":"Έγγαμος χωρίς παιδιά","basic":2219.0,"dangerous":0.0,"special":260.0,"childrenAllowance":0.0,"total":2479.0,"excelTotal":2479.0},{"label":"33-35(ΑΡΧΙΦΥΛΑΚΑΣ)","min":33.0,"max":35.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":17,"family":"1 παιδί","basic":2219.0,"dangerous":0.0,"special":320.0,"childrenAllowance":70.0,"total":2609.0,"excelTotal":2609.0},{"label":"33-35(ΑΡΧΙΦΥΛΑΚΑΣ)","min":33.0,"max":35.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":17,"family":"2 παιδιά","basic":2219.0,"dangerous":0.0,"special":320.0,"childrenAllowance":120.0,"total":2659.0,"excelTotal":2659.0},{"label":"33-35(ΑΡΧΙΦΥΛΑΚΑΣ)","min":33.0,"max":35.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":17,"family":"3 παιδιά","basic":2219.0,"dangerous":0.0,"special":320.0,"childrenAllowance":170.0,"total":2709.0,"excelTotal":2709.0},{"label":"33-35(ΑΡΧΙΦΥΛΑΚΑΣ)","min":33.0,"max":35.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":17,"family":"4 παιδιά","basic":2219.0,"dangerous":0.0,"special":320.0,"childrenAllowance":220.0,"total":2759.0,"excelTotal":2759.0},{"label":"35-37(ΑΡΧΙΦΥΛΑΚΑΣ)","min":35.0,"max":37.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":18,"family":"Άγαμος","basic":2294.0,"dangerous":0.0,"special":190.0,"childrenAllowance":0.0,"total":2484.0,"excelTotal":2484.0},{"label":"35-37(ΑΡΧΙΦΥΛΑΚΑΣ)","min":35.0,"max":37.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":18,"family":"Έγγαμος χωρίς παιδιά","basic":2294.0,"dangerous":0.0,"special":260.0,"childrenAllowance":0.0,"total":2554.0,"excelTotal":2554.0},{"label":"35-37(ΑΡΧΙΦΥΛΑΚΑΣ)","min":35.0,"max":37.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":18,"family":"1 παιδί","basic":2294.0,"dangerous":0.0,"special":320.0,"childrenAllowance":70.0,"total":2684.0,"excelTotal":2684.0},{"label":"35-37(ΑΡΧΙΦΥΛΑΚΑΣ)","min":35.0,"max":37.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":18,"family":"2 παιδιά","basic":2294.0,"dangerous":0.0,"special":320.0,"childrenAllowance":120.0,"total":2734.0,"excelTotal":2734.0},{"label":"35-37(ΑΡΧΙΦΥΛΑΚΑΣ)","min":35.0,"max":37.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":18,"family":"3 παιδιά","basic":2294.0,"dangerous":0.0,"special":320.0,"childrenAllowance":170.0,"total":2784.0,"excelTotal":2784.0},{"label":"35-37(ΑΡΧΙΦΥΛΑΚΑΣ)","min":35.0,"max":37.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":18,"family":"4 παιδιά","basic":2294.0,"dangerous":0.0,"special":320.0,"childrenAllowance":220.0,"total":2834.0,"excelTotal":2834.0},{"label":"37-39(ΑΡΧΙΦΥΛΑΚΑΣ)","min":37.0,"max":39.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":19,"family":"Άγαμος","basic":2339.0,"dangerous":0.0,"special":190.0,"childrenAllowance":0.0,"total":2529.0,"excelTotal":2529.0},{"label":"37-39(ΑΡΧΙΦΥΛΑΚΑΣ)","min":37.0,"max":39.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":19,"family":"Έγγαμος χωρίς παιδιά","basic":2339.0,"dangerous":0.0,"special":260.0,"childrenAllowance":0.0,"total":2599.0,"excelTotal":2599.0},{"label":"37-39(ΑΡΧΙΦΥΛΑΚΑΣ)","min":37.0,"max":39.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":19,"family":"1 παιδί","basic":2339.0,"dangerous":0.0,"special":320.0,"childrenAllowance":70.0,"total":2729.0,"excelTotal":2729.0},{"label":"37-39(ΑΡΧΙΦΥΛΑΚΑΣ)","min":37.0,"max":39.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":19,"family":"2 παιδιά","basic":2339.0,"dangerous":0.0,"special":320.0,"childrenAllowance":120.0,"total":2779.0,"excelTotal":2779.0},{"label":"37-39(ΑΡΧΙΦΥΛΑΚΑΣ)","min":37.0,"max":39.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":19,"family":"3 παιδιά","basic":2339.0,"dangerous":0.0,"special":320.0,"childrenAllowance":170.0,"total":2829.0,"excelTotal":2829.0},{"label":"37-39(ΑΡΧΙΦΥΛΑΚΑΣ)","min":37.0,"max":39.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":19,"family":"4 παιδιά","basic":2339.0,"dangerous":0.0,"special":320.0,"childrenAllowance":220.0,"total":2879.0,"excelTotal":2879.0},{"label":"39-40+(ΑΡΧΙΦΥΛΑΚΑΣ)","min":39.0,"max":99.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":20,"family":"Άγαμος","basic":2385.0,"dangerous":0.0,"special":190.0,"childrenAllowance":0.0,"total":2575.0,"excelTotal":2575.0},{"label":"39-40+(ΑΡΧΙΦΥΛΑΚΑΣ)","min":39.0,"max":99.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":20,"family":"Έγγαμος χωρίς παιδιά","basic":2385.0,"dangerous":0.0,"special":260.0,"childrenAllowance":0.0,"total":2645.0,"excelTotal":2645.0},{"label":"39-40+(ΑΡΧΙΦΥΛΑΚΑΣ)","min":39.0,"max":99.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":20,"family":"1 παιδί","basic":2385.0,"dangerous":0.0,"special":320.0,"childrenAllowance":70.0,"total":2775.0,"excelTotal":2775.0},{"label":"39-40+(ΑΡΧΙΦΥΛΑΚΑΣ)","min":39.0,"max":99.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":20,"family":"2 παιδιά","basic":2385.0,"dangerous":0.0,"special":320.0,"childrenAllowance":120.0,"total":2825.0,"excelTotal":2825.0},{"label":"39-40+(ΑΡΧΙΦΥΛΑΚΑΣ)","min":39.0,"max":99.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":20,"family":"3 παιδιά","basic":2385.0,"dangerous":0.0,"special":320.0,"childrenAllowance":170.0,"total":2875.0,"excelTotal":2875.0},{"label":"39-40+(ΑΡΧΙΦΥΛΑΚΑΣ)","min":39.0,"max":99.0,"rank":"ΑΡΧΙΦΥΛΑΚΑΣ","klimakio":20,"family":"4 παιδιά","basic":2385.0,"dangerous":0.0,"special":320.0,"childrenAllowance":220.0,"total":2925.0,"excelTotal":2925.0}];
+const replacementRates = {"15": 11.55, "16": 12.39, "17": 13.23, "18": 14.07, "19": 14.97, "20": 15.87, "21": 16.77, "22": 17.73, "23": 18.69, "24": 19.65, "25": 20.68, "26": 21.71, "27": 22.74, "28": 23.95, "29": 25.16, "30": 26.37, "31": 28.35, "32": 30.33, "33": 32.31, "34": 34.81, "35": 37.31, "36": 39.81, "37": 42.36, "38": 44.91, "39": 47.46, "40": 50.01};
 
-  <script src="./data.js?v=43"></script>
-  <script src="./app.js?v=43"></script>
+function el(id){return document.getElementById(id);}
+function num(id){return parseFloat(el(id).value)||0;}
+function d(id){return new Date(el(id).value+'T00:00:00');}
+function euro(v){return (v||0).toLocaleString('el-GR',{style:'currency',currency:'EUR'});}
+function fmtDate(x){if(!x||isNaN(x.getTime())) return '—'; return x.toLocaleDateString('el-GR');}
+function setToday(){const t=new Date(); el('targetDate').value=t.toISOString().slice(0,10);}
+function yearsBetween(a,b){return Math.max(0,(b-a)/(365.2425*24*3600*1000));}
+function addYears(date,years){let d=new Date(date); d.setFullYear(d.getFullYear()+years); return d;}
+function addYearsFloat(date,years){return new Date(date.getTime()+years*365.2425*24*3600*1000);}
+function yMonths(y){let yy=Math.floor(y); let mm=Math.round((y-yy)*12); if(mm===12){yy++;mm=0;} return yy+' έτη και '+mm+' μήνες';}
+function matchFamily(family, data){return data.filter(x=>x.family===family);}
+function findScale(serviceYears,family,data){
+ const arr=matchFamily(family,data);
+ let found=arr.find(x=>serviceYears>=x.min && serviceYears<x.max);
+ if(!found) found=arr[arr.length-1] || data[0];
+ return found;
+}
+function rateFor(years){
+ let y=Math.min(40,Math.max(15,years));
+ let lo=Math.floor(y), hi=Math.ceil(y);
+ if(lo===hi) return replacementRates[lo] || 0;
+ let rlo=replacementRates[lo] || replacementRates[15], rhi=replacementRates[hi] || replacementRates[40];
+ return rlo + (rhi-rlo)*(y-lo);
+}
+function monthsBetweenInclusive(start,end){
+ let months=[]; let cur=new Date(start.getFullYear(),start.getMonth(),1); let stop=new Date(end.getFullYear(),end.getMonth(),1);
+ while(cur<=stop){ months.push(new Date(cur)); cur.setMonth(cur.getMonth()+1); }
+ return months;
+}
+function sourceForMonth(month,proposalDate){return month < new Date(proposalDate.getFullYear(),proposalDate.getMonth(),1) ? 'old' : 'new';}
+function sourceName(src){return src==='old' ? '1ο φύλλο Excel' : '2ο φύλλο - Πρόταση Οικονομικών';}
+function familyDisplay(f){
+ return {'Άγαμος':'Άγαμος','Έγγαμος χωρίς παιδιά':'Έγγαμος','1 παιδί':'Έγγαμος με 1 τέκνο','2 παιδιά':'Έγγαμος με 2 τέκνα','3 παιδιά':'Έγγαμος με 3 τέκνα','4 παιδιά':'Έγγαμος με 4+ τέκνα'}[f] || f;
+}
+
+function optionalDate(id){
+ const node=el(id); if(!node || !node.value) return null;
+ const dt=new Date(node.value+'T00:00:00');
+ return Number.isNaN(dt.getTime()) ? null : dt;
+}
+function monthStart(dt){return new Date(dt.getFullYear(), dt.getMonth(), 1);}
+function getFamilyHistory(){
+ return {marriage:optionalDate('marriageDate'), child1:optionalDate('child1Date'), child2:optionalDate('child2Date'), child3:optionalDate('child3Date'), child4:optionalDate('child4Date')};
+}
+function hasFamilyHistory(h){return !!(h && (h.marriage||h.child1||h.child2||h.child3||h.child4));}
+function familyAtDate(date, fallbackFamily, hist){
+ if(!hasFamilyHistory(hist)) return fallbackFamily || 'Άγαμος';
+ const m=monthStart(date);
+ let fam='Άγαμος';
+ if(hist.marriage && m>=monthStart(hist.marriage)) fam='Έγγαμος χωρίς παιδιά';
+ let kids=0;
+ ['child1','child2','child3','child4'].forEach(k=>{ if(hist[k] && m>=monthStart(hist[k])) kids++; });
+ if(kids>=1) fam = kids===1 ? '1 παιδί' : (kids===2 ? '2 παιδιά' : (kids===3 ? '3 παιδιά' : '4 παιδιά'));
+ return fam;
+}
+function currentFamilyByInputs(){
+ const fallback=el('family') ? el('family').value : '1 παιδί';
+ const target=el('targetDate') && el('targetDate').value ? d('targetDate') : new Date();
+ return familyAtDate(target, fallback, getFamilyHistory());
+}
+
+function payTableHtml(data,title,subtitle,family,sheetType){
+ // Οι πίνακες εμφανίζουν ΟΛΕΣ τις οικογενειακές καταστάσεις όπως υπάρχουν στο Excel.
+ // Η επιλεγμένη οικογενειακή κατάσταση επισημαίνεται με χρώμα και μόνο αυτή χρησιμοποιείται στον υπολογισμό.
+ const rows=data;
+ const isOld=sheetType==='old';
+ const trs=rows.map(x=>{
+   const dangerous=x.dangerous||0;
+   const special=x.special||0;
+   const child=x.childrenAllowance||0;
+   const total=x.total || ((x.basic||0)+dangerous+special+child);
+   const cls = x.family===family ? ' class="selectedRow"' : '';
+   if(isOld){
+     return `<tr${cls}><td>${x.klimakio}</td><td>${x.label}</td><td>${familyDisplay(x.family)}</td><td>${euro(x.basic)}</td><td>${euro(dangerous)}</td><td>${euro(special)}</td><td>${euro(child)}</td><td><b>${euro(total)}</b></td></tr>`;
+   }
+   return `<tr${cls}><td>${x.klimakio}</td><td>${x.label}</td><td>${x.rank||'—'}</td><td>${familyDisplay(x.family)}</td><td>${euro(x.basic)}</td><td>${euro(special)}</td><td>${euro(child)}</td><td><b>${euro(total)}</b></td></tr>`;
+ }).join('');
+ const head=isOld
+   ? `<tr><th>Κλιμάκιο</th><th>Έτη υπηρεσίας</th><th>Οικογενειακή κατάσταση</th><th>Βασικός</th><th>Επικίνδυνο / ανθυγιεινό</th><th>Ειδικών συνθηκών</th><th>Οικογενειακή παροχή</th><th>Συντάξιμες αποδοχές</th></tr>`
+   : `<tr><th>Κλιμάκιο</th><th>Έτη υπηρεσίας</th><th>Βαθμός</th><th>Οικογενειακή κατάσταση</th><th>Βασικός</th><th>Ειδικών καθηκόντων</th><th>Οικογενειακή παροχή</th><th>Συντάξιμες αποδοχές</th></tr>`;
+ return `<div class="sheetTitle"><h3>${title}</h3><span class="pill">${subtitle}</span></div>
+ <div class="tableScroll"><table>${head}${trs}</table></div>`;
+}
+function renderExcelTables(){
+ const box=el('excelTables'); if(!box) return;
+ const family=el('family') ? currentFamilyByInputs() : '1 παιδί';
+ box.innerHTML=`<div class="info"><b>Οικογενειακή κατάσταση στην ημερομηνία αίτησης:</b> ${familyDisplay(family)}<br>Οι πίνακες εμφανίζουν <b>όλες τις οικογενειακές καταστάσεις όπως ακριβώς στο Excel</b> (Άγαμος, Έγγαμος, 1/2/3/4+ τέκνα). Η κατηγορία που προκύπτει από το ιστορικό γάμου/τέκνων στην ημερομηνία αίτησης επισημαίνεται με χρώμα. Στον μέσο συντάξιμο μισθό χρησιμοποιείται κάθε μήνα η αντίστοιχη οικογενειακή κατάσταση από τη στήλη <b>Συντάξιμες αποδοχές</b>.</div>`+
+  payTableHtml(oldPayData,'1ο φύλλο Excel','Βασικός + επικίνδυνο/ανθυγιεινό + ειδικών συνθηκών + οικογενειακή παροχή',family,'old')+
+  payTableHtml(newPayData,'2ο φύλλο Excel - Πρόταση Οικονομικών','Βασικός + ειδικών καθηκόντων ανά βαθμό/τέκνα + οικογενειακή παροχή',family,'new');
+}
+function toggleExcelTables(){
+ const p=el('excelPanel'); if(!p) return;
+ p.classList.toggle('show');
+ if(p.classList.contains('show')) renderExcelTables();
+}
+function autoAverageSalary(appoint,target,fallbackFamily,proposalDate,familyHistory){
+ const start=new Date(Math.max(new Date('2002-01-01T00:00:00').getTime(), appoint.getTime()));
+ if(target<start){let sc=findScale(0,familyAtDate(target,fallbackFamily,familyHistory),oldPayData);return {avg:sc.total,months:0,oldMonths:0,newMonths:0};}
+ const months=monthsBetweenInclusive(start,target); let sum=0,count=0, oldMonths=0, newMonths=0;
+ for(const m of months){
+   const y=yearsBetween(appoint,m);
+   const src=sourceForMonth(m,proposalDate);
+   const fam=familyAtDate(m,fallbackFamily,familyHistory);
+   const sc=findScale(y,fam,src==='old'?oldPayData:newPayData);
+   sum += sc.total; count++;
+   if(src==='old') oldMonths++; else newMonths++;
+ }
+ return {avg: count ? sum/count : 0, months: count, oldMonths, newMonths};
+}
+function yearlySalaryRows(appoint,target,fallbackFamily,proposalDate,familyHistory){
+ let startYear=Math.max(2002, appoint.getFullYear()); let endYear=target.getFullYear(); let rows=[];
+ for(let y=startYear;y<=endYear;y++){
+   let sample=new Date(y,6,1); if(sample<appoint) sample=new Date(appoint); if(sample>target) sample=new Date(target);
+   let yrs=yearsBetween(appoint,sample);
+   let src=sourceForMonth(sample,proposalDate);
+   let fam=familyAtDate(sample, fallbackFamily, familyHistory);
+   let sc=findScale(yrs,fam,src==='old'?oldPayData:newPayData);
+   const allowanceName=src==='old' ? 'Επικίνδυνο/ανθυγιεινό + Ειδικών συνθηκών' : 'Ειδικών καθηκόντων';
+   const allowance=src==='old' ? ((sc.dangerous||0)+(sc.special||0)) : (sc.special||0);
+   const total=sc.total || ((sc.basic||0)+allowance+(sc.childrenAllowance||0));
+   rows.push({year:y, service:yrs, source:sourceName(src), family:fam, klimakio:sc.klimakio, label:sc.label, basic:sc.basic, allowanceName, allowance, childrenAllowance:sc.childrenAllowance||0, total});
+ }
+ return rows;
+}
+function totalAtDate(date, ctx){
+ const real=yearsBetween(ctx.appoint,date)+ctx.otherYears;
+ const age=yearsBetween(ctx.birth,date);
+ const baseWithPlastic=real + ctx.plasticYears;
+ // Στο παλιό καθεστώς δεν υπάρχει μάχιμη πενταετία.
+ // Η μάχιμη εφαρμόζεται μόνο στο νέο καθεστώς και μόνο αν υπάρχουν
+ // πάνω από 35 συνολικά έτη μαζί με πλασματικά ή ηλικία πάνω από 60 ετών.
+ const isNewRegime = ctx.regime === 'new';
+ const machimiAllowed = isNewRegime && (baseWithPlastic>=35 || age>=60);
+ const activeMachimi = machimiAllowed ? ctx.machimi : 0;
+ const requested = activeMachimi + ctx.plasticYears;
+ const usedRecognitions = Math.min(12, requested);
+ return {real,age,baseWithPlastic,machimiAllowed,activeMachimi,usedRecognitions,totalRaw:real+usedRecognitions,total:Math.min(40,real+usedRecognitions)};
+}
+function findReachGoalDate(ctx, goal){
+ let start=new Date(ctx.appoint), end=addYears(ctx.birth,67);
+ if(totalAtDate(start,ctx).totalRaw>=goal) return start;
+ if(totalAtDate(end,ctx).totalRaw<goal) return null;
+ let lo=start.getTime(), hi=end.getTime();
+ for(let i=0;i<50;i++){let mid=new Date((lo+hi)/2); if(totalAtDate(mid,ctx).totalRaw>=goal) hi=mid.getTime(); else lo=mid.getTime();}
+ return new Date(hi);
+}
+function findEligibilityDate(ctx, regime){
+ let start=new Date(ctx.appoint), end=addYears(ctx.birth,67);
+ const ok=(dt)=>{const t=totalAtDate(dt,ctx); return regime==='old' ? (t.totalRaw>=37 || t.age>=60) : (t.totalRaw>=40);};
+ if(ok(start)) return start;
+ if(!ok(end)) return null;
+ let lo=start.getTime(), hi=end.getTime();
+ for(let i=0;i<50;i++){let mid=new Date((lo+hi)/2); if(ok(mid)) hi=mid.getTime(); else lo=mid.getTime();}
+ return new Date(hi);
+}
+
+function computeScenario(ctx, regime, target, age, avg){
+ const sctx={...ctx, regime};
+ const t=totalAtDate(target,sctx);
+ const r=rateFor(t.total);
+ const national=436;
+ const contributory=avg*r/100;
+ const mainGross=national+contributory;
+ const mainNetLow=(mainGross*0.94)*0.90;
+ const mainNetHigh=(mainGross*0.94)*0.95;
+ const epikLow=180, epikHigh=280, mtpyLow=80, mtpyHigh=150;
+ const totalNetLow=mainNetLow+epikLow+mtpyLow;
+ const totalNetHigh=mainNetHigh+epikHigh+mtpyHigh;
+ const eligible = regime==='old' ? (t.totalRaw>=37 || age>=60) : (t.totalRaw>=40);
+ const date = findEligibilityDate(sctx, regime);
+ return {regime, t, r, national, contributory, mainGross, mainNetLow, mainNetHigh, epikLow, epikHigh, mtpyLow, mtpyHigh, totalNetLow, totalNetHigh, eligible, date};
+}
+
+function calc(){
+ const birth=d('birthDate'), appoint=d('appointDate'), target=d('targetDate'), proposalDate=d('proposalDate');
+ if(!birth.getTime()||!appoint.getTime()||!target.getTime()||!proposalDate.getTime()){el('out').innerHTML='<div class="danger">Συμπλήρωσε σωστά τις ημερομηνίες.</div>';return;}
+ const selectedFamily=el('family').value;
+ const familyHistory=getFamilyHistory();
+ const family=familyAtDate(target, selectedFamily, familyHistory);
+ const pensionRegime=el('pensionRegime').value;
+ const otherDays=num('otherDays'); const otherYears=otherDays/300;
+ const yefkkYears=yearsBetween(appoint,target); const realTarget=yefkkYears+otherYears; const age=yearsBetween(birth,target);
+ const machimi=num('machimi'); const machimiCost=num('machimiCost');
+ const plasticMonths=num('childMonths')+num('studyMonths')+num('armyMonths')+num('educationMonths')+num('gapStrikeMonths')+num('otherPlasticMonths');
+ const plasticYears=plasticMonths/12; const plasPercent=num('plasPercent')/100;
+ const ctx={birth,appoint,otherYears,machimi,plasticYears,regime:pensionRegime};
+ const atTarget=totalAtDate(target,ctx); const total=atTarget.total; const totalRaw=atTarget.totalRaw;
+ const activeMachimi=atTarget.activeMachimi; const usedRecognitions=atTarget.usedRecognitions; const usedPlastic=Math.max(0, usedRecognitions-activeMachimi);
+ const r=rateFor(total);
+ let percentBar=0; // ορίζεται μετά την επιλογή καθεστώτος
+ const currentSrc = sourceForMonth(target, proposalDate); const currentScale=findScale(yefkkYears,family,currentSrc==='old'?oldPayData:newPayData);
+ const currentAllowanceName=currentSrc==='old' ? 'Επικίνδυνο/ανθυγιεινό + Ειδικών συνθηκών' : 'Ειδικών καθηκόντων';
+ const currentAllowanceAmount=currentSrc==='old' ? ((currentScale.dangerous||0)+(currentScale.special||0)) : (currentScale.special||0);
+ const avgObj=autoAverageSalary(appoint,target,selectedFamily,proposalDate,familyHistory); const avg=avgObj.avg;
+ const oldScenario=computeScenario({...ctx, regime:'old'}, 'old', target, age, avg);
+ const newScenario=computeScenario({...ctx, regime:'new'}, 'new', target, age, avg);
+ const national=436; const contributory=avg*r/100; const mainGross=national+contributory;
+ const mainNetLow=(mainGross*0.94)*0.90; const mainNetHigh=(mainGross*0.94)*0.95;
+ const epikLow=180, epikHigh=280, mtpyLow=80, mtpyHigh=150; const totalNetLow=mainNetLow+epikLow+mtpyLow; const totalNetHigh=mainNetHigh+epikHigh+mtpyHigh;
+ const machimiTotal=activeMachimi*12*machimiCost; const plasticTotal=usedPlastic*12*currentScale.total*plasPercent;
+ const d60=addYears(birth,60);
+ const d35=addYearsFloat(appoint, Math.max(0,35-otherYears-plasticYears));
+ const d37=findReachGoalDate(ctx,37); const d40=findReachGoalDate(ctx,40); const d40real=addYearsFloat(appoint, Math.max(0,40-otherYears));
+ const activationDate = d35 < d60 ? d35 : d60;
+ const regimeName = pensionRegime==='old' ? 'Α. Παλιό καθεστώς' : 'Β. Νέο καθεστώς';
+ const regimeRule = pensionRegime==='old' ? 'Στόχος εξόδου: 37 συνολικά έτη ή 60 ετών, χωρίς μάχιμη πενταετία' : 'Στόχος/ταβάνι: 40 συνολικά έτη με δυνατότητα μάχιμης πενταετίας';
+ const regimeGoal = pensionRegime==='old' ? 37 : 40;
+ percentBar=(Math.min(totalRaw,regimeGoal)/regimeGoal)*100;
+ const oldYearsBar=Math.min(100,(Math.min(totalRaw,37)/37)*100);
+ const oldAgeBar=Math.min(100,(Math.min(age,60)/60)*100);
+ const progressHtml = pensionRegime==='old'
+  ? `<b>Πρόοδος καθεστώτος Α</b><div class="stackBars">
+      <div>
+        <div><span class="big">${Math.min(totalRaw,37).toFixed(1)}</span> / 37</div>
+        <div class="bar"><div style="width:${oldYearsBar}%"></div></div>
+        <div class="barLabel"><span>37+ συνολικά έτη</span><span>εργασιακά + πλασματικά</span></div>
+      </div>
+      <div>
+        <div><span class="big">${Math.min(age,60).toFixed(1)}</span> / 60</div>
+        <div class="bar"><div style="width:${oldAgeBar}%"></div></div>
+        <div class="barLabel"><span>60ό έτος ηλικίας</span><span>ηλικιακό κριτήριο</span></div>
+      </div>
+    </div><span class="muted">Το παλιό καθεστώς θεμελιώνεται με 37 συνολικά έτη ή με ηλικία 60 ετών.</span>`
+  : `<b>Πρόοδος καθεστώτος Β</b><span class="big">${Math.min(totalRaw,regimeGoal).toFixed(1)}</span> / ${regimeGoal}<div class="bar"><div style="width:${Math.min(100,percentBar)}%"></div></div><span class="muted">${regimeName} · στόχος 40 συνολικά έτη</span>`;
+ const eligible = pensionRegime==='old' ? (totalRaw>=37 || age>=60) : (totalRaw>=40);
+ const eligibilityDate = findEligibilityDate(ctx,pensionRegime);
+ const needYears=Math.max(0,regimeGoal-totalRaw); const needAge60=Math.max(0,60-age);
+ const status = eligible
+  ? `Πληροίτε τις προϋποθέσεις του επιλεγμένου καθεστώτος: ${regimeRule}.`
+  : (pensionRegime==='old'
+     ? `Δεν πληροίτε ακόμη το παλιό καθεστώς. Υπολείπονται ${yMonths(needYears)} για να συμπληρωθούν 37 συνολικά έτη ή ${yMonths(needAge60)} για τη συμπλήρωση του 60ού έτους ηλικίας.`
+     : `Υπολείπονται ${yMonths(needYears)} για τα 40 συνολικά έτη.`);
+ const machimiMsg = pensionRegime==='old' ? `Στο παλιό καθεστώς η μάχιμη πενταετία δεν λαμβάνεται υπόψη στον υπολογισμό.` : (atTarget.machimiAllowed ? `Η μάχιμη πενταετία ενεργοποιείται στο νέο καθεστώς, γιατί υπάρχουν ${(realTarget+plasticYears).toFixed(1)} συνολικά έτη μαζί με πλασματικά ή ηλικία ${age.toFixed(1)}.` : `Η μάχιμη πενταετία δεν ενεργοποιείται ακόμη στο νέο καθεστώς: απαιτούνται πάνω από 35 συνολικά έτη μαζί με πλασματικά ή ηλικία 60 ετών.`);
+ const requestedRecognitions = (pensionRegime==='new' ? machimi : 0) + plasticYears;
+ const capWarn = requestedRecognitions>12 ? '<div class="danger"><b>Προσοχή:</b> Οι αναγνωρίσεις που δηλώθηκαν ξεπερνούν το όριο των 12 ετών. Η εφαρμογή υπολογίζει μέχρι το επιτρεπόμενο όριο.</div>' : '';
+ const yrRows=yearlySalaryRows(appoint,target,selectedFamily,proposalDate,familyHistory);
+ const salaryTable=yrRows.map(x=>`<tr><td>${x.year}</td><td>${x.source}</td><td>${x.service.toFixed(2)} έτη</td><td>${familyDisplay(x.family)}</td><td>${x.klimakio}</td><td>${x.label}</td><td>${euro(x.basic)}</td><td>${x.allowanceName}: ${euro(x.allowance)}</td><td>${euro(x.childrenAllowance)}</td><td>${euro(x.total)}</td></tr>`).join('');
+ el('out').innerHTML=`
+ <div class="results">
+  <div class="box"><b>Καθεστώς</b><span class="big">${pensionRegime==='old' ? 'Α' : 'Β'}</span><br><span class="muted">${regimeRule}</span></div>
+  <div class="box"><b>Ηλικία</b><span class="big">${age.toFixed(1)}</span> ετών</div>
+  <div class="box"><b>Υπηρεσία ΥΕΦΚΚ</b><span class="big">${yefkkYears.toFixed(1)}</span> έτη</div>
+  <div class="box"><b>Άλλα ταμεία</b><span class="big">${otherYears.toFixed(2)}</span> έτη<br><span class="muted">${otherDays.toFixed(0)} ημέρες</span></div>
+  <div class="box"><b>Πλασματικά</b><span class="big">${plasticYears.toFixed(2)}</span> έτη<br><span class="muted">${plasticMonths} μήνες δηλωμένοι</span></div>
+  <div class="box"><b>Μάχιμη</b><span class="big">${activeMachimi.toFixed(1)}</span> έτη<br><span class="muted">${pensionRegime==='old' ? 'δεν ισχύει στο παλιό καθεστώς' : (atTarget.machimiAllowed ? 'ενεργή' : 'δεν ενεργοποιείται ακόμη')} · δηλωμένα ${machimi}</span></div>
+  <div class="box"><b>Αναγνωρίσεις</b><span class="big">${usedRecognitions.toFixed(2)}</span> έτη<br><span class="muted">${pensionRegime==='old' ? 'μόνο πλασματικά · χωρίς μάχιμη' : 'πλασματικά + μάχιμη, όριο 12'}</span></div>
+  <div class="box">${progressHtml}</div>
+  <div class="box"><b>Συντάξιμα για αναπλήρωση</b><span class="big">${total.toFixed(1)}</span> / 40<br><span class="muted">ανώτατο ποσοστό στα 40</span></div>
+  <div class="box"><b>Ποσοστό αναπλήρωσης</b><span class="big">${r.toFixed(2)}%</span></div>
+  <div class="box"><b>Τρέχον κλιμάκιο</b><span class="big">${currentScale.klimakio}</span><br><span class="muted">${currentScale.label} · ${sourceName(currentSrc)}</span></div>
+  <div class="box"><b>Τρέχων βασικός</b><span class="big">${euro(currentScale.basic)}</span><br><span class="muted">Συντάξιμες αποδοχές: ${euro(currentScale.total)}</span></div>
+  <div class="box"><b>Οικογενειακή κατάσταση αίτησης</b><span class="big" style="font-size:18px">${familyDisplay(family)}</span><br><span class="muted">σύμφωνα με το ιστορικό</span></div>
+  <div class="box"><b>Μέσος συντάξιμος μισθός</b><span class="big">${euro(avg)}</span><br><span class="muted">01/01/2002 έως μήνα αίτησης / υπολογισμού</span></div>
+  <div class="box"><b>Ανταποδοτική</b><span class="big">${euro(contributory)}</span><br><span class="muted">${euro(avg)} × ${r.toFixed(2)}%</span></div>
+  <div class="box strongGreen"><b>Κύρια μικτή σύνταξη</b><span class="big">${euro(mainGross)}</span><br><span class="muted">Εθνική + ανταποδοτική</span></div>
+ </div>
+ <div class="compareGrid">
+   <div class="compareCard">
+     <div class="compareTop"><h3>Α. Παλιό καθεστώς</h3><span class="compareBadge">Σύγκριση</span></div>
+     <div class="compareRule">37 συνολικά έτη ή 60 ηλικιακά · χωρίς μάχιμη πενταετία</div>
+     <div class="compareMetric"><span>Συντάξιμα έτη</span><span>${oldScenario.t.totalRaw.toFixed(2)} έτη</span></div>
+     <div class="compareMetric"><span>Ποσοστό αναπλήρωσης</span><span>${oldScenario.r.toFixed(2)}%</span></div>
+     <div class="compareMetric"><span>Εθνική σύνταξη</span><span>${euro(oldScenario.national)}</span></div>
+     <div class="compareMetric"><span>Ανταποδοτική σύνταξη</span><span>${euro(oldScenario.contributory)}</span></div>
+     <div class="compareMetric"><span>Κύρια μικτή σύνταξη</span><span>${euro(oldScenario.mainGross)}</span></div>
+     <div class="compareMetric"><span>Επικουρικό περίπου</span><span>${euro(oldScenario.epikLow)} - ${euro(oldScenario.epikHigh)}</span></div>
+     <div class="compareMetric"><span>ΜΤΠΥ περίπου</span><span>${euro(oldScenario.mtpyLow)} - ${euro(oldScenario.mtpyHigh)}</span></div>
+     <div class="compareMetric"><span>Σύνολο καθαρά περίπου</span><span>${euro(oldScenario.totalNetLow)} - ${euro(oldScenario.totalNetHigh)}</span></div>
+     <div class="compareMetric"><span>Πρώτη πιθανή έξοδος</span><span>${fmtDate(oldScenario.date)}</span></div>
+   </div>
+   <div class="compareCard">
+     <div class="compareTop"><h3>Β. Νέο καθεστώς</h3><span class="compareBadge">Σύγκριση</span></div>
+     <div class="compareRule">Ταβάνι 40 συνολικά έτη · με δυνατότητα μάχιμης πενταετίας</div>
+     <div class="compareMetric"><span>Συντάξιμα έτη</span><span>${newScenario.t.totalRaw.toFixed(2)} έτη</span></div>
+     <div class="compareMetric"><span>Ποσοστό αναπλήρωσης</span><span>${newScenario.r.toFixed(2)}%</span></div>
+     <div class="compareMetric"><span>Εθνική σύνταξη</span><span>${euro(newScenario.national)}</span></div>
+     <div class="compareMetric"><span>Ανταποδοτική σύνταξη</span><span>${euro(newScenario.contributory)}</span></div>
+     <div class="compareMetric"><span>Κύρια μικτή σύνταξη</span><span>${euro(newScenario.mainGross)}</span></div>
+     <div class="compareMetric"><span>Επικουρικό περίπου</span><span>${euro(newScenario.epikLow)} - ${euro(newScenario.epikHigh)}</span></div>
+     <div class="compareMetric"><span>ΜΤΠΥ περίπου</span><span>${euro(newScenario.mtpyLow)} - ${euro(newScenario.mtpyHigh)}</span></div>
+     <div class="compareMetric"><span>Σύνολο καθαρά περίπου</span><span>${euro(newScenario.totalNetLow)} - ${euro(newScenario.totalNetHigh)}</span></div>
+     <div class="compareMetric"><span>Πρώτη πιθανή έξοδος</span><span>${fmtDate(newScenario.date)}</span></div>
+   </div>
+ </div>
+ <div class="ok"><b>${status}</b><br>${machimiMsg}<br><b>Το σύνολο προς σύνταξη περιλαμβάνει:</b> ΥΕΦΚΚ ${yefkkYears.toFixed(2)} + άλλα ταμεία ${otherYears.toFixed(2)} + αναγνωρίσεις ${usedRecognitions.toFixed(2)} = ${totalRaw.toFixed(2)} έτη. Για το ποσοστό αναπλήρωσης εφαρμόζεται ανώτατο όριο 40 ετών.</div>
+ ${capWarn}
+ <div class="info"><b>Μέσος συντάξιμος μισθός</b><br>Υπολογίζεται μήνα-μήνα από <b>βασικό + επιδόματα</b> του αντίστοιχου φύλλου Excel και με την <b>οικογενειακή κατάσταση που ίσχυε εκείνον τον μήνα</b>, βάσει του ιστορικού γάμου/τέκνων.<br>Σύνολο μηνών στον μέσο όρο: <b>${avgObj.months}</b>. Από αυτούς: <b>${avgObj.oldMonths}</b> μήνες με 1ο φύλλο Excel και <b>${avgObj.newMonths}</b> μήνες με 2ο φύλλο «Πρόταση Οικονομικών».</div>
+ <div class="info"><b>Χρονολόγιο</b><div class="timeline">
+  <div class="date">${fmtDate(appoint)}</div><div class="event">Διορισμός / έναρξη ΥΕΦΚΚ</div>
+  <div class="date">${fmtDate(proposalDate)}</div><div class="event">Έναρξη νέου μισθολογίου / Πρόταση Οικονομικών</div>
+  <div class="date">${otherDays.toFixed(0)} ημέρες</div><div class="event">Ασφάλιση σε άλλα ταμεία πριν τον διορισμό = ${otherYears.toFixed(2)} έτη</div>
+  <div class="date">${fmtDate(d35)}</div><div class="event">${pensionRegime==='old' ? 'Στο παλιό καθεστώς μετρά για τα 37 έτη χωρίς μάχιμη' : 'Συμπλήρωση 35 συνολικών ετών μαζί με πλασματικά, πριν τη μάχιμη'}</div>
+  <div class="date">${fmtDate(d60)}</div><div class="event">Συμπλήρωση 60ού έτους ηλικίας</div>
+  <div class="date">${fmtDate(activationDate)}</div><div class="event">${pensionRegime==='old' ? 'Δεν εφαρμόζεται μάχιμη πενταετία στο παλιό καθεστώς' : 'Πρώτη δυνατή ενεργοποίηση μάχιμης πενταετίας'}</div>
+  <div class="date">${fmtDate(d37)}</div><div class="event">Πιθανή συμπλήρωση 37 συνολικών ετών με τις δηλωμένες αναγνωρίσεις</div>
+  <div class="date">${fmtDate(d40)}</div><div class="event">Πιθανή συμπλήρωση 40 συνολικών ετών με τις δηλωμένες αναγνωρίσεις</div>
+  <div class="date">${fmtDate(eligibilityDate)}</div><div class="event">Πρώτη πιθανή ημερομηνία εξόδου με το επιλεγμένο καθεστώς (${regimeName})</div>
+  <div class="date">${fmtDate(d40real)}</div><div class="event">40 πραγματικά έτη χωρίς αναγνωρίσεις</div>
+  <div class="date">${fmtDate(target)}</div><div class="event">Ημερομηνία αίτησης / υπολογισμού</div>
+ </div></div>
+ <table><tr><th>Σύνταξη</th><th>Υπολογισμός</th></tr>
+  <tr><td>Επιλεγμένο καθεστώς</td><td>${regimeName} — ${regimeRule}</td></tr>
+  <tr><td>Πρώτη πιθανή έξοδος</td><td>${fmtDate(eligibilityDate)}</td></tr>
+  <tr><td>Μέσος συντάξιμος μισθός</td><td>${euro(avg)}</td></tr>
+  <tr><td>Συντάξιμα έτη για ποσοστό</td><td>${total.toFixed(2)} έτη</td></tr>
+  <tr><td>Ποσοστό αναπλήρωσης</td><td>${r.toFixed(2)}%</td></tr>
+  <tr><td>Ανταποδοτική σύνταξη</td><td>${euro(contributory)} = ${euro(avg)} × ${r.toFixed(2)}%</td></tr>
+  <tr><td>Εθνική σύνταξη</td><td>${euro(national)}</td></tr>
+  <tr><td>Κύρια σύνταξη μικτά</td><td>${euro(mainGross)}</td></tr>
+  <tr><td>Κύρια σύνταξη καθαρά περίπου</td><td>${euro(mainNetLow)} - ${euro(mainNetHigh)}</td></tr>
+  <tr><td>Επικουρική</td><td>${euro(epikLow)} - ${euro(epikHigh)}</td></tr>
+  <tr><td>ΜΤΠΥ</td><td>${euro(mtpyLow)} - ${euro(mtpyHigh)}</td></tr>
+  <tr style="background:#dcfce7;color:#14532d"><th>Σύνολο καθαρά περίπου</th><th>${euro(totalNetLow)} - ${euro(totalNetHigh)}</th></tr></table>
+ <table><tr><th>Μισθολογικά στοιχεία τρέχουσας ημερομηνίας</th><th>Τιμή</th></tr>
+  <tr><td>Πηγή</td><td>${sourceName(currentSrc)}</td></tr>
+  <tr><td>Οικογενειακή κατάσταση ημερομηνίας αίτησης</td><td>${familyDisplay(family)}</td></tr>
+  <tr><td>Έτη υπηρεσίας ΥΕΦΚΚ για κλιμάκιο</td><td>${yefkkYears.toFixed(2)} έτη</td></tr>
+  <tr><td>Πραγματικά συνολικά εργασιακά έτη</td><td>${realTarget.toFixed(2)} έτη = ΥΕΦΚΚ + άλλα ταμεία</td></tr>
+  <tr><td>Πλασματικά που δηλώθηκαν</td><td>${plasticYears.toFixed(2)} έτη (${plasticMonths} μήνες)</td></tr>
+  <tr><td>Μάχιμη που λαμβάνεται υπόψη</td><td>${activeMachimi} έτη από ${machimi} δηλωμένα</td></tr>
+  <tr><td>Αναγνωρίσεις που λαμβάνονται υπόψη</td><td>${usedRecognitions.toFixed(2)} έτη από μέγιστο 12</td></tr>
+  <tr><td>Έτη / βαθμός</td><td>${currentScale.label}</td></tr>
+  <tr><td>Κλιμάκιο</td><td>${currentScale.klimakio}</td></tr>
+  <tr><td>Βασικός μισθός</td><td>${euro(currentScale.basic)}</td></tr>
+  <tr><td>${currentAllowanceName}</td><td>${euro(currentAllowanceAmount)}</td></tr>
+  <tr><td>Οικογενειακή παροχή</td><td>${euro(currentScale.childrenAllowance)}</td></tr>
+  <tr><th>Συντάξιμες αποδοχές στον μέσο όρο</th><th>${euro(currentScale.total)}</th></tr></table>
+ <div class="warn"><b>Κόστος εξαγοράς</b><br>${pensionRegime==='old' ? 'Μάχιμη: δεν εφαρμόζεται στο παλιό καθεστώς. ' : `Μάχιμη: ${euro(machimiTotal)} για ${activeMachimi} έτη. `}Κοινά πλασματικά που λαμβάνονται υπόψη: ${euro(plasticTotal)} περίπου με ${Math.round(plasPercent*100)}% επί του τρέχοντος μισθολογίου Excel.<br><span class="muted">Παιδιά έως 5 έτη, σπουδές έως 1–3 έτη, στρατός πραγματικός χρόνος συνήθως έως 2 έτη, άλλοι χρόνοι σύμφωνα με τις νόμιμες προϋποθέσεις.</span></div>
+ <details><summary>Ανάλυση μέσου συντάξιμου μισθού ανά έτος</summary><table><tr><th>Έτος</th><th>Πηγή</th><th>Υπηρεσία</th><th>Οικογενειακή κατάσταση</th><th>Κλιμάκιο</th><th>Έτη/βαθμός</th><th>Βασικός</th><th>Επίδομα/επιδόματα φύλλου</th><th>Οικογενειακή παροχή</th><th>Σύνολο στον μέσο όρο</th></tr>${salaryTable}</table></details>
+ <details><summary>Πίνακας ποσοστών αναπλήρωσης</summary><table><tr><th>Έτη</th><th>Ποσοστό</th><th>Έτη</th><th>Ποσοστό</th></tr>
+ <tr><td>15</td><td>11,55%</td><td>28</td><td>23,95%</td></tr><tr><td>16</td><td>12,39%</td><td>29</td><td>25,16%</td></tr><tr><td>17</td><td>13,23%</td><td>30</td><td>26,37%</td></tr><tr><td>18</td><td>14,07%</td><td>31</td><td>28,35%</td></tr><tr><td>19</td><td>14,97%</td><td>32</td><td>30,33%</td></tr><tr><td>20</td><td>15,87%</td><td>33</td><td>32,31%</td></tr><tr><td>21</td><td>16,77%</td><td>34</td><td>34,81%</td></tr><tr><td>22</td><td>17,73%</td><td>35</td><td>37,31%</td></tr><tr><td>23</td><td>18,69%</td><td>36</td><td>39,81%</td></tr><tr><td>24</td><td>19,65%</td><td>37</td><td>42,36%</td></tr><tr><td>25</td><td>20,68%</td><td>38</td><td>44,91%</td></tr><tr><td>26</td><td>21,71%</td><td>39</td><td>47,46%</td></tr><tr><td>27</td><td>22,74%</td><td>40</td><td>50,01%</td></tr></table></details>`;
+ if(el('excelPanel') && el('excelPanel').classList.contains('show')) renderExcelTables();
+}
+
+
+function refreshRegimeUI(){
+ const val=(el('pensionRegime')&&el('pensionRegime').value)||'new';
+ document.querySelectorAll('.regimeOption').forEach(card=>{
+  card.classList.toggle('active', card.getAttribute('data-regime')===val);
+ });
+}
+function setRegime(value){
+ if(el('pensionRegime')) el('pensionRegime').value=value;
+ refreshRegimeUI();
+ saveForm();
+ calc();
+}
+
+const STORAGE_KEY='syntaxiodotikos_odigos_yefkk_v30';
+const OLD_STORAGE_KEYS=['syntaxiodotikos_odigos_yefkk_v29','syntaxiodotikos_odigos_yefkk_v28','syntaxiodotikos_odigos_yefkk_v27','syntaxiodotikos_odigos_yefkk_v26','syntaxiodotikos_odigos_yefkk_v25','syntaxiodotikos_odigos_yefkk_v24','syntaxiodotikos_odigos_yefkk_v23','syntaxiodotikos_odigos_yefkk','syntaxiodotikos_odigos_yefkk_v18','syntaxiodotikos_odigos_yefkk_v17','syntaxiodotikos_odigos_yefkk_v16','syntaxiodotikos_odigos_yefkk_v15','syntaxiodotikos_odigos_yefkk_v14','syntaxiodotikos_odigos_yefkk_v13','syntaxiodotikos_odigos_yefkk_v12'];
+function toggleNotes(){ const p=el('notesPanel'); if(p) p.classList.toggle('show'); }
+function formIds(){return Array.from(document.querySelectorAll('input,select')).map(x=>x.id).filter(Boolean);}
+function saveForm(){
+ const data={};
+ formIds().forEach(id=>{data[id]=el(id).value;});
+ try{localStorage.setItem(STORAGE_KEY, JSON.stringify(data));}catch(e){}
+}
+function loadForm(){
+ try{
+  let raw=localStorage.getItem(STORAGE_KEY);
+  if(!raw){
+    for(const k of OLD_STORAGE_KEYS){ raw=localStorage.getItem(k); if(raw) break; }
+  }
+  if(!raw) return false;
+  const data=JSON.parse(raw);
+  Object.keys(data).forEach(id=>{ if(el(id)) el(id).value=data[id]; });
+  return true;
+ }catch(e){return false;}
+}
+document.addEventListener('input',()=>{saveForm();});
+document.addEventListener('change',()=>{saveForm();refreshRegimeUI();calc();});
+if(!loadForm()) setToday();
+refreshRegimeUI();
+calc();
+</script>
 </body>
 </html>
