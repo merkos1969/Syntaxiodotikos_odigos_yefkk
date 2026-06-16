@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ V42</title>
+<title>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ V47</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#f4f8fd,#fff);color:#253044}
@@ -59,6 +59,18 @@ th{background:#f7fbff;color:#344054}
  .card{box-shadow:none;padding:10px}
  body{background:#fff}
 }
+
+.progressGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.progressBox{background:#f8fafc;border:1px solid #dbe7f5;border-radius:14px;padding:13px}
+.progressTitle{font-weight:900;color:#183b63;margin-bottom:9px;font-size:15px}
+.progressTop{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:#475467;margin-bottom:6px}
+.progressBar{height:15px;background:#e5edf6;border-radius:999px;overflow:hidden;border:1px solid #d6e2f0}
+.progressFill{height:100%;background:linear-gradient(90deg,#1556a6,#16a34a);border-radius:999px}
+.progressFoot{font-size:12px;color:#667085;margin-top:7px;line-height:1.35}
+.progressOk{color:#11884a;font-weight:900}
+.progressWarn{color:#d95b00;font-weight:900}
+@media(max-width:850px){.progressGrid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -66,7 +78,7 @@ th{background:#f7fbff;color:#344054}
   <div class="hero">
     <div>
       <h1>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ</h1>
-      <div class="sub">Υπολογισμός σύνταξης υπαλλήλου Εξωτερικής φρούρησης</div>
+      <div class="sub">Υπολογισμός σύνταξης</div>
     </div>
     <div class="actionsTop">
       <button type="button" class="btnPdf" onclick="window.print()">🖨️ Εκτύπωση / PDF</button>
@@ -106,7 +118,7 @@ th{background:#f7fbff;color:#344054}
         <div class="line"><label>Λοιπά πλασματικά (μήνες)</label><input id="otherPlasticMonths" type="number" min="0" value="0"></div>
       </div>
       <div>
-        <div class="line"><label>Διαθέσιμη μάχιμη πενταετία</label><input id="machimi" type="number" min="0" max="5" step="0.25" value="5"></div>
+        <div class="line"><label>Επιλογή μάχιμης πενταετίας</label><select id="machimi"><option value="1">1 έτος</option><option value="2">2 έτη</option><option value="3">3 έτη</option><option value="4">4 έτη</option><option value="5" selected>5 έτη</option></select></div>
         <div class="line"><label>Ημερομηνία νέου μισθολογίου</label><input id="proposalDate" type="date" value="2026-01-01"></div>
         <div class="line"><label>Ημ/νία γάμου</label><input id="marriageDate" type="date"></div>
         <div class="line"><label>1ο τέκνο</label><input id="child1Date" type="date"></div>
@@ -163,7 +175,7 @@ th{background:#f7fbff;color:#344054}
   <div id="notesPanel" class="panel"></div>
   <div id="excelPanel" class="panel"></div>
 
-  <div class="footer">By Merk-Kerm · V42 · Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ</div>
+  <div class="footer">By Merk-Kerm · V47 · Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ</div>
 </div>
 
 <script>
@@ -234,12 +246,90 @@ function totalYearsFor(regime,birth,appoint,target){
  let age=yearsBetween(birth,target);
  let real=yearsBetween(appoint,target)+N('otherDays')/300;
  let plastic=(N('childMonths')+N('studyMonths')+N('armyMonths')+N('educationMonths')+N('gapStrikeMonths')+N('otherPlasticMonths'))/12;
- let base=real+plastic, machimi=0, avail=Math.max(0,Math.min(5,N('machimi')||0));
- if(regime==='new' && (base>=35 || age>=60)) machimi=Math.min(avail, Math.max(0,40-base), Math.max(0,12-plastic));
+ let base=real+plastic;
+ let machimi=0;
+ let selectedMachimi=Math.max(1,Math.min(5,N('machimi')||1));
+
+ if(regime==='new'){
+   // ΚΑΘΕΣΤΩΣ Β:
+   // Ο χρήστης επιλέγει από 1 έως 5 έτη μάχιμης.
+   // Αν έχει πάνω από 35 συνολικά έτη ή έχει συμπληρώσει το 60ό έτος,
+   // προσμετράται η επιλεγμένη μάχιμη, με όριο το ταβάνι των 40 ετών
+   // και το συνολικό όριο αναγνωρίσεων.
+   if(base>=35 || age>=60){
+     machimi=Math.min(selectedMachimi, Math.max(0,40-base), Math.max(0,12-plastic));
+   }
+ }
+
  let total=Math.min(40, real+plastic+machimi);
- return {age,real,plastic,base,machimi,total};
+ return {age,real,plastic,base,machimi,total,selectedMachimi};
 }
 function taxApprox(t){t=Math.max(0,Number(t)||0); if(t<=1000)return t*.04; if(t<=1400)return t*.075; if(t<=1800)return t*.10; return t*.13}
+
+
+
+function addYearsExact(date, years){
+ let d = new Date(date.getTime());
+ d.setFullYear(d.getFullYear() + Math.floor(years));
+ let rest = years - Math.floor(years);
+ if(rest > 0){
+   d = new Date(d.getTime() + rest * 365.2425 * 24 * 3600 * 1000);
+ }
+ return d;
+}
+function minDate(a,b){ return a.getTime() <= b.getTime() ? a : b; }
+function maxDate(a,b){ return a.getTime() >= b.getTime() ? a : b; }
+function monthsDiffAsYearsDays(a,b){
+ let days = Math.max(0, Math.round((b-a)/(24*3600*1000)));
+ let y = Math.floor(days / 365.2425);
+ let m = Math.floor((days - y*365.2425) / 30.436875);
+ return `${y} έτη και ${m} μήνες`;
+}
+
+function exitDataFor(regime,birth,appoint,target){
+ let otherYears = N('otherDays')/300;
+ let plastic = (N('childMonths')+N('studyMonths')+N('armyMonths')+N('educationMonths')+N('gapStrikeMonths')+N('otherPlasticMonths'))/12;
+ let selectedMachimi = Math.max(1,Math.min(5,N('machimi')||1));
+
+ if(regime === 'old'){
+   // Α καθεστώς: ακριβής ημερομηνία στα 37 συνολικά έτη ή στα 60 ηλικιακά.
+   let needRealFor37 = Math.max(0, 37 - otherYears - plastic);
+   let date37 = addYearsExact(appoint, needRealFor37);
+   let date60 = addYearsExact(birth, 60);
+   let outDate = minDate(date37, date60);
+   let data = totalYearsFor('old',birth,appoint,outDate);
+   return {date:outDate, ...data};
+ }
+
+ // Β καθεστώς:
+ // α) αν η επιλεγμένη μάχιμη μπορεί να οδηγήσει στο ταβάνι των 40, βρίσκουμε ακριβή ημερομηνία.
+ // β) μετά το 60ό έτος, με τουλάχιστον 1 έτος μάχιμης, δικαίωμα ακριβώς στην ημερομηνία γενεθλίων των 60.
+ let needRealFor40 = Math.max(0, 40 - otherYears - plastic - selectedMachimi);
+ let date40WithSelectedMachimi = addYearsExact(appoint, needRealFor40);
+
+ let date60 = addYearsExact(birth, 60);
+ let baseAt60 = yearsBetween(appoint,date60) + otherYears + plastic;
+ let canUseAt60 = selectedMachimi >= 1;
+ let dateBy60Rule = canUseAt60 ? date60 : addYearsExact(birth,67);
+
+ let outDate = minDate(date40WithSelectedMachimi, dateBy60Rule);
+ let data = totalYearsFor('new',birth,appoint,outDate);
+ return {date:outDate, ...data};
+}
+
+
+function clampPct(x){ return Math.max(0, Math.min(100, x)); }
+function barHtml(title,current,target,foot,ok){
+ let pctVal = target>0 ? clampPct((current/target)*100) : 100;
+ let currentText = (Number(current)||0).toLocaleString('el-GR',{minimumFractionDigits:2,maximumFractionDigits:2});
+ let targetText = (Number(target)||0).toLocaleString('el-GR',{minimumFractionDigits:2,maximumFractionDigits:2});
+ return `<div class="progressBox">
+   <div class="progressTitle">${title}</div>
+   <div class="progressTop"><span>${currentText} / ${targetText}</span><span class="${ok?'progressOk':'progressWarn'}">${pctVal.toFixed(0)}%</span></div>
+   <div class="progressBar"><div class="progressFill" style="width:${pctVal}%"></div></div>
+   <div class="progressFoot">${foot}</div>
+ </div>`;
+}
 
 function calculate(){
  try{
@@ -270,6 +360,7 @@ function calculate(){
     <div class="line"><div class="lab">Πραγματικός χρόνος υπηρεσίας</div><div class="val">${yrs(ty.real)}</div></div>
     <div class="line"><div class="lab">Πλασματικά έτη</div><div class="val">${yrs(ty.plastic)}</div></div>
     <div class="line"><div class="lab">Μάχιμη πενταετία</div><div class="val greenTxt">${yrs(ty.machimi)}</div></div>
+    ${regime==='new' && ty.age>=60 && ty.machimi>=1 && ty.base<35 ? '<div class="mini" style="color:#11884a;margin:4px 0 8px">Στο Β καθεστώς προσμετράται η μάχιμη που επέλεξες από το dropdown, με ταβάνι τα 40 έτη.</div>' : ''}
     <div class="total"><div>Σύνολο συντάξιμων ετών</div><div class="val greenTxt">${yrs(ty.total)}</div></div>
     <div class="line"><div class="lab">Ποσοστό αναπλήρωσης</div><div class="val greenTxt">${pct(r)}</div></div>
     <div class="line"><div class="lab">Ηλικία κατά την αίτηση</div><div class="val">${yrs(ty.age)}</div></div>`);
@@ -300,21 +391,93 @@ function calculate(){
     <div class="line"><div class="lab">Πληρωτέο επικουρικό</div><div class="val greenTxt">${euro(epikNet)}</div></div>
     <div class="bigTotal"><div>Καθαρό ποσό σύνταξης<br><span class="mini">κύρια + ΜΤΠΥ + επικουρικό</span></div><div class="amount">${euro(totalNet)}</div></div>`);
 
-  let oldT=totalYearsFor('old',birth,appoint,target), newT=totalYearsFor('new',birth,appoint,target);
+  let oldT=exitDataFor('old',birth,appoint,target), newT=exitDataFor('new',birth,appoint,target);
   let oldGross=national+avg*rate(oldT.total)/100, newGross=national+avg*rate(newT.total)/100;
   let oldNet=Math.max(0,oldGross-oldGross*.06-taxApprox(oldGross*.94)-(oldGross>1400?(oldGross-1400)*.02:0))+mtpyNet+epikNet;
   let newNet=Math.max(0,newGross-newGross*.06-taxApprox(newGross*.94)-(newGross>1400?(newGross-1400)*.02:0))+mtpyNet+epikNet;
+
+  let oldCurrent=totalYearsFor('old',birth,appoint,target);
+  let newCurrent=totalYearsFor('new',birth,appoint,target);
+  let selectedMachimi=Math.max(1,Math.min(5,N('machimi')||1));
+
+  let a37Ok = oldCurrent.total >= 37;
+  let a60Ok = oldCurrent.age >= 60;
+  let b35BaseOk = newCurrent.base >= 35;
+  let b40WithMachimi = Math.min(40, newCurrent.base + selectedMachimi);
+  let b40Ok = b40WithMachimi >= 40;
+  let b60Ok = newCurrent.age >= 60 && selectedMachimi >= 1;
+
   set('compareOut',`
     <div class="tableScroll"><table>
-    <thead><tr><th>Καθεστώς</th><th>Ηλικία</th><th>Έτη</th><th>Μάχιμη</th><th>Ημερομηνία</th><th>Εκτίμηση καθαρά</th></tr></thead>
+    <thead>
+      <tr>
+        <th>Καθεστώς</th>
+        <th>Πιθανή ημερομηνία εξόδου</th>
+        <th>Ηλικία τότε</th>
+        <th>Συντάξιμα έτη</th>
+        <th>Μάχιμη</th>
+        <th>Εκτίμηση καθαρά</th>
+      </tr>
+    </thead>
     <tbody>
-    <tr><td>Α. Παλιό</td><td>${yrs(oldT.age)}</td><td>${yrs(oldT.total)}</td><td>0,00 έτη</td><td>${fmt(target)}</td><td>${euro(oldNet)}</td></tr>
-    <tr><td>Β. Νέο</td><td>${yrs(newT.age)}</td><td>${yrs(newT.total)}</td><td>${yrs(newT.machimi)}</td><td>${fmt(target)}</td><td>${euro(newNet)}</td></tr>
-    </tbody></table></div>`);
+      <tr>
+        <td><b>Α. Παλιό</b></td>
+        <td><b>${fmt(oldT.date)}</b></td>
+        <td>${yrs(oldT.age)}</td>
+        <td>${yrs(oldT.total)}</td>
+        <td>0,00 έτη</td>
+        <td>${euro(oldNet)}</td>
+      </tr>
+      <tr>
+        <td><b>Β. Νέο</b></td>
+        <td><b>${fmt(newT.date)}</b></td>
+        <td>${yrs(newT.age)}</td>
+        <td>${yrs(newT.total)}</td>
+        <td>${yrs(newT.machimi)}</td>
+        <td>${euro(newNet)}</td>
+      </tr>
+    </tbody>
+    </table></div>
+
+    <div class="progressGrid">
+      ${barHtml(
+        'Α καθεστώς: 37 συντάξιμα έτη',
+        oldCurrent.total,
+        37,
+        a37Ok ? 'Έχει συμπληρωθεί η προϋπόθεση των 37 συντάξιμων ετών.' : 'Υπολείπονται '+yrs(Math.max(0,37-oldCurrent.total))+' για τα 37 έτη.',
+        a37Ok
+      )}
+      ${barHtml(
+        'Α καθεστώς: 60 ηλικιακά έτη',
+        oldCurrent.age,
+        60,
+        a60Ok ? 'Έχει συμπληρωθεί το 60ό έτος ηλικίας.' : 'Ημερομηνία συμπλήρωσης 60ού: '+fmt(addYearsExact(birth,60)),
+        a60Ok
+      )}
+      ${barHtml(
+        'Β καθεστώς: 35 έτη + μάχιμη έως 40',
+        Math.min(40,b40WithMachimi),
+        40,
+        b40Ok ? 'Με την επιλεγμένη μάχιμη φτάνει στο ταβάνι των 40 ετών.' : 'Χρειάζεται βάση 35 ετών και μάχιμη ώστε να φτάσει έως τα 40. Σήμερα με την επιλογή φτάνει '+yrs(b40WithMachimi)+'.',
+        b40Ok
+      )}
+      ${barHtml(
+        'Β καθεστώς: 60 ηλικιακά + μάχιμη',
+        newCurrent.age,
+        60,
+        b60Ok ? 'Μετά το 60ό έτος μπορεί να γίνει χρήση μάχιμης '+selectedMachimi+' έτ. από το dropdown.' : 'Ημερομηνία συμπλήρωσης 60ού: '+fmt(addYearsExact(birth,60))+' · απαιτείται επιλογή τουλάχιστον 1 έτους μάχιμης.',
+        b60Ok
+      )}
+    </div>
+
+    <div class="mini" style="margin-top:10px;color:#667085">
+      Στο Α καθεστώς εμφανίζονται χωριστά οι δύο διαδρομές: 37 συντάξιμα έτη ή 60 ηλικιακά.
+      Στο Β καθεστώς εμφανίζονται χωριστά οι δύο διαδρομές: 35 συνολικά έτη με χρήση μάχιμης έως τα 40 ή 60 ηλικιακά με χρήση μάχιμης 1–5 ετών.
+    </div>`);
  }catch(err){console.error(err); alert('Σφάλμα υπολογισμού: '+err.message)}
 }
 
-const STORAGE_KEY = 'syntaxiodotikos_yefkk_v42';
+const STORAGE_KEY = 'syntaxiodotikos_yefkk_v47';
 
 function collectData(){
  let data={};
@@ -351,7 +514,7 @@ function loadData(){
    let raw = localStorage.getItem(STORAGE_KEY);
    // Συμβατότητα με προηγούμενες εκδόσεις
    if(!raw){
-     const oldKeys = ['syntaxiodotikos_yefkk_v42','syntaxiodotikos_yefkk_v39'];
+     const oldKeys = ['syntaxiodotikos_yefkk_v47','syntaxiodotikos_yefkk_v39'];
      for(const k of oldKeys){
        raw = localStorage.getItem(k);
        if(raw) break;
@@ -366,7 +529,7 @@ function loadData(){
 }
 function loadSavedSilently(){
  try{
-   let raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('syntaxiodotikos_yefkk_v42') || localStorage.getItem('syntaxiodotikos_yefkk_v39');
+   let raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('syntaxiodotikos_yefkk_v47') || localStorage.getItem('syntaxiodotikos_yefkk_v39');
    if(raw) applyData(JSON.parse(raw));
  }catch(e){}
 }
@@ -381,7 +544,7 @@ function toggleNotes(){
  if(!p.innerHTML)p.innerHTML=`<div class="card gray"><div class="head"><div class="num">?</div><div class="title">Σημειώσεις</div></div>
  <div class="noteGrid">
  <div class="note"><b>Καθεστώς Α</b><br>Παλιό καθεστώς: 37 συνολικά έτη ή 60 ετών. Δεν λαμβάνεται μάχιμη πενταετία.</div>
- <div class="note"><b>Καθεστώς Β</b><br>Τα 40 έτη είναι ταβάνι. Η μάχιμη μπαίνει αυτόματα όσο χρειάζεται έως 5 έτη.</div>
+ <div class="note"><b>Καθεστώς Β</b><br>Τα 40 έτη είναι ταβάνι. Πάνω από 35 έτη μπαίνει όση μάχιμη χρειάζεται έως τα 40. Μετά το 60ό έτος μπορεί να γίνει χρήση από 1 έως 5 έτη μάχιμης, ανάλογα με την επιλογή.</div>
  <div class="note"><b>Μέσος συντάξιμος μισθός</b><br>Υπολογισμός από 01/01/2002 έως την αίτηση, με βάση τα φύλλα Excel.</div>
  <div class="note"><b>Αποποίηση</b><br>Τα ποσά είναι ενδεικτικά και όχι επίσημη πράξη συνταξιοδότησης.</div>
  </div></div>`;
