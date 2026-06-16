@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ V47</title>
+<title>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ V50</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#f4f8fd,#fff);color:#253044}
@@ -43,7 +43,7 @@ th{background:#f7fbff;color:#344054}
 .panel{display:none;margin-top:14px} .panel.show{display:block}
 .noteGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .note{background:#f8fafc;border-left:5px solid #1556a6;border-radius:12px;padding:12px}
-.footer{text-align:center;color:#667085;margin-top:22px}
+.footer{text-align:center;color:#667085;margin-top:22px;font-weight:800;letter-spacing:.3px}
 @media(max-width:850px){
  .hero{flex-direction:column;align-items:flex-start}
  .actionsTop{width:100%} .actionsTop button{flex:1}
@@ -71,6 +71,34 @@ th{background:#f7fbff;color:#344054}
 .progressWarn{color:#d95b00;font-weight:900}
 @media(max-width:850px){.progressGrid{grid-template-columns:1fr}}
 
+
+.conclusionCard{
+  background:linear-gradient(135deg,#ecfdf5,#eff6ff);
+  border:2px solid #16a34a;
+  border-radius:20px;
+  padding:18px;
+  margin:14px 0 18px;
+  box-shadow:0 12px 28px rgba(22,163,74,.12);
+}
+.conclusionTop{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.conclusionIcon{
+  width:42px;height:42px;border-radius:12px;
+  background:#16a34a;color:#fff;font-weight:900;
+  display:grid;place-items:center;font-size:22px;
+}
+.conclusionTitle{font-size:22px;font-weight:900;color:#0f5132}
+.conclusionGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.conclusionItem{
+  background:rgba(255,255,255,.78);
+  border:1px solid #ccebd8;
+  border-radius:14px;
+  padding:13px;
+}
+.conclusionItem .small{font-size:13px;color:#667085;font-weight:800;margin-bottom:5px}
+.conclusionItem .big{font-size:20px;color:#123b75;font-weight:900}
+.conclusionItem.highlight .big{color:#0b7a3b;font-size:24px}
+@media(max-width:850px){.conclusionGrid{grid-template-columns:1fr}.conclusionTitle{font-size:20px}}
+
 </style>
 </head>
 <body>
@@ -78,7 +106,7 @@ th{background:#f7fbff;color:#344054}
   <div class="hero">
     <div>
       <h1>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ</h1>
-      <div class="sub">Υπολογισμός σύνταξης</div>
+      <div class="sub">Υπολογισμός σύνταξης υπαλλήλων Εξωτερικής Φρούρησης</div>
     </div>
     <div class="actionsTop">
       <button type="button" class="btnPdf" onclick="window.print()">🖨️ Εκτύπωση / PDF</button>
@@ -87,6 +115,27 @@ th{background:#f7fbff;color:#344054}
   </div>
 
   <div class="info"><b>i</b><span>Τα αποτελέσματα είναι ενδεικτικά και δεν αντικαθιστούν επίσημο υπολογισμό ΕΦΚΑ. Τα στοιχεία αποθηκεύονται αυτόματα στη συσκευή.</span></div>
+
+  <div class="conclusionCard" id="conclusionCard">
+    <div class="conclusionTop">
+      <div class="conclusionIcon">✓</div>
+      <div class="conclusionTitle">Συμπέρασμα</div>
+    </div>
+    <div class="conclusionGrid">
+      <div class="conclusionItem">
+        <div class="small">Πιθανή έξοδος</div>
+        <div class="big" id="conclusionExit">-</div>
+      </div>
+      <div class="conclusionItem">
+        <div class="small">Προτεινόμενο καθεστώς</div>
+        <div class="big" id="conclusionRegime">-</div>
+      </div>
+      <div class="conclusionItem highlight">
+        <div class="small">Καθαρό ποσό σύνταξης</div>
+        <div class="big" id="conclusionNet">-</div>
+      </div>
+    </div>
+  </div>
 
   <div class="grid">
     <div class="card blue">
@@ -175,7 +224,7 @@ th{background:#f7fbff;color:#344054}
   <div id="notesPanel" class="panel"></div>
   <div id="excelPanel" class="panel"></div>
 
-  <div class="footer">By Merk-Kerm · V47 · Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ</div>
+  <div class="footer">By Merk_Kermanidis</div>
 </div>
 
 <script>
@@ -407,6 +456,15 @@ function calculate(){
   let b40Ok = b40WithMachimi >= 40;
   let b60Ok = newCurrent.age >= 60 && selectedMachimi >= 1;
 
+  
+  let recommended = newT.date.getTime() <= oldT.date.getTime() ? 'Β. Νέο' : 'Α. Παλιό';
+  let recDate = recommended === 'Β. Νέο' ? newT.date : oldT.date;
+  set('conclusionExit', fmt(recDate));
+  set('conclusionRegime', recommended);
+  // Το ποσό στο Συμπέρασμα πρέπει να είναι ίδιο με την κάρτα 6
+  // δηλαδή το τρέχον καθαρό ποσό σύνταξης: κύρια + ΜΤΠΥ + επικουρικό.
+  set('conclusionNet', euro(totalNet));
+
   set('compareOut',`
     <div class="tableScroll"><table>
     <thead>
@@ -477,7 +535,7 @@ function calculate(){
  }catch(err){console.error(err); alert('Σφάλμα υπολογισμού: '+err.message)}
 }
 
-const STORAGE_KEY = 'syntaxiodotikos_yefkk_v47';
+const STORAGE_KEY = 'syntaxiodotikos_yefkk_v50';
 
 function collectData(){
  let data={};
@@ -514,7 +572,7 @@ function loadData(){
    let raw = localStorage.getItem(STORAGE_KEY);
    // Συμβατότητα με προηγούμενες εκδόσεις
    if(!raw){
-     const oldKeys = ['syntaxiodotikos_yefkk_v47','syntaxiodotikos_yefkk_v39'];
+     const oldKeys = ['syntaxiodotikos_yefkk_v50','syntaxiodotikos_yefkk_v39'];
      for(const k of oldKeys){
        raw = localStorage.getItem(k);
        if(raw) break;
@@ -529,7 +587,7 @@ function loadData(){
 }
 function loadSavedSilently(){
  try{
-   let raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('syntaxiodotikos_yefkk_v47') || localStorage.getItem('syntaxiodotikos_yefkk_v39');
+   let raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('syntaxiodotikos_yefkk_v50') || localStorage.getItem('syntaxiodotikos_yefkk_v39');
    if(raw) applyData(JSON.parse(raw));
  }catch(e){}
 }
