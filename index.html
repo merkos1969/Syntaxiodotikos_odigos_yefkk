@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ V71</title>
+<title>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ V80</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#f4f8fd,#fff);color:#253044}
@@ -53,12 +53,6 @@ th{background:#f7fbff;color:#344054}
  .bigTotal{grid-template-columns:1fr}
  .bigTotal .amount{font-size:28px}
 }
-@media print{
- .actionsTop,.info,details,.panel,.footer{display:none!important}
- .grid{grid-template-columns:1fr 1fr;gap:8px}
- .card{box-shadow:none;padding:10px}
- body{background:#fff}
-}
 
 .progressGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
 .progressBox{background:#f8fafc;border:1px solid #dbe7f5;border-radius:14px;padding:13px}
@@ -70,7 +64,6 @@ th{background:#f7fbff;color:#344054}
 .progressOk{color:#11884a;font-weight:900}
 .progressWarn{color:#d95b00;font-weight:900}
 @media(max-width:850px){.progressGrid{grid-template-columns:1fr}}
-
 
 .conclusionCard{
   background:linear-gradient(135deg,#ecfdf5,#eff6ff);
@@ -100,8 +93,7 @@ th{background:#f7fbff;color:#344054}
 .simpleConclusion .big{font-size:18px;line-height:1.25}.simpleConclusion .highlight .big{font-size:21px}.twoConclusion{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:850px){.conclusionGrid{grid-template-columns:1fr}.conclusionTitle{font-size:20px}.simpleConclusion .big{font-size:23px}.simpleConclusion .highlight .big{font-size:25px}}
 
-
-/* V71 compact colored conclusion */
+/* V80 compact colored conclusion */
 .conclusionCard{padding:14px;margin:10px 0 16px}
 .conclusionIcon{width:36px;height:36px;border-radius:11px;font-size:19px}
 .conclusionTitle{font-size:19px}
@@ -121,10 +113,9 @@ th{background:#f7fbff;color:#344054}
   .conclusionItem .small{font-size:12px}
 }
 
-
 .formGrid .mini{display:block;margin-top:6px;color:#667085;font-size:12px;line-height:1.35}
 
-/* V71 collapsible conclusion inside card 1 */
+/* V80 collapsible conclusion inside card 1 */
 .conclusionDetails{
   margin-top:16px;
   border:1px solid #cfe6db;
@@ -163,10 +154,9 @@ th{background:#f7fbff;color:#344054}
   .conclusionDetails summary{font-size:17px;padding:12px}
 }
 
-
 .kv .mini{display:block;color:#667085;font-size:12px;margin:4px 0 2px;line-height:1.3}
 
-/* V71 collapsible cards */
+/* V80 collapsible cards */
 .cardDetails{border:0;margin:0;padding:0}
 .cardDetails>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .cardDetails>summary::-webkit-details-marker{display:none}
@@ -189,7 +179,6 @@ th{background:#f7fbff;color:#344054}
       <div class="sub">Υπολογισμός σύνταξης υπαλλήλων Εξωτερικής Φρούρησης</div>
     </div>
     <div class="actionsTop">
-      <button type="button" class="btnPdf" onclick="window.print()">🖨️ Εκτύπωση / PDF</button>
       <button type="button" class="btnCalc" onclick="calculate()">▣ Υπολογισμός</button>
     </div>
   </div>
@@ -302,7 +291,6 @@ th{background:#f7fbff;color:#344054}
   <div class="grid" style="margin-top:18px">
     <div class="card gray">
       <div class="title" style="margin-bottom:12px">Ενέργειες</div>
-      <button type="button" class="btnLight" onclick="window.print()">🖨️ Εκτύπωση / PDF</button>
       <button type="button" class="btnLight" onclick="saveData()">💾 Αποθήκευση στοιχείων</button>
       <button type="button" class="btnLight" onclick="loadData()">↩️ Φόρτωση στοιχείων</button>
       <button type="button" class="btnLight" onclick="clearSavedData()">🗑️ Διαγραφή αποθήκευσης</button>
@@ -408,8 +396,6 @@ function totalYearsFor(regime,birth,appoint,target){
 }
 function taxApprox(t){t=Math.max(0,Number(t)||0); if(t<=1000)return t*.04; if(t<=1400)return t*.075; if(t<=1800)return t*.10; return t*.13}
 
-
-
 function addYearsExact(date, years){
  let d = new Date(date.getTime());
  d.setFullYear(d.getFullYear() + Math.floor(years));
@@ -459,7 +445,6 @@ function exitDataFor(regime,birth,appoint,target){
  return {date:outDate, ...data};
 }
 
-
 function clampPct(x){ return Math.max(0, Math.min(100, x)); }
 function barHtml(title,current,target,foot,ok){
  let pctVal = target>0 ? clampPct((current/target)*100) : 100;
@@ -472,7 +457,6 @@ function barHtml(title,current,target,foot,ok){
    <div class="progressFoot">${foot}</div>
  </div>`;
 }
-
 
 function moneyAt40Data(birth, appoint, target){
  // Υπολογίζει την οικονομικά καλύτερη επιλογή για 40 συντάξιμα έτη.
@@ -487,7 +471,6 @@ function moneyAt40Data(birth, appoint, target){
  // Αν λόγω ορίου μάχιμης ή πλασματικών δεν έφτασε ακριβώς 40, κρατάμε ό,τι προκύπτει.
  return {date:date40, ...data};
 }
-
 
 function oldFastestReason(birth, appoint, target){
  let otherYears = N('otherDays')/300;
@@ -667,7 +650,7 @@ function calculate(){
  }catch(err){console.error(err); alert('Σφάλμα υπολογισμού: '+err.message)}
 }
 
-const STORAGE_KEY = 'syntaxiodotikos_yefkk_v71';
+const STORAGE_KEY = 'syntaxiodotikos_yefkk_v80';
 
 function collectData(){
  let data={};
@@ -704,7 +687,7 @@ function loadData(){
    let raw = localStorage.getItem(STORAGE_KEY);
    // Συμβατότητα με προηγούμενες εκδόσεις
    if(!raw){
-     const oldKeys = ['syntaxiodotikos_yefkk_v71','syntaxiodotikos_yefkk_v39'];
+     const oldKeys = ['syntaxiodotikos_yefkk_v80','syntaxiodotikos_yefkk_v80'];
      for(const k of oldKeys){
        raw = localStorage.getItem(k);
        if(raw) break;
@@ -719,7 +702,7 @@ function loadData(){
 }
 function loadSavedSilently(){
  try{
-   let raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('syntaxiodotikos_yefkk_v71') || localStorage.getItem('syntaxiodotikos_yefkk_v39');
+   let raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('syntaxiodotikos_yefkk_v80') || localStorage.getItem('syntaxiodotikos_yefkk_v80');
    if(raw) applyData(JSON.parse(raw));
  }catch(e){}
 }
