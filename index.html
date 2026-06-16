@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ V50</title>
+<title>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ V57</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#f4f8fd,#fff);color:#253044}
@@ -106,7 +106,7 @@ th{background:#f7fbff;color:#344054}
   <div class="hero">
     <div>
       <h1>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ</h1>
-      <div class="sub">Υπολογισμός σύνταξης υπαλλήλων Εξωτερικής Φρούρησης</div>
+      <div class="sub">Υπολογισμός σύνταξης υπαλλήλων Εξωτερικής Φρούρησης ΣΚ</div>
     </div>
     <div class="actionsTop">
       <button type="button" class="btnPdf" onclick="window.print()">🖨️ Εκτύπωση / PDF</button>
@@ -123,17 +123,32 @@ th{background:#f7fbff;color:#344054}
     </div>
     <div class="conclusionGrid">
       <div class="conclusionItem">
-        <div class="small">Πιθανή έξοδος</div>
-        <div class="big" id="conclusionExit">-</div>
-      </div>
-      <div class="conclusionItem">
-        <div class="small">Προτεινόμενο καθεστώς</div>
-        <div class="big" id="conclusionRegime">-</div>
+        <div class="small">Πιο γρήγορη έξοδος</div>
+        <div class="big" id="conclusionFast">-</div>
       </div>
       <div class="conclusionItem highlight">
-        <div class="small">Καθαρό ποσό σύνταξης</div>
+        <div class="small">Περισσότερα χρήματα</div>
+        <div class="big" id="conclusionMoney">-</div>
+      </div>
+      <div class="conclusionItem">
+        <div class="small">Πότε συμπληρώνω 40 έτη</div>
+        <div class="big" id="conclusion40">-</div>
+      </div>
+      <div class="conclusionItem">
+        <div class="small">Έξοδος με Β καθεστώς στα 60</div>
+        <div class="big" id="conclusionNew60">-</div>
+      </div>
+      <div class="conclusionItem">
+        <div class="small">Ημερομηνία πιο γρήγορης εξόδου</div>
+        <div class="big" id="conclusionExit">-</div>
+      </div>
+      <div class="conclusionItem highlight">
+        <div class="small">Καθαρό ποσό με τα σημερινά στοιχεία</div>
         <div class="big" id="conclusionNet">-</div>
       </div>
+    </div>
+    <div class="mini" style="margin-top:10px;color:#0f5132;font-weight:800">
+      Η πιο γρήγορη έξοδος στο Α καθεστώς εμφανίζεται με βάση τα 37 συντάξιμα ή τα 60 ηλικιακά. Στο Β καθεστώς στα 60 μπορεί να γίνει χρήση από 1 έως 5 έτη μάχιμης, ανάλογα με την επιλογή. Το ποσό στα 40 έτη εμφανίζεται στη γραμμή «Περισσότερα χρήματα». Το καθαρό ποσό δείχνει τα στοιχεία της τρέχουσας επιλογής.
     </div>
   </div>
 
@@ -380,6 +395,34 @@ function barHtml(title,current,target,foot,ok){
  </div>`;
 }
 
+
+function moneyAt40Data(birth, appoint, target){
+ // Υπολογίζει την οικονομικά καλύτερη επιλογή για 40 συντάξιμα έτη.
+ // Τα 40 έτη δίνουν το μέγιστο ποσοστό αναπλήρωσης 50,01%.
+ let otherYears = N('otherDays')/300;
+ let plastic = (N('childMonths')+N('studyMonths')+N('armyMonths')+N('educationMonths')+N('gapStrikeMonths')+N('otherPlasticMonths'))/12;
+ let selectedMachimi = Math.max(1,Math.min(5,N('machimi')||1));
+ let needRealFor40 = Math.max(0, 40 - otherYears - plastic - selectedMachimi);
+ let date40 = addYearsExact(appoint, needRealFor40);
+ if(date40 < target) date40 = new Date(target);
+ let data = totalYearsFor('new', birth, appoint, date40);
+ // Αν λόγω ορίου μάχιμης ή πλασματικών δεν έφτασε ακριβώς 40, κρατάμε ό,τι προκύπτει.
+ return {date:date40, ...data};
+}
+
+
+function oldFastestReason(birth, appoint, target){
+ let otherYears = N('otherDays')/300;
+ let plastic = (N('childMonths')+N('studyMonths')+N('armyMonths')+N('educationMonths')+N('gapStrikeMonths')+N('otherPlasticMonths'))/12;
+ let needRealFor37 = Math.max(0, 37 - otherYears - plastic);
+ let date37 = addYearsExact(appoint, needRealFor37);
+ let date60 = addYearsExact(birth, 60);
+ if(date37.getTime() < date60.getTime()){
+   return {reason:'37 συντάξιμα έτη', date:date37};
+ }
+ return {reason:'60 ηλικιακά έτη', date:date60};
+}
+
 function calculate(){
  try{
   let birth=D('birthDate'), appoint=D('appointDate'), target=D('targetDate'), proposal=D('proposalDate')||new Date('2026-01-01T00:00:00');
@@ -457,12 +500,27 @@ function calculate(){
   let b60Ok = newCurrent.age >= 60 && selectedMachimi >= 1;
 
   
-  let recommended = newT.date.getTime() <= oldT.date.getTime() ? 'Β. Νέο' : 'Α. Παλιό';
-  let recDate = recommended === 'Β. Νέο' ? newT.date : oldT.date;
-  set('conclusionExit', fmt(recDate));
-  set('conclusionRegime', recommended);
-  // Το ποσό στο Συμπέρασμα πρέπει να είναι ίδιο με την κάρτα 6
-  // δηλαδή το τρέχον καθαρό ποσό σύνταξης: κύρια + ΜΤΠΥ + επικουρικό.
+  let fastest = newT.date.getTime() <= oldT.date.getTime() ? 'Β. Νέο' : 'Α. Παλιό';
+  let fastDate = fastest === 'Β. Νέο' ? newT.date : oldT.date;
+  let fastNet = fastest === 'Β. Νέο' ? newNet : oldNet;
+
+  // Περισσότερα χρήματα = υπολογισμός στο ταβάνι των 40 ετών,
+  // γιατί εκεί το ποσοστό αναπλήρωσης είναι 50,01%.
+  let richT = moneyAt40Data(birth, appoint, target);
+  let richRate = rate(richT.total);
+  let richGross = national + avg * richRate / 100;
+  let richNet = Math.max(0, richGross - richGross*.06 - taxApprox(richGross*.94) - (richGross>1400?(richGross-1400)*.02:0)) + mtpyNet + epikNet;
+
+  let oldReason = oldFastestReason(birth, appoint, target);
+  let selectedMachimiForMsg = Math.max(1,Math.min(5,N('machimi')||1));
+
+  // Πιο γρήγορη έξοδος: στο παλιό καθεστώς στα 60 ηλικιακά,
+  // όταν η διαδρομή 60 ετών είναι η πρώτη για το Α καθεστώς.
+  set('conclusionFast', `Α. Παλιό · ${oldReason.reason} · ${fmt(oldReason.date)} · χωρίς μάχιμη`);
+  set('conclusionMoney', `Β. Νέο · 40 έτη · ${fmt(richT.date)} · ${euro(richNet)}`);
+  set('conclusion40', `${fmt(richT.date)} · ηλικία ${yrs(richT.age)} · μάχιμη ${yrs(richT.machimi)}`);
+  set('conclusionNew60', `60 ηλικιακά · επιλογή από 1 έως 5 έτη · χρήση ${selectedMachimiForMsg} έτ.`);
+  set('conclusionExit', fmt(oldReason.date));
   set('conclusionNet', euro(totalNet));
 
   set('compareOut',`
@@ -535,7 +593,7 @@ function calculate(){
  }catch(err){console.error(err); alert('Σφάλμα υπολογισμού: '+err.message)}
 }
 
-const STORAGE_KEY = 'syntaxiodotikos_yefkk_v50';
+const STORAGE_KEY = 'syntaxiodotikos_yefkk_v57';
 
 function collectData(){
  let data={};
@@ -572,7 +630,7 @@ function loadData(){
    let raw = localStorage.getItem(STORAGE_KEY);
    // Συμβατότητα με προηγούμενες εκδόσεις
    if(!raw){
-     const oldKeys = ['syntaxiodotikos_yefkk_v50','syntaxiodotikos_yefkk_v39'];
+     const oldKeys = ['syntaxiodotikos_yefkk_v57','syntaxiodotikos_yefkk_v39'];
      for(const k of oldKeys){
        raw = localStorage.getItem(k);
        if(raw) break;
@@ -587,7 +645,7 @@ function loadData(){
 }
 function loadSavedSilently(){
  try{
-   let raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('syntaxiodotikos_yefkk_v50') || localStorage.getItem('syntaxiodotikos_yefkk_v39');
+   let raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('syntaxiodotikos_yefkk_v57') || localStorage.getItem('syntaxiodotikos_yefkk_v39');
    if(raw) applyData(JSON.parse(raw));
  }catch(e){}
 }
