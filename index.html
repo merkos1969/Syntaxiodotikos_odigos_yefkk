@@ -53,12 +53,6 @@ th{background:#f7fbff;color:#344054}
  .bigTotal{grid-template-columns:1fr}
  .bigTotal .amount{font-size:28px}
 }
-@media print{
- .actionsTop,.info,details,.panel,.footer{display:none!important}
- .grid{grid-template-columns:1fr 1fr;gap:8px}
- .card{box-shadow:none;padding:10px}
- body{background:#fff}
-}
 
 .progressGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
 .progressBox{background:#f8fafc;border:1px solid #dbe7f5;border-radius:14px;padding:13px}
@@ -70,7 +64,6 @@ th{background:#f7fbff;color:#344054}
 .progressOk{color:#11884a;font-weight:900}
 .progressWarn{color:#d95b00;font-weight:900}
 @media(max-width:850px){.progressGrid{grid-template-columns:1fr}}
-
 
 .conclusionCard{
   background:linear-gradient(135deg,#ecfdf5,#eff6ff);
@@ -100,7 +93,6 @@ th{background:#f7fbff;color:#344054}
 .simpleConclusion .big{font-size:18px;line-height:1.25}.simpleConclusion .highlight .big{font-size:21px}.twoConclusion{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:850px){.conclusionGrid{grid-template-columns:1fr}.conclusionTitle{font-size:20px}.simpleConclusion .big{font-size:23px}.simpleConclusion .highlight .big{font-size:25px}}
 
-
 /* V81 compact colored conclusion */
 .conclusionCard{padding:14px;margin:10px 0 16px}
 .conclusionIcon{width:36px;height:36px;border-radius:11px;font-size:19px}
@@ -120,7 +112,6 @@ th{background:#f7fbff;color:#344054}
   .simpleConclusion .highlight .big{font-size:20px!important}
   .conclusionItem .small{font-size:12px}
 }
-
 
 .formGrid .mini{display:block;margin-top:6px;color:#667085;font-size:12px;line-height:1.35}
 
@@ -163,7 +154,6 @@ th{background:#f7fbff;color:#344054}
   .conclusionDetails summary{font-size:17px;padding:12px}
 }
 
-
 .kv .mini{display:block;color:#667085;font-size:12px;margin:4px 0 2px;line-height:1.3}
 
 /* V81 collapsible cards */
@@ -179,21 +169,44 @@ th{background:#f7fbff;color:#344054}
 .cardBody{margin-top:16px}
 @media(max-width:850px){.cardDetails>summary:after{font-size:26px}}
 
-
-/* V81 red/green eligibility card */
-.eligBox{border-radius:18px;padding:16px;margin:0 0 18px;box-shadow:0 10px 24px rgba(0,0,0,.06)}
-.eligOk{background:#ecfdf5;border:2px solid #16a34a}
-.eligNo{background:#fff1f2;border:2px solid #e11d48}
-.eligTitle{font-weight:900;font-size:22px;line-height:1.25;margin-bottom:13px}
-.eligOk .eligTitle{color:#087a3a}
-.eligNo .eligTitle{color:#be123c}
-.eligGrid{display:grid;grid-template-columns:1fr;gap:12px}
-.eligItem{background:rgba(255,255,255,.78);border-radius:14px;padding:13px}
-.eligLabel{color:#667085;font-weight:800;font-size:13px;margin-top:7px}
-.eligLabel:first-child{margin-top:0}
-.eligBig{color:#111827;font-weight:900;font-size:18px;line-height:1.25}
-@media(min-width:850px){.eligGrid{grid-template-columns:1fr 1fr}}
-@media(max-width:850px){.eligTitle{font-size:20px}.eligBig{font-size:17px}}
+/* V81 help tab under header */
+.helpTop{
+  margin:0 0 14px;
+  background:#fff;
+  border:1px solid #dbe7f5;
+  border-radius:16px;
+  box-shadow:0 6px 18px rgba(0,0,0,.04);
+  overflow:hidden;
+}
+.helpTop summary{
+  list-style:none;
+  cursor:pointer;
+  padding:14px 16px;
+  font-size:18px;
+  font-weight:900;
+  color:#123b75;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.helpTop summary::-webkit-details-marker{display:none}
+.helpTop summary:after{
+  content:'⌄';
+  font-size:24px;
+  color:#123b75;
+  transition:transform .2s ease;
+}
+.helpTop[open] summary:after{transform:rotate(180deg)}
+.helpTopBody{border-top:1px solid #e5edf6;padding:14px 16px}
+.helpGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.helpStep{background:#f8fafc;border:1px solid #dbe7f5;border-radius:14px;padding:12px}
+.helpStep b{display:block;color:#123b75;font-size:16px;margin-bottom:6px}
+.helpStep p{margin:0;color:#344054;line-height:1.45;font-size:14px}
+.helpWarn{margin-top:12px;background:#fff7ed;border:1px solid #fed7aa;border-radius:14px;padding:12px;color:#9a3412;font-weight:800}
+@media(max-width:850px){
+  .helpGrid{grid-template-columns:1fr}
+  .helpTop summary{font-size:17px;padding:13px 14px}
+}
 
 </style>
 </head>
@@ -209,7 +222,49 @@ th{background:#f7fbff;color:#344054}
     </div>
   </div>
 
-  <div class="info"><b>i</b><span>Τα αποτελέσματα είναι ενδεικτικά και δεν αντικαθιστούν επίσημο υπολογισμό ΕΦΚΑ. Τα στοιχεία αποθηκεύονται αυτόματα στη συσκευή.</span></div>
+  
+  <details class="helpTop">
+    <summary>📖 Οδηγίες χρήσης</summary>
+    <div class="helpTopBody">
+      <div class="helpGrid">
+        <div class="helpStep">
+          <b>1. Βασικά στοιχεία</b>
+          <p>Συμπληρώνεις ημερομηνία γέννησης, ημερομηνία διορισμού ΥΕΦΚΚ, ημερομηνία αίτησης, οικογενειακή κατάσταση και άλλα ταμεία πριν τον διορισμό.</p>
+        </div>
+        <div class="helpStep">
+          <b>2. Άλλα ταμεία</b>
+          <p>Τα άλλα ταμεία μπαίνουν σε ημέρες. Η εφαρμογή τα μετατρέπει σε έτη με βάση τις 300 ημέρες = 1 έτος.</p>
+        </div>
+        <div class="helpStep">
+          <b>3. Μάχιμη πενταετία</b>
+          <p>Επιλέγεις από 1 έως 5 έτη στην κάρτα 1. Χρησιμοποιείται στο Β καθεστώς μετά τα 60 ή για συμπλήρωση των 40 συνολικών ετών.</p>
+        </div>
+        <div class="helpStep">
+          <b>4. Πλασματικά έτη & οικογένεια</b>
+          <p>Εκεί βάζεις στρατό, σπουδές, τέκνα, εκπαιδευτικές άδειες, κενά ασφάλισης, λοιπά πλασματικά και ημερομηνίες γάμου/τέκνων.</p>
+        </div>
+        <div class="helpStep">
+          <b>5. Υπολογισμός</b>
+          <p>Πατάς «Υπολογισμός» για να ενημερωθούν συντάξιμα έτη, μισθολογικά στοιχεία, κύρια σύνταξη, κρατήσεις, ΜΤΠΥ, επικουρικό και καθαρό ποσό.</p>
+        </div>
+        <div class="helpStep">
+          <b>6. Συμπέρασμα</b>
+          <p>Στην κάρτα 1 υπάρχει το «Συμπέρασμα» με βελάκι. Δείχνει την πιο γρήγορη έξοδο και την οικονομικά καλύτερη επιλογή.</p>
+        </div>
+        <div class="helpStep">
+          <b>7. Καρτέλες</b>
+          <p>Η κάρτα 1 μένει ανοιχτή. Οι υπόλοιπες ανοίγουν και κλείνουν με βελάκι για να μη γεμίζει η οθόνη.</p>
+        </div>
+        <div class="helpStep">
+          <b>8. Αποθήκευση</b>
+          <p>Με «Αποθήκευση στοιχείων» κρατάς τα δεδομένα στη συσκευή. Με «Φόρτωση στοιχείων» τα επαναφέρεις.</p>
+        </div>
+      </div>
+      <div class="helpWarn">Τα αποτελέσματα είναι ενδεικτικά και δεν αντικαθιστούν επίσημο υπολογισμό ΕΦΚΑ.</div>
+    </div>
+  </details>
+
+<div class="info"><b>i</b><span>Τα αποτελέσματα είναι ενδεικτικά και δεν αντικαθιστούν επίσημο υπολογισμό ΕΦΚΑ. Τα στοιχεία αποθηκεύονται αυτόματα στη συσκευή.</span></div>
 <div class="grid">
     <div class="card blue">
       <div class="head"><div class="num">1</div><div class="title">1. Βασικά στοιχεία</div></div>
@@ -223,14 +278,13 @@ th{background:#f7fbff;color:#344054}
         <div>
           <label for="machimi">Επιλογή μάχιμης πενταετίας</label>
           <select id="machimi">
-            <option value="0">0 έτη</option>
             <option value="1">1 έτος</option>
             <option value="2">2 έτη</option>
             <option value="3">3 έτη</option>
             <option value="4">4 έτη</option>
             <option value="5" selected>5 έτη</option>
           </select>
-          <span class="mini">Από 0 έως 5 έτη. Το 0 σημαίνει χωρίς χρήση μάχιμης πενταετίας.</span>
+          <span class="mini">Από 1 έως 5 έτη, για το Β καθεστώς μετά τα 60 ή για συμπλήρωση 40 ετών.</span>
         </div>
     </div>
 
@@ -405,7 +459,7 @@ function totalYearsFor(regime,birth,appoint,target){
  let plastic=(N('childMonths')+N('studyMonths')+N('armyMonths')+N('educationMonths')+N('gapStrikeMonths')+N('otherPlasticMonths'))/12;
  let base=real+plastic;
  let machimi=0;
- let selectedMachimi=Math.max(0,Math.min(5,N('machimi')||0));
+ let selectedMachimi=Math.max(1,Math.min(5,N('machimi')||1));
 
  if(regime==='new'){
    // ΚΑΘΕΣΤΩΣ Β:
@@ -422,8 +476,6 @@ function totalYearsFor(regime,birth,appoint,target){
  return {age,real,plastic,base,machimi,total,selectedMachimi};
 }
 function taxApprox(t){t=Math.max(0,Number(t)||0); if(t<=1000)return t*.04; if(t<=1400)return t*.075; if(t<=1800)return t*.10; return t*.13}
-
-
 
 function addYearsExact(date, years){
  let d = new Date(date.getTime());
@@ -446,7 +498,7 @@ function monthsDiffAsYearsDays(a,b){
 function exitDataFor(regime,birth,appoint,target){
  let otherYears = N('otherDays')/300;
  let plastic = (N('childMonths')+N('studyMonths')+N('armyMonths')+N('educationMonths')+N('gapStrikeMonths')+N('otherPlasticMonths'))/12;
- let selectedMachimi = Math.max(0,Math.min(5,N('machimi')||0));
+ let selectedMachimi = Math.max(1,Math.min(5,N('machimi')||1));
 
  if(regime === 'old'){
    // Α καθεστώς: ακριβής ημερομηνία στα 37 συνολικά έτη ή στα 60 ηλικιακά.
@@ -474,7 +526,6 @@ function exitDataFor(regime,birth,appoint,target){
  return {date:outDate, ...data};
 }
 
-
 function clampPct(x){ return Math.max(0, Math.min(100, x)); }
 function barHtml(title,current,target,foot,ok){
  let pctVal = target>0 ? clampPct((current/target)*100) : 100;
@@ -488,13 +539,12 @@ function barHtml(title,current,target,foot,ok){
  </div>`;
 }
 
-
 function moneyAt40Data(birth, appoint, target){
  // Υπολογίζει την οικονομικά καλύτερη επιλογή για 40 συντάξιμα έτη.
  // Τα 40 έτη δίνουν το 50,01%, δηλαδή το μέγιστο ποσοστό αναπλήρωσης.
  let otherYears = N('otherDays')/300;
  let plastic = (N('childMonths')+N('studyMonths')+N('armyMonths')+N('educationMonths')+N('gapStrikeMonths')+N('otherPlasticMonths'))/12;
- let selectedMachimi = Math.max(0,Math.min(5,N('machimi')||0));
+ let selectedMachimi = Math.max(1,Math.min(5,N('machimi')||1));
  let needRealFor40 = Math.max(0, 40 - otherYears - plastic - selectedMachimi);
  let date40 = addYearsExact(appoint, needRealFor40);
  if(date40 < target) date40 = new Date(target);
@@ -502,7 +552,6 @@ function moneyAt40Data(birth, appoint, target){
  // Αν λόγω ορίου μάχιμης ή πλασματικών δεν έφτασε ακριβώς 40, κρατάμε ό,τι προκύπτει.
  return {date:date40, ...data};
 }
-
 
 function oldFastestReason(birth, appoint, target){
  let otherYears = N('otherDays')/300;
@@ -514,83 +563,6 @@ function oldFastestReason(birth, appoint, target){
    return {reason:'37 συντάξιμα έτη', date:date37};
  }
  return {reason:'60 ηλικιακά έτη', date:date60};
-}
-
-
-function eligibilityOptionsAtDate(birth, appoint, target){
-  let oldT = totalYearsFor('old', birth, appoint, target);
-  let newT = totalYearsFor('new', birth, appoint, target);
-  let selectedMachimi = Math.max(0, Math.min(5, N('machimi') || 0));
-
-  let oldEligible = oldT.total >= 37 || oldT.age >= 60;
-  let newEligible = newT.total >= 40 || (newT.age >= 60 && selectedMachimi >= 1);
-
-  let items = [];
-
-  if(oldEligible){
-    items.push({
-      regime:'Α. Παλιό καθεστώς',
-      date:target,
-      age:oldT.age,
-      years:oldT.total,
-      reason: oldT.age >= 60 ? '60 ηλικιακά' : '37 συντάξιμα έτη'
-    });
-  }
-
-  if(newEligible){
-    items.push({
-      regime:'Β. Νέο καθεστώς',
-      date:target,
-      age:newT.age,
-      years:newT.total,
-      reason: newT.age >= 60 ? ('60 ηλικιακά + χρήση ' + selectedMachimi + ' έτ. μάχιμης') : '40 συντάξιμα έτη'
-    });
-  }
-
-  return {oldT,newT,items};
-}
-
-function eligibilityCardHtml(options, birth, appoint, target){
-  if(options.items.length){
-    return `<div class="eligBox eligOk">
-      <div class="eligTitle">✓ Θεμελιωμένο δικαίωμα συνταξιοδότησης</div>
-      <div class="eligGrid">
-        ${options.items.map(x=>`
-          <div class="eligItem">
-            <div class="eligLabel">Καθεστώς</div>
-            <div class="eligBig">${x.regime}</div>
-            <div class="eligLabel">Προϋπόθεση</div>
-            <div class="eligBig">${x.reason}</div>
-            <div class="eligLabel">Δυνατή έξοδος</div>
-            <div class="eligBig">${fmt(x.date)}</div>
-            <div class="eligLabel">Ηλικία εξόδου</div>
-            <div class="eligBig">${yrs(x.age)}</div>
-            <div class="eligLabel">Συντάξιμα έτη</div>
-            <div class="eligBig">${yrs(x.years)}</div>
-          </div>`).join('')}
-      </div>
-    </div>`;
-  }
-
-  let oldExit = exitDataFor('old', birth, appoint, target);
-  let newExit = exitDataFor('new', birth, appoint, target);
-  let first = oldExit.date.getTime() <= newExit.date.getTime()
-    ? {regime:'Α. Παλιό καθεστώς', data:oldExit}
-    : {regime:'Β. Νέο καθεστώς', data:newExit};
-
-  return `<div class="eligBox eligNo">
-    <div class="eligTitle">✗ Δεν τηρούνται οι προϋποθέσεις συνταξιοδότησης</div>
-    <div class="eligItem">
-      <div class="eligLabel">Πρώτη δυνατή έξοδος</div>
-      <div class="eligBig">${fmt(first.data.date)}</div>
-      <div class="eligLabel">Καθεστώς</div>
-      <div class="eligBig">${first.regime}</div>
-      <div class="eligLabel">Ηλικία τότε</div>
-      <div class="eligBig">${yrs(first.data.age)}</div>
-      <div class="eligLabel">Υπολείπονται</div>
-      <div class="eligBig">${yrs(Math.max(0, yearsBetween(target, first.data.date)))}</div>
-    </div>
-  </div>`;
 }
 
 function calculate(){
@@ -618,8 +590,8 @@ function calculate(){
   let epikNet=Math.max(0,N('epikGross')*(1-N('epikDedPct')/100));
   let totalNet=mainNet+mtpyNet+epikNet;
 
-  set('yearsOut',`${eligibilityCardHtml(eligibilityOptionsAtDate(birth,appoint,target),birth,appoint,target)}
-    <div class="line"><div class="lab">Συνολικός εργασιακός βίος<br><span class="mini">Υπηρεσία ΥΕΦΚΚ + άλλα ταμεία</span></div><div class="val">${yrs(ty.real)}</div></div>
+  set('yearsOut',`
+    <div class="line"><div class="lab">Συνολικός εργασιακός βίος</div><div class="val">${yrs(ty.real)}</div></div>
     <div class="line"><div class="lab">Πλασματικά έτη</div><div class="val">${yrs(ty.plastic)}</div></div>
     <div class="line"><div class="lab">Μάχιμη πενταετία</div><div class="val greenTxt">${yrs(ty.machimi)}</div></div>
     ${regime==='new' && ty.age>=60 && ty.machimi>=1 && ty.base<35 ? '<div class="mini" style="color:#11884a;margin:4px 0 8px">Στο Β καθεστώς προσμετράται η μάχιμη που επέλεξες από το dropdown, με ταβάνι τα 40 έτη.</div>' : ''}
@@ -660,7 +632,7 @@ function calculate(){
 
   let oldCurrent=totalYearsFor('old',birth,appoint,target);
   let newCurrent=totalYearsFor('new',birth,appoint,target);
-  let selectedMachimi=Math.max(0,Math.min(5,N('machimi')||0));
+  let selectedMachimi=Math.max(1,Math.min(5,N('machimi')||1));
 
   let a37Ok = oldCurrent.total >= 37;
   let a60Ok = oldCurrent.age >= 60;
@@ -682,7 +654,7 @@ function calculate(){
   let richNet = Math.max(0, richGross - richGross*.06 - taxApprox(richGross*.94) - (richGross>1400?(richGross-1400)*.02:0)) + mtpyNet + epikNet;
 
   let oldReason = oldFastestReason(birth, appoint, target);
-  let selectedMachimiForMsg = Math.max(0,Math.min(5,N('machimi')||0));
+  let selectedMachimiForMsg = Math.max(1,Math.min(5,N('machimi')||1));
 
   // Πιο γρήγορη έξοδος: στο παλιό καθεστώς στα 60 ηλικιακά,
   // όταν η διαδρομή 60 ετών είναι η πρώτη για το Α καθεστώς.
