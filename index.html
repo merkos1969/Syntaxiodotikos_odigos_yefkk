@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ V81</title>
+<title>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ V82</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#f4f8fd,#fff);color:#253044}
@@ -101,7 +101,7 @@ th{background:#f7fbff;color:#344054}
 @media(max-width:850px){.conclusionGrid{grid-template-columns:1fr}.conclusionTitle{font-size:20px}.simpleConclusion .big{font-size:23px}.simpleConclusion .highlight .big{font-size:25px}}
 
 
-/* V81 compact colored conclusion */
+/* V82 compact colored conclusion */
 .conclusionCard{padding:14px;margin:10px 0 16px}
 .conclusionIcon{width:36px;height:36px;border-radius:11px;font-size:19px}
 .conclusionTitle{font-size:19px}
@@ -124,7 +124,7 @@ th{background:#f7fbff;color:#344054}
 
 .formGrid .mini{display:block;margin-top:6px;color:#667085;font-size:12px;line-height:1.35}
 
-/* V81 collapsible conclusion inside card 1 */
+/* V82 collapsible conclusion inside card 1 */
 .conclusionDetails{
   margin-top:16px;
   border:1px solid #cfe6db;
@@ -166,7 +166,7 @@ th{background:#f7fbff;color:#344054}
 
 .kv .mini{display:block;color:#667085;font-size:12px;margin:4px 0 2px;line-height:1.3}
 
-/* V81 collapsible cards */
+/* V82 collapsible cards */
 .cardDetails{border:0;margin:0;padding:0}
 .cardDetails>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .cardDetails>summary::-webkit-details-marker{display:none}
@@ -180,7 +180,7 @@ th{background:#f7fbff;color:#344054}
 @media(max-width:850px){.cardDetails>summary:after{font-size:26px}}
 
 
-/* V81 red/green eligibility card */
+/* V82 red/green eligibility card */
 .eligBox{border-radius:18px;padding:16px;margin:0 0 18px;box-shadow:0 10px 24px rgba(0,0,0,.06)}
 .eligOk{background:#ecfdf5;border:2px solid #16a34a}
 .eligNo{background:#fff1f2;border:2px solid #e11d48}
@@ -194,6 +194,23 @@ th{background:#f7fbff;color:#344054}
 .eligBig{color:#111827;font-weight:900;font-size:18px;line-height:1.25}
 @media(min-width:850px){.eligGrid{grid-template-columns:1fr 1fr}}
 @media(max-width:850px){.eligTitle{font-size:20px}.eligBig{font-size:17px}}
+
+
+/* V82 usage instructions */
+.usageDetails{background:#fff;border:2px solid #1b65b5;border-radius:18px;padding:0;margin:14px 0 18px;overflow:hidden;box-shadow:0 8px 22px rgba(27,101,181,.08)}
+.usageDetails summary{list-style:none;cursor:pointer;padding:16px;font-size:21px;font-weight:900;color:#123b75;display:flex;justify-content:space-between;align-items:center}
+.usageDetails summary::-webkit-details-marker{display:none}
+.usageDetails summary:after{content:'⌄';font-size:26px;color:#123b75;transition:transform .2s ease}
+.usageDetails[open] summary:after{transform:rotate(180deg)}
+.usageBody{border-top:1px solid #dbe7f5;padding:16px;background:linear-gradient(180deg,#f7fbff,#fff)}
+.usageGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.usageBox{background:#fff;border:1px solid #dbe7f5;border-left:5px solid #1556a6;border-radius:14px;padding:13px}
+.usageBox.green{border-left-color:#16a34a}.usageBox.orange{border-left-color:#f97316}.usageBox.red{border-left-color:#e11d48}
+.usageBox h3{margin:0 0 8px;color:#123b75;font-size:17px}
+.usageBox ul{margin:0;padding-left:18px}
+.usageBox li{margin:6px 0;line-height:1.35;color:#344054;font-size:14px;font-weight:650}
+.usageTip{margin-top:14px;background:#ecfdf5;border:1px solid #bbf7d0;color:#0f5132;border-radius:14px;padding:12px;font-weight:800;line-height:1.35}
+@media(max-width:850px){.usageGrid{grid-template-columns:1fr}.usageDetails summary{font-size:18px;padding:14px}.usageBody{padding:13px}}
 
 </style>
 </head>
@@ -210,6 +227,88 @@ th{background:#f7fbff;color:#344054}
   </div>
 
   <div class="info"><b>i</b><span>Τα αποτελέσματα είναι ενδεικτικά και δεν αντικαθιστούν επίσημο υπολογισμό ΕΦΚΑ. Τα στοιχεία αποθηκεύονται αυτόματα στη συσκευή.</span></div>
+
+  <details class="usageDetails">
+    <summary>📘 Οδηγίες χρήσης</summary>
+    <div class="usageBody">
+      <div class="usageGrid">
+        <div class="usageBox">
+          <h3>1. Βασικά στοιχεία</h3>
+          <ul>
+            <li>Συμπλήρωσε την ημερομηνία γέννησης.</li>
+            <li>Συμπλήρωσε την ημερομηνία διορισμού ΥΕΦΚΚ.</li>
+            <li>Συμπλήρωσε την ημερομηνία αίτησης, δηλαδή την ημερομηνία που θέλεις να γίνει ο υπολογισμός.</li>
+            <li>Διάλεξε οικογενειακή κατάσταση.</li>
+            <li>Στα άλλα ταμεία γράφεις ημέρες ασφάλισης πριν τον διορισμό. Η εφαρμογή τις μετατρέπει σε έτη με βάση τις 300 ημέρες ανά έτος.</li>
+            <li>Στην επιλογή μάχιμης πενταετίας διαλέγεις από 0 έως 5 έτη.</li>
+          </ul>
+        </div>
+        <div class="usageBox green">
+          <h3>2. Υπολογισμός</h3>
+          <ul>
+            <li>Πάτησε το πράσινο κουμπί Υπολογισμός.</li>
+            <li>Η εφαρμογή υπολογίζει αυτόματα βαθμό, κλιμάκιο, συντάξιμα έτη, ποσοστό αναπλήρωσης και ποσά.</li>
+            <li>Το Συμπέρασμα μέσα στα βασικά στοιχεία δείχνει τη γρηγορότερη έξοδο και την οικονομικά καλύτερη επιλογή.</li>
+            <li>Οι υπόλοιπες καρτέλες ανοίγουν με το βελάκι.</li>
+          </ul>
+        </div>
+        <div class="usageBox red">
+          <h3>3. Κόκκινη / Πράσινη κάρτα</h3>
+          <ul>
+            <li>Κόκκινη κάρτα: δεν τηρούνται ακόμη οι προϋποθέσεις συνταξιοδότησης.</li>
+            <li>Εμφανίζεται πότε μπορεί να υπάρξει πρώτη δυνατή έξοδος, σε ποια ηλικία και πόσα χρόνια απομένουν.</li>
+            <li>Πράσινη κάρτα: θεμελιώνεται δικαίωμα συνταξιοδότησης με τα στοιχεία που έχεις βάλει.</li>
+          </ul>
+        </div>
+        <div class="usageBox orange">
+          <h3>4. Πλασματικά έτη & οικογένεια</h3>
+          <ul>
+            <li>Άνοιξε την καρτέλα Πλασματικά έτη & οικογένεια μόνο αν χρειάζεται.</li>
+            <li>Συμπλήρωσε μήνες για παιδιά, σπουδές, στρατό, εκπαιδευτική άδεια, κενά/απεργίες ή λοιπά πλασματικά.</li>
+            <li>Συμπλήρωσε ημερομηνία γάμου και ημερομηνίες τέκνων αν θέλεις πιο αναλυτικό υπολογισμό ανά περίοδο.</li>
+            <li>Η μάχιμη πενταετία δεν μπαίνει εδώ, αλλά στην καρτέλα 1.</li>
+          </ul>
+        </div>
+        <div class="usageBox">
+          <h3>5. Καρτέλες αποτελεσμάτων</h3>
+          <ul>
+            <li>Συντάξιμα έτη: δείχνει εργασιακό βίο, πλασματικά, μάχιμη, σύνολο ετών και ηλικία.</li>
+            <li>Μισθολογικά στοιχεία: δείχνει μισθό, βαθμό, κλιμάκιο και συντάξιμες αποδοχές.</li>
+            <li>Κύρια σύνταξη: δείχνει εθνική και ανταποδοτική σύνταξη.</li>
+            <li>Κρατήσεις: δείχνει εκτίμηση κρατήσεων, φόρου και καθαρής κύριας σύνταξης.</li>
+            <li>ΜΤΠΥ / Επικουρικό: συμπληρώνεις μικτά ποσά και ποσοστά κρατήσεων.</li>
+          </ul>
+        </div>
+        <div class="usageBox green">
+          <h3>6. Αποθήκευση στοιχείων</h3>
+          <ul>
+            <li>Πάτησε Αποθήκευση στοιχείων για να μείνουν τα στοιχεία στη συσκευή.</li>
+            <li>Πάτησε Φόρτωση στοιχείων για να επανέλθουν.</li>
+            <li>Πάτησε Διαγραφή αποθήκευσης για να καθαρίσουν τα αποθηκευμένα δεδομένα.</li>
+            <li>Η αποθήκευση γίνεται τοπικά στη συσκευή και όχι σε server.</li>
+          </ul>
+        </div>
+        <div class="usageBox orange">
+          <h3>7. Καθεστώς Α και Β</h3>
+          <ul>
+            <li>Καθεστώς Α: εξετάζεται η έξοδος με 37 συντάξιμα έτη ή με το 60ό έτος ηλικίας.</li>
+            <li>Καθεστώς Β: εξετάζεται η έξοδος με 40 συντάξιμα έτη ή με το 60ό έτος και χρήση μάχιμης πενταετίας.</li>
+            <li>Η οικονομικά καλύτερη επιλογή θεωρείται στα 40 συνολικά έτη, γιατί εφαρμόζεται το 50,01% μέγιστο ποσοστό αναπλήρωσης.</li>
+          </ul>
+        </div>
+        <div class="usageBox red">
+          <h3>8. Προσοχή</h3>
+          <ul>
+            <li>Τα αποτελέσματα είναι ενδεικτικά.</li>
+            <li>Δεν αντικαθιστούν επίσημο υπολογισμό από ΕΦΚΑ ή αρμόδια υπηρεσία.</li>
+            <li>Για τελική απόφαση συνταξιοδότησης χρειάζεται επίσημος έλεγχος στοιχείων.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="usageTip">Προτεινόμενη χρήση: συμπλήρωσε πρώτα τα βασικά στοιχεία, πάτησε Υπολογισμός και μετά άνοιξε μόνο τις καρτέλες που θέλεις να ελέγξεις.</div>
+    </div>
+  </details>
+
 <div class="grid">
     <div class="card blue">
       <div class="head"><div class="num">1</div><div class="title">1. Βασικά στοιχεία</div></div>
@@ -759,7 +858,7 @@ function calculate(){
  }catch(err){console.error(err); alert('Σφάλμα υπολογισμού: '+err.message)}
 }
 
-const STORAGE_KEY = 'syntaxiodotikos_yefkk_v81';
+const STORAGE_KEY = 'syntaxiodotikos_yefkk_v82';
 
 function collectData(){
  let data={};
@@ -796,7 +895,7 @@ function loadData(){
    let raw = localStorage.getItem(STORAGE_KEY);
    // Συμβατότητα με προηγούμενες εκδόσεις
    if(!raw){
-     const oldKeys = ['syntaxiodotikos_yefkk_v81','syntaxiodotikos_yefkk_v81'];
+     const oldKeys = ['syntaxiodotikos_yefkk_v82','syntaxiodotikos_yefkk_v82'];
      for(const k of oldKeys){
        raw = localStorage.getItem(k);
        if(raw) break;
@@ -811,7 +910,7 @@ function loadData(){
 }
 function loadSavedSilently(){
  try{
-   let raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('syntaxiodotikos_yefkk_v81') || localStorage.getItem('syntaxiodotikos_yefkk_v81');
+   let raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('syntaxiodotikos_yefkk_v82') || localStorage.getItem('syntaxiodotikos_yefkk_v82');
    if(raw) applyData(JSON.parse(raw));
  }catch(e){}
 }
