@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ V82</title>
+<title>Συνταξιοδοτικός Οδηγός ΥΕΦΚΚ</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#f4f8fd,#fff);color:#253044}
@@ -319,7 +319,7 @@ th{background:#f7fbff;color:#344054}
           <h3>7. Καθεστώς Α και Β</h3>
           <ul>
             <li>Καθεστώς Α: εξετάζεται η έξοδος με 37 συντάξιμα έτη ή με το 60ό έτος ηλικίας.</li>
-            <li>Καθεστώς Β: εξετάζεται η έξοδος με 40 συντάξιμα έτη ή με το 60ό έτος και χρήση μάχιμης πενταετίας.</li>
+            <li>Καθεστώς Β: εξετάζεται η έξοδος με 40 συντάξιμα έτη μαζί με την μάχιμη πενταετία 35 συν 5 έτη, ή με το 60ό έτος και χρήση μάχιμης ΠΕΝΤΑΕΤΙΑΣ. (1 έως 5 έτη)</li>
             <li>Η οικονομικά καλύτερη επιλογή θεωρείται στα 40 συνολικά έτη, γιατί εφαρμόζεται το 50,01% μέγιστο ποσοστό αναπλήρωσης.</li>
           </ul>
         </div>
@@ -752,7 +752,7 @@ function calculate(){
     <div class="line"><div class="lab">Υπηρεσία ΥΕΦΚΚ</div><div class="val">${yrs(serviceOnly)}</div></div>
     <div class="line"><div class="lab">Άλλα ταμεία<br><span class="mini">${N('otherDays')} ημέρες ÷ 300</span></div><div class="val blueTxt">${yrs(otherFundYears)}</div></div>
     <div class="line"><div class="lab">Συνολικός εργασιακός βίος<br><span class="mini">Υπηρεσία ΥΕΦΚΚ + άλλα ταμεία</span></div><div class="val">${yrs(ty.real)}</div></div>
-    <div class="line"><div class="lab">Πλασματικά έτη<br><span class="mini">Δεν είναι τα άλλα ταμεία</span></div><div class="val">${yrs(ty.plastic)}</div></div>
+    <div class="line"><div class="lab">Πλασματικά έτη<br><span class="mini">Σύνολο εξαγοράς πλασματικών ετών εώς 7 έτη</span></div><div class="val">${yrs(ty.plastic)}</div></div>
     <div class="line"><div class="lab">Μάχιμη πενταετία</div><div class="val greenTxt">${yrs(ty.machimi)}</div></div>
     ${regime==='new' && ty.age>=60 && ty.machimi>=1 && ty.base<35 ? '<div class="mini" style="color:#11884a;margin:4px 0 8px">Στο Β καθεστώς προσμετράται η μάχιμη που επέλεξες από το dropdown, με ταβάνι τα 40 έτη.</div>' : ''}
     <div class="total"><div>Σύνολο συντάξιμων ετών</div><div class="val greenTxt">${yrs(ty.total)}</div></div>
@@ -958,7 +958,7 @@ function toggleNotes(){
  if(!p.innerHTML)p.innerHTML=`<div class="card gray"><div class="head"><div class="num">?</div><div class="title">Σημειώσεις</div></div>
  <div class="noteGrid">
  <div class="note"><b>Καθεστώς Α</b><br>Παλιό καθεστώς: 37 συνολικά έτη ή 60 ετών. Δεν λαμβάνεται μάχιμη πενταετία.</div>
- <div class="note"><b>Καθεστώς Β</b><br>Τα 40 έτη είναι ταβάνι. Πάνω από 35 έτη μπαίνει όση μάχιμη χρειάζεται έως τα 40. Μετά το 60ό έτος μπορεί να γίνει χρήση από 1 έως 5 έτη μάχιμης, ανάλογα με την επιλογή.</div>
+ <div class="note"><b>Καθεστώς Β</b><br>Α)Τα 40 έτη είναι ταβάνι. Πάνω από 35 έτη γίνετε η χρήση της μάχιμης πενταετίας. Β)Μετά το 60ό έτος μπορεί να γίνει χρήση από 1 έως 5 έτη μάχιμης, ανάλογα με την επιλογή.</div>
  <div class="note"><b>Μέσος συντάξιμος μισθός</b><br>Υπολογισμός από 01/01/2002 έως την αίτηση, με βάση τα φύλλα Excel.</div>
  <div class="note"><b>Αποποίηση</b><br>Τα ποσά είναι ενδεικτικά και όχι επίσημη πράξη συνταξιοδότησης.</div>
  </div></div>`;
